@@ -1,0 +1,54 @@
+------------------------------------------------- Overview ----------------------------------------------------------
+
+git [COMMAND] [FLAGS] [ARGUMENTS]
+
+git --version
+
+git help -a ------> shows all of the git commands
+
+git help push / git push -h ------> shows all commands relative to push
+
+git config --global user.name "sample_name"
+git config --global user.email "sample_email@sample.com"
+git config --global core.editor "nano"
+
+git config --global --unset user.name
+git config --global --unset user.email
+git config --global --unset core.editor
+
+
+git config --list ----> user.email=hosseintahami2000@gmail.com
+			user.name=HosseinTahami
+			user.signingkey=8ADC738B2748C0AED5E5E0E58BDCDBC5872CCE68
+			init.defaultbranch=main
+			core.editor=nano
+
+-------------------------------------------------- START -----------------------------------------------------------
+
+If you add a new file at first it is untracked, if you use <git add> and then change sth in the file it will be not staged for the commit
+so in a nutshell : 
+
+1- Untracked if you add or create a new file 
+2- not staged for commit if you change sth in the files that existed 
+3- Changes Staged to be committed  after the <git add> command  
+
+--------------------------------------------------- Basic Commands -------------------------------------------------
+git init <path>
+
+git add . / git -A ---> It will add all of to the staging area !
+git add <filename> <filename> ...
+
+after git commit -m "..." all the files that were staged will be saved in git
+
+git commit -m "Title" -m "description"
+
+if you don't want to use <git add> and then <git commit> you can use:
+
+git commit <filename> -m "..."
+so with this command your file will be staged at first and then committed
+you can also use <git commit -a -m "..."> to commit all of the tracked files
+and by tracked files we mean the files that already exist and you only changed
+something in them not the new added or created files !
+
+git log : will show all the commits that was made with bunch of other details
+Note: if you want to only see the commits for a specific file <git log filename>
