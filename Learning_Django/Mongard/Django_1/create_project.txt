@@ -10,3 +10,5 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 <name>/Scripts/Activate.ps1
 pip install django
 
+---------------------------------------------------------------
+django-admin startproject <name>
