@@ -32,3 +32,11 @@ python manage.py startapp <app_name>
 Note: this command wil create a folder named <app_name>
 with tons of python files but at first we need the views.py !
 **Note: you should also create a urls.py in each app folder !!
+
+in the urls.py of each app folder you should import path from django.urls
+and you should create a list named urlpatterns that include a path() with 
+2 argument the first one is the url of the site and you should write the 
+URL address for example 'hello/' and the second one is for the function
+want to call in the views.py in the app folder!
+            |
+            |--> so remember to add the views.py in your urls.py file !
