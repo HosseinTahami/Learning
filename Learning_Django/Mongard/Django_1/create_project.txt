@@ -31,3 +31,4 @@ like this http://127.0.0.1:8000/admin/auth/user/
 python manage.py startapp <app_name>
 Note: this command wil create a folder named <app_name>
 with tons of python files but at first we need the views.py !
+**Note: you should also create a urls.py in each app folder !!
