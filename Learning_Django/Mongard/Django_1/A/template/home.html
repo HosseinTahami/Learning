@@ -8,7 +8,12 @@
 </head>
 
 <body>
-    <h3>Home Page</h1>
+    {% if name %}
+    <h3> {{ name }} Page</h1>
+        {% else %}
+        <h3>Home Page</h3>
+        {% endif %}
+
         <a href="bye"> go to bye page</a>
 </body>
 
