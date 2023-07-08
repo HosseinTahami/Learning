@@ -14,8 +14,17 @@ pip install django
 
 ---------------------------------------------------------------
 django-admin startproject <name>
+
 python manage.py runserver ---> be in the right directory
+
 python manage.py migrate ---> make your database ready 
+
 Note: you can change your database from sqlite
- to others in setting.py in DATABASE dictionary
+to others in setting.py in DATABASE dictionary
+
+python manage.py createsuperuser
+Note: this will make an admin account for
+your project and you can view the panel if
+you add /admin to the end of the http://127.0.0.1:8000/
+like this http://127.0.0.1:8000/admin/auth/user/
 
