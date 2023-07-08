@@ -1,0 +1,5 @@
+python3 -m venv <name>
+source <name>/bin/activate
+pip list
+pip install django
+pip list

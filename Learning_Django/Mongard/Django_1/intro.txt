@@ -1,0 +1,2 @@
+# https://www.djangoproject.com/
+# https://www.mongard.ir/courses/django-beginners/
