@@ -4,6 +4,8 @@ source <name>/bin/activate
 pip list
 pip install django
 pip list
+**Note** : to add the virtual environment to vscode go to
+command pallet and select python interpreter and choose python3 from the <name>/bin/ you created
 ---------------------- Windows -----------------------
 python -m venv <name>
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
