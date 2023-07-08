@@ -14,3 +14,5 @@ pip install django
 
 ---------------------------------------------------------------
 django-admin startproject <name>
+python manage.py runserver ---> be in the right directory
+
