@@ -1,5 +1,10 @@
+-------------------- Linux ----------------------------
 python3 -m venv <name>
 source <name>/bin/activate
 pip list
 pip install django
 pip list
+---------------------- Windows -----------------------
+python -m venv <name>
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+<name>/Scripts/Activate.ps1
