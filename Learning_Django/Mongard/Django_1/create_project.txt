@@ -8,3 +8,5 @@ pip list
 python -m venv <name>
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 <name>/Scripts/Activate.ps1
+pip install django
+
