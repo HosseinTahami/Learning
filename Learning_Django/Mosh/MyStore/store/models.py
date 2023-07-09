@@ -29,7 +29,7 @@ class Product(models.Model):
     last_update = models.DateTimeField(auto_now=True)
     collection = models.ForeignKey(
         Collection,
-        no_delete=models.PROTECTED
+        on_delete=models.PROTECT
         )
 
 class Customer(models.Model):
@@ -120,11 +120,11 @@ class Cart(models.Model):
 class OrderItem(models.Model):
     order = models.ForeignKey(
         Order,
-        on_delete=models.PROTECTED_MODEL
+        on_delete=models.PROTECT
         )
     product = models.ForeignKey(
         Product,
-        on_delete=models.PROTECTED
+        on_delete=models.PROTECT
         )
     quantity = models.PositiveSmallIntegerField()
     """
