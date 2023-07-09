@@ -1,0 +1,26 @@
+Templates:
+1. Variables / 2.Tags / 3.Filters / 4.Comments
+
+-------------------------  Variables  -------------------------
+{{ Variables_Name }}
+
+-------------------------  Tags  -------------------------------
+{% if condition %}
+    what you want happen
+{% elseif condition %}
+    what you want happen
+{% else %}
+    what you want to happen
+{% endif %}
+
+-------------------------  Filters -------------------------------
+{{ Variables_Name|upper }} ==> <<upper>> is one of the Filters
+
+Note: Filters come with a pip!
+
+<<upper>> upper case the letters
+<<add>> add sth to sth else
+<<capfirst>> upper case the first letter of a word
+<<center:"number">> put the value in the middle 
+-------------------------  Comments ------------------------------
+{# This is a comment #}
