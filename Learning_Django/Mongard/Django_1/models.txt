@@ -1,0 +1,20 @@
+Each model maps to a single database Table.
+
+-------------------------  Fields Types  ----------------------------
+
+Note: Each Field resemble a column of the table
+
+BigIntegerField ==> supports large negative and positive numbers
+BooleanField ==> for saving true and false
+CharField(max_length=255 or any number) ==> small to big strings
+DateField ==> saving only Date
+DateTimeField ==> saving Date and Time
+EmailField ==> for saving email
+FileField ==> for uploading files
+TextField ==> for large Text
+
+---------------------------------------------------------------------
+
+python manage.py makemigrations
+    |
+    |____ This will create tables from the models.py
