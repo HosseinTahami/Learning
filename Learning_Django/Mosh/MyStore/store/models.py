@@ -6,6 +6,11 @@ from django.db import models
     primary_key in the arguments of the Field!
 """
 # Create your models here.
+
+class Collection(models.Model):
+    title = models.CharField(max_length=255)
+    
+
 class Product(models.Model):
     # sku = models.CharField(max_length=10, primary_key=True)
     title = models.CharField(max_length=255)
@@ -22,6 +27,10 @@ class Product(models.Model):
                         store datetime automatically
     """
     last_update = models.DateTimeField(auto_now=True)
+    collection = models.ForeignKey(
+        Collection,
+        no_delete=models.PROTECTED
+        )
 
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'
@@ -64,7 +73,10 @@ class Order(models.Model):
     Customer,
     on_delete=models.CASCADE,
     )
-
+    customer = models.ForeignKey(
+        Customer,
+        on_delete=models.ProtectedError
+    )
 # class Address(models.Model):
 #     """
 #     There is a one to one relationship between
@@ -102,9 +114,37 @@ class Item(models.Model):
     pass
 
 class Cart(models.Model):
-    pass
+    # auto_now_add will save the time only for the first time
+    created_at = models.DateTimeField(auto_now_add=True)
 
-class Collection(models.Model):
-    pass
+class OrderItem(models.Model):
+    order = models.ForeignKey(
+        Order,
+        on_delete=models.PROTECTED_MODEL
+        )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.PROTECTED
+        )
+    quantity = models.PositiveSmallIntegerField()
+    """
+    The reason we have unit_price here too is because
+    the price of an Item always change through time
+    so we want know the price of the Item at the time
+    of the order.
+    """
+    unit_price = models.DecimalField(
+        max_digits=6,
+        decimal_places=2
+    )
 
-
+class CartItem(models.Model):
+    cart = models.ForeignKey(
+        Cart,
+        on_delete=models.CASCADE
+        )
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE
+        )
+    quantity = models.PositiveSmallIntegerField()
