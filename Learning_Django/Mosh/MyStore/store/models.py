@@ -60,4 +60,27 @@ class Order(models.Model):
         choices=PAYMENT_STATUS_CHOICES,
         default=PAYMENT_PENDING,
         )
+
+class Address(models.Model):
+    """
+    There is a one to one relationship between
+    Customer and Address so each Customer should
+    only have one and only Address and each Address
+    should belongs to one and only one Customer!
+    """
+    street = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
+    # Customer is the parent of the Address Entity
+    ''' on_delete is to set the behavior of Address Entity when
+        the Customer entity is deleted and CASCADE means that 
+        the address will be deleted too.
+        
+        primary_key is there so that django do not make
+        an ID for the Address entity by default.
+    '''
     
+    customer = models.OneToOneField(
+        Customer,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        )
