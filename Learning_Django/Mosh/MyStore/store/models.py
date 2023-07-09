@@ -60,6 +60,10 @@ class Order(models.Model):
         choices=PAYMENT_STATUS_CHOICES,
         default=PAYMENT_PENDING,
         )
+    customer = models.ForeignKey(
+    Customer,
+    on_delete=models.CASCADE,
+    )
 
 # class Address(models.Model):
 #     """
@@ -93,3 +97,14 @@ class Address(models.Model):
         Customer,
         on_delete=models.CASCADE,
     )
+
+class Item(models.Model):
+    pass
+
+class Cart(models.Model):
+    pass
+
+class Collection(models.Model):
+    pass
+
+
