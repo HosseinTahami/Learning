@@ -50,5 +50,111 @@ you can also use <git commit -a -m "..."> to commit all of the tracked files
 and by tracked files we mean the files that already exist and you only changed
 something in them not the new added or created files !
 
-git log : will show all the commits that was made with bunch of other details
-Note: if you want to only see the commits for a specific file <git log filename>
+if you want to only see the commits for a specific file <git log filename>
+
+
+---------------TAG---------------------
+git tag -a <tag_name> -m "message" <checksum of an old commit> ---> annotated
+git tag -l : list of all tags
+git tag <tag_name> <checksum of an old commit> ----> lightweigh
+git tag <tag-name> ---> will tag the last commit
+git tag -d <tag-name> ---> delete the tag
+git tag 
+
+
+
+-------------------------------.ignore------------------------------------
+NOTE: .ignore should be in the root of the file
+NOTE: always delete the files that are in your repository that you want to be ignored and the create the .ignore file
+
+<filename> will be ignored every where
+
+Note: if you want to address a file or directory you should start with / :
+/dir1/filename.txt
+
+NOTE: ** in a address means any number of directories 
+/dir1/**/filename.txt ---> any filename.txt inside dir1 will be ignored even the ones that are inside subdirectories of dir1
+
+NOTE: * in an address means zero or multiple characters else than / 
+*.exe
+
+----------------------------------------- push -----------------------------------------
+
+PUSH: for sending your local files to the online servers
+
+git push [-u] [<REPOSITORY>] [<BRANCH>] ---> for repo you can put url or the remote project name like origin 
+
+
+
+------------------------------------- git pull ------------------------------------------
+
+PULL: for geting the latest files on the online server on your local computer
+
+git pull [<REPOSITORY>] [<BRANCH>]
+git pull -t [<REPOSITORY>] [<BRANCH>] ----> -t is used to get all the tags beside the commits
+
+the difference between git pull and git fetch is that in the second command you will get the latest changes on the server but it will not be merged with your local files and you can merge them later !
+
+
+https://mekaeil.me/wp-content/uploads/2017/09/git-track-stage-commit-mekaeil.jpg
+
+
+
+
+----------------------------------  Branch  -------------------------------------------
+
+git branch <branch name> ---> create branch
+
+git chekout <brach name> ---> go to the specific branch
+
+git checkout -b <branch name> ---> create and go to the branch
+
+git branch ---> shows all the branches
+
+git branch -d <branch name> ---> delete the branch ---> you can not delete a branch when you are inside it
+
+git push origin <branch name> ---> will send the brach on the server
+
+------------------------------------------  Merge -------------------------------------------------
+
+git merge --abort ==> this command will cancel the merge and everything will go back before merge
+
+git diff <other brach name> ==> if you want to merge branch A and B and you are on Branch A and put the B in this command it will show the differences between these two
+
+git checkout --ours ==> will keep the changes of the current project and will delete the changes of the otherone
+
+git checkout --theirs ==> will keep the changes of other branch
+
+git config --global merge.tool <tool name> / git mergetool ==> will open the tool that you install for the conflicts and handeling them with this tool or app
+
+--------------------------------------  Rebase  ---------------------------------------------------
+
+
+git rebase <UPSTREAM>
+
+git rebase <UPTREAM> <BRANCH> == git checkout <BRANCH> + git rebase <UPSTREAM>
+
+When you git rebase <UPSTREAM> it means you are on the main branch and yse this command you man commits will
+come after the UPSTREAM and commits of the main branch will be after the last commit of the <UPSTREAM> !
+
+NOTE: after rebase we do not need commit
+
+Note: after conflict in our files and correcting them we should use <git rebase --continue>
+
+if you want to cancle the rebase command you can use < git rebase --abort >
+
+NOTE: we use rebase on non-main branches and gather them together
+and at last we use merge to put the non-main brach on the main branch.
+
+NOTE: with rebase non-necessery commits will be eliminated and history of our commits will be much cleaner!
+
+**NOTE**: to understand the rebase and merge differenct completly uses these lines in visulizer
+for the last command first time use git rebase and the second time use git merge to see the 
+difference between them!
+
+git checkout -b dev
+git commit 
+git checkout main
+git commit
+git commit
+1- git rebase dev / 2-git merge dev 
