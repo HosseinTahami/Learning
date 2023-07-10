@@ -57,10 +57,34 @@ Note: the id attribute of the <input> and for attribute of <label> should be sam
         |____ Attributes:
                 1. form  /  2. name  /  3.type  /  4.value 
 
-1. form : Specifies which form belongs to the button
+a. form : Specifies which form belongs to the button
 
-2. name : Specifies a name for the button
+b. name : Specifies a name for the button
 
-3. type : Specifies the type of button --> 1.button / 2.reset / 3.submit
+c. type : Specifies the type of button --> 1.button / 2.reset / 3.submit
 
-4. value: Specifies an initial value for the button
+d. value: Specifies an initial value for the button
+
+
+3.<select>:
+
+The <select> element is used to create a drop-down list.
+        |
+        |____ 1. name / 2. id
+
+a. name : this attribute is  needed to reference the form data
+          after submitting
+
+b. id : this attribute is needed to associate the drop-down list
+        with a label.
+
+Note: the <option> tag nested inside the <optgroup> tag that is
+      nested inside<select> tag is for creating our choices.
+
+4.<Label>:
+    |
+    |___ Attributes: 1.for / 2.form 
+    
+a. for: Bound the id of the form element with label
+
+b. form: Specifies which label belongs to form
