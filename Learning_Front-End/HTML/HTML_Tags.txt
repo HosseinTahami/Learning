@@ -1,0 +1,17 @@
+<html> </html> : all the codes come between these Two
+
+<head> </head> : information about the html code 
+
+<meta name="" content=""> : gives information to the search engine 
+        |
+        |___ author
+        |___ description
+        |___ keywords
+        |___ charset==> language of the page
+
+<body dir="" bgcolor=""> all content of the page </body> : all the codes for the main body of the page 
+
+<img src="" alt=""> : showing an image
+
+
+
