@@ -13,6 +13,17 @@
 
 <img src="" alt=""> : showing an image
 
+---------------------------------------------  Label  ------------------------------------------------------
+
+<Label> tag attributes:
+1. for
+    |
+    |___ bound the id of the form element with label
+
+2. form
+    |
+    |___ Specifies which label belongs to form
+
 
 --------------------------------------------- Table --------------------------------------------------------
 
@@ -28,3 +39,28 @@ Cells in Tables:
 
 The <tr> tag defines a row in an HTML table.
 A <tr> element contains one or more <th> or <td> elements.
+
+---------------------------------------------  Form  -------------------------------------------------------
+
+The <form> tag is used to create an HTML form for user input.
+
+<form> tag contains multiple tags:
+
+1.<input>:
+
+<input type="" id="" name="">
+
+Note: the id attribute of the <input> and for attribute of <label> should be same
+
+2.<button>:
+        |
+        |____ Attributes:
+                1. form  /  2. name  /  3.type  /  4.value 
+
+1. form : Specifies which form belongs to the button
+
+2. name : Specifies a name for the button
+
+3. type : Specifies the type of button --> 1.button / 2.reset / 3.submit
+
+4. value: Specifies an initial value for the button
