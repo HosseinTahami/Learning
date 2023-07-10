@@ -14,4 +14,17 @@
 <img src="" alt=""> : showing an image
 
 
+--------------------------------------------- Table --------------------------------------------------------
 
+The <table> tag defines an HTML table
+The <tbody> tag is used for the cells and body of the table.
+The <thead> tag is used for the header of the Table.
+
+Cells in Tables:
+1. Data Cells | 2.Header Cells
+
+<th> tag is for the header cells
+<td> tag is for the data cells
+
+The <tr> tag defines a row in an HTML table.
+A <tr> element contains one or more <th> or <td> elements.
