@@ -5,7 +5,7 @@ Create a folder (Name of this folder is optional) for example Template to save y
 Step 2:
 
 In the setting.py there is a list named TEMPLATES that a dictionary is saved inside it , one of the keys of this 
-dictinary is DIRS and there is a empty list as a value for this key add  BASE_DIR / 'Template' inside it !
+dictionary is DIRS and there is a empty list as a value for this key add  BASE_DIR / 'Template' inside it !
 
 Step 3:
 

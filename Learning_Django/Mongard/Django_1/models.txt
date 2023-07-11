@@ -17,7 +17,7 @@ TextField ==> for large Text
 
 python manage.py makemigrations
     |
-    |____ This will create a python file in migrations foldere
+    |____ This will create a python file in migrations folder
 
 python manage.py migrate
     |

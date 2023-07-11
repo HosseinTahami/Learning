@@ -2,7 +2,7 @@ To create a app in your django application you should use the command below:
 |
 |___ python manage.py startapp <app_name>
 		|
-		|___ This command will create an folder namde <app_name>
+		|___ This command will create an folder named <app_name>
 
 *First:
 
@@ -19,7 +19,7 @@ Add your <app_name> inside setting.py in the INSTALLED_APPS list of django proje
 
 ****Fourth:
 
-create a list named urlpattern and write your path('url_name/', views_function_name)
+create a list named urlpatterns and write your path('url_name/', views_function_name)
 									|
 									|___ do not put ( ) !
 
@@ -27,10 +27,10 @@ create a list named urlpattern and write your path('url_name/', views_function_n
 
 Import include form django.urls inside the django project urls.py
 
-In the urls.py of the django project inside the urlpattern list add
- < path('url_you_want/', include(<app_name>.urls) >
+In the urls.py of the django project inside the urlpatterns list add
+ < path ('url_you_want/', include(<app_name>.urls) >
 
-------------------------------   Views.py   ------------------------------------
 
-in the views.py add <from djnago.http import HttpResponse
+
+
 
