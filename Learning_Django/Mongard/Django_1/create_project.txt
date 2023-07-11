@@ -1,4 +1,4 @@
--------------------- Linux ----------------------------
+-------------------- Linux / Venv ----------------------------
 python3 -m venv <name>
 source <name>/bin/activate
 pip list
@@ -12,7 +12,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
 <name>/Scripts/Activate.ps1
 pip install django
 
----------------------------------------------------------------
+---------------------------   ------------------------------------
 django-admin startproject <name>
 
 python manage.py runserver ---> be in the right directory

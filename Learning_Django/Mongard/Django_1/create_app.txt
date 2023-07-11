@@ -1,0 +1,25 @@
+To create a app in your django application you should use the command below:
+|
+|___ python manage.py startapp <app_name>
+		|
+		|___ This command will create an folder namde <app_name>
+
+*First:
+
+Create a python file named urls.py inside it
+
+**Second:
+
+Add your <app_name> inside setting.py in the INSTALLED_APPS list of django project !
+
+***Third:
+
+<from django.urls import path> & <from . import views> add these two in your new urls.py file
+
+
+****Fourth:
+
+create a list named urlpattern and write your path('url_name/', views_function_name)
+									|
+									|___ do not put ( ) !
+
