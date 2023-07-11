@@ -23,3 +23,14 @@ create a list named urlpattern and write your path('url_name/', views_function_n
 									|
 									|___ do not put ( ) !
 
+******Sixth:
+
+Import include form django.urls inside the django project urls.py
+
+In the urls.py of the django project inside the urlpattern list add
+ < path('url_you_want/', include(<app_name>.urls) >
+
+------------------------------   Views.py   ------------------------------------
+
+in the views.py add <from djnago.http import HttpResponse
+
