@@ -27,7 +27,7 @@ Note: this will make an admin account for
 your project and you can view the panel if
 you add /admin to the end of the http://127.0.0.1:8000/
 like this http://127.0.0.1:8000/admin/auth/user/
-
+------------------------------------------------------------------
 python manage.py startapp <app_name>
 Note: this command wil create a folder named <app_name>
 with tons of python files but at first we need the views.py !

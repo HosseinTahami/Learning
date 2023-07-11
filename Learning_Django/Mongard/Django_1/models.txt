@@ -17,4 +17,9 @@ TextField ==> for large Text
 
 python manage.py makemigrations
     |
-    |____ This will create tables from the models.py
+    |____ This will create a python file in migrations foldere
+
+python manage.py migrate
+    |
+    |____ This will apply the model on your database
+
