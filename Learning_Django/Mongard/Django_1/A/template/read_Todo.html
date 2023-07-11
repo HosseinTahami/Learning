@@ -9,6 +9,13 @@
 
 <body>
 
+    {% for data in all_data %}
+    <h2>{{data.title}}</h2>
+    <small>{{data.created}}</small>
+    <em>{{todo.body}}</em>
+    {% endfor %}
+
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import Todo
 
 # Create your views here.
 def home(request):
@@ -11,3 +12,7 @@ def say_hello(request):
 
 def say_bye(request):
     return render(request, 'bye.html')
+
+def read_Todo(request):
+    all_data = Todo.object.all()
+    return render(request, 'read_Todo.html', {'all':all_data})
