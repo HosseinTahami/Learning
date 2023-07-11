@@ -14,5 +14,5 @@ def say_bye(request):
     return render(request, 'bye.html')
 
 def read_Todo(request):
-    all_data = Todo.object.all()
+    all_data = Todo.objects.all()
     return render(request, 'read_Todo.html', {'all':all_data})
