@@ -63,3 +63,8 @@ Product.objects.filter('unit_price', '-title')
 
 Product.objects.order_by('price')[0] --> First data / Product.objects.earliest('price')
 Product.objects.order_by('price')[-1] --> last data / Product.objects.latest('price')
+
+----------------------------  Limit ----------------------------------
+
+Product.objects.all()[:5] --> 0, 1, 2, 3, 4
+Product.objects.all()[5:10] --> 5, 6, 7, 8, 9
