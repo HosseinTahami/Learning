@@ -38,3 +38,28 @@ Example: Product.objects.filter(price__gt=20) --> price greater than 20
 from django.db.models import Q
 queryset = Product.objects.filter(Q(price__lt=12) | Q(inventory__gt=20))
                 |___ <|> or / <&> and / <~> not / ...
+
+from django.bd.models import F
+queryset = Product.objects.filter(price=F('inventory'))
+                |__ price and inventory are both Product attributes
+                    but if I want to have both of them at the same Time
+                    in one Query I use F module !
+queryset = Product.objects.filter(inventory=F('collection__id'))
+
+-----------------------------  Order in Query  ----------------------------------------
+
+.order_by()
+
+Example:
+
+Product.objects.filter('unit_price', '-title')
+        |__ this will sort products base on price and if 
+            there was multiple products with same price 
+            it will be sorted by their title !
+                |__ also the the negative behind title is for 
+                    ascending and descending !
+
+.reverse(): will reverse all of the data from the Head to the Bottom for above !
+
+Product.objects.order_by('price')[0] --> First data / Product.objects.earliest('price')
+Product.objects.order_by('price')[-1] --> last data / Product.objects.latest('price')
