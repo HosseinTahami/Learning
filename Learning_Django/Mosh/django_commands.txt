@@ -1,2 +1,27 @@
 Django ORM:
 Object Relational Mapper
+|
+|__ <Class Name>.objects.all() / .filter() / .order_by() / .count() / .get() / .first() / ...
+        |
+        |__This is a query set object not a list
+
+<Class Name>.objects.get(pk=1 or id=1)
+            |
+            |__This is an object not a query set
+
+<Class Name>.objects.filter(pk=1).first() / .exist()
+                                                |__ we get boolean
+
+-------------------------------------------------------------------------------
+
+from django.core.exceptions import ObjectDoesNotExist
+|
+|__ use try and except ObjectDoesNotExist
+
+------------------------------- QuerySet Api ------------------------------------------
+
+Field lookups:
+exact, iexact, contains, in, gt, lt, lte, startwith, istartwith, ...
+
+Example: Product.objects.filter(price__gt=20) --> price greater than 20
+         Product.objects.filter(price__range=(20, 30))
