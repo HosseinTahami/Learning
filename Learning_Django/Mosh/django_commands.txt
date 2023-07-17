@@ -27,3 +27,6 @@ Example: Product.objects.filter(price__gt=20) --> price greater than 20
          Product.objects.filter(price__range=(20, 30))
          Product.objects.filter(collection__id=1) --> we will get the products with collection with id number 1
          |__ so id is an attribute of collection and collection is an attribute of Product !
+         Product.objects.filter(last_update__year=2010 )
+         |__ last_update is an attribute of Product that is Date & Time Type
+             so you can use anything like __year, __month , __hour, ... with it !
