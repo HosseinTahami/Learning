@@ -33,6 +33,12 @@ class Product(models.Model):
         Collection,
         on_delete=models.PROTECT
         )
+    """
+    ManyToManyField: we use this in Many To Many Relations and we should
+                     decide were to put it <inside which class> and the 
+                     best answer is inside the one that is more important
+                     for us !
+    """
     promotions = models.ManyToManyField(Promotion)
 
 class Customer(models.Model):
