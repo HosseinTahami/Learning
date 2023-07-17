@@ -30,3 +30,5 @@ Example: Product.objects.filter(price__gt=20) --> price greater than 20
          Product.objects.filter(last_update__year=2010 )
          |__ last_update is an attribute of Product that is Date & Time Type
              so you can use anything like __year, __month , __hour, ... with it !
+         Product.objects.filter(description__isnull=True)
+         |__ __isnull checks for an attribute to be empty or not !
