@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from .models import Todo
-from .forms import TodoCreateForm
+from .forms import TodoCreateForm, TodoUpdateForm
 # Create your views here.
 def home(request):
     person = { 'name' : 'Hossein'}
@@ -45,3 +45,14 @@ def create(request):
     else:
         form = TodoCreateForm()
         return render(request, 'create.html', {'form':form})
+
+def update(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    if request.method == 'POST' :
+        form=TodoUpdateForm(request.POST)
+        if form.is_valid:
+            form.save()
+            
+    else:
+        form = TodoUpdateForm(instance=todo) # instance=todo will show the previous data before updating it ! 
+    return render(request, 'update.html', {'form': form})
