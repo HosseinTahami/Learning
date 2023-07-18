@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from .models import Todo
 from .forms import TodoCreateForm
 # Create your views here.
@@ -35,11 +36,12 @@ def create(request):
             Todo.objects.create(
                 title=cd['title'],
                 body=cd['body'],
-                body=cd['created']
+                created=cd['created']
                 ) 
             # The first <title> is for the model the second is for the form
             # The first <body> is for the model the second is for the form
             # The first <created> is for the model the second is for the form
+            return redirect('home')
     else:
         form = TodoCreateForm()
         return render(request, 'create.html', {'form':form})
