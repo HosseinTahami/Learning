@@ -31,8 +31,15 @@ def create(request):
         """
         form = TodoCreateForm(request.POST) 
         if form.is_valid :
-            pass
-            # print(form.cleaned_data) --> data after getting validated in dictionary
+            cd = (form.cleaned_data) # data after getting validated in dictionary
+            Todo.objects.create(
+                title=cd['title'],
+                body=cd['body'],
+                body=cd['created']
+                ) 
+            # The first <title> is for the model the second is for the form
+            # The first <body> is for the model the second is for the form
+            # The first <created> is for the model the second is for the form
     else:
         form = TodoCreateForm()
         return render(request, 'create.html', {'form':form})
