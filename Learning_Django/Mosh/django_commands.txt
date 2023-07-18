@@ -64,7 +64,30 @@ Product.objects.filter('unit_price', '-title')
 Product.objects.order_by('price')[0] --> First data / Product.objects.earliest('price')
 Product.objects.order_by('price')[-1] --> last data / Product.objects.latest('price')
 
-----------------------------  Limit ----------------------------------
+----------------------------  Limit  ----------------------------------
 
 Product.objects.all()[:5] --> 0, 1, 2, 3, 4
 Product.objects.all()[5:10] --> 5, 6, 7, 8, 9
+
+---------------------------  Values  ----------------------------------
+
+Product.objects.values('id', 'title')
+|
+|__ Only gives these two and not other columns of the table!
+
+Product.objects.values('id', 'title', 'collection__title')
+|
+|__ <collection__title> JOIN the collection and product 
+    Tables to each other!
+    |
+    |__  In this form each object will be in a dictionary with 3 Keys: 1.id | 2.title | 3.collection__title
+
+Product.objects.values_list('id', 'title', 'collection__title')
+|
+|__ in this form each  object will be in a Tuple
+
+*NOTE*: .distinct() will remove all the duplicates
+*NOTE*: when you use ForeignKey for example bring Product inside the 
+        OrderItem class with it , django automatically create product_id
+        to use it as the foreign key !
+
