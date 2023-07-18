@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Todo
-
+from .forms import TodoCreateForm
 # Create your views here.
 def home(request):
     person = { 'name' : 'Hossein'}
@@ -16,3 +16,7 @@ def say_bye(request):
 def read_Todo(request):
     all_data = Todo.objects.all()
     return render(request, 'read_Todo.html', {'all':all_data})
+
+def create(request):
+    form = TodoCreateForm()
+    return render(request, 'create.html', {'form':form})
