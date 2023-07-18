@@ -99,3 +99,6 @@ Product.objects.values_list('id', 'title', 'collection__title')
         OrderItem class with it , django automatically create product_id
         to use it as the foreign key !
 
+.only() works like .values() you can only access the columns you want but if you choose a column 
+that is not inside .only() it will find it and will take lots of time but in .values() because we 
+have dictionary we don't have this problem ! --> .defer() is exactly opposite of .only()
