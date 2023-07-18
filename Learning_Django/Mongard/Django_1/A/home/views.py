@@ -18,5 +18,21 @@ def read_Todo(request):
     return render(request, 'read_Todo.html', {'all':all_data})
 
 def create(request):
-    form = TodoCreateForm()
-    return render(request, 'create.html', {'form':form})
+    """
+    if the method is Post, it means the user submit the data
+    otherwise they are only in the create page!
+    """
+    if request.method == 'POST':
+        """
+        This line means that with request module I want the data
+        that user send by Post method and put them inside the class
+        I created for my specific form to validate the data that user
+        sent to me with django form tools for validation!
+        """
+        form = TodoCreateForm(request.POST) 
+        if form.is_valid :
+            pass
+            # print(form.cleaned_data) --> data after getting validated in dictionary
+    else:
+        form = TodoCreateForm()
+        return render(request, 'create.html', {'form':form})
