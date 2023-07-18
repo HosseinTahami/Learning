@@ -16,3 +16,7 @@ between them !
 
 Note: There is also {% include 'file.html' %} with this you can
       show the content of a file inside another file!
+
+When you extend a html file you can put different codes inside it and work with it
+but when you include it you have the exact whole file and you cant put your codes 
+inside it!
