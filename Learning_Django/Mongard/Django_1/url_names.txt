@@ -1,0 +1,6 @@
+path('tasks/<int:todo_id>/<slug:'todo_title>', views.function_name, name='path_name')
+|
+|
+|__ When you want to call it : {% url 'path_name' value1  value2 %}
+            |
+            |__ to get value1 and value2 : todo.id  todo.title
