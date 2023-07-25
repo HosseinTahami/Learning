@@ -8,6 +8,6 @@ class TodoCreateForm(forms.Form):
 class TodoUpdateForm(forms.ModelForm):
     class Meta:
         model = Todo
-        fields = ('title', 'body', 'created')
+        fields = ('title', 'description', 'do_datetime')
         #fields = '__all__'
         
