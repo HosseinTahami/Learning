@@ -3,7 +3,7 @@ create a forms.py in each app if needed!
 
 Exactly like creating models
 Create class and use forms.Form
-not models.Model !
+instead of  models.Model !
 
 Also when using different fields put forms before
 them not models 
