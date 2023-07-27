@@ -1,5 +1,6 @@
 from django import forms
-
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 class UserRegisterForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(
@@ -26,3 +27,17 @@ class UserRegisterForm(forms.Form):
             }
         )
     )
+    
+    def clean_email(self):
+        email = self.cleaned_data['email']
+        user = User.objects.filter(email=email).exists()
+        if user:
+            raise ValidationError('This email is already in use.')
+        return email
+    
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        user = User.objects.filter(username=username).exists()
+        if user:
+            raise ValidationError('This username is already in use.')
+        return username
