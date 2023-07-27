@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, UserLoginForm
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -22,3 +22,11 @@ def user_register(request):
         form = UserRegistrationForm()
     return render(request, 'register.html', {'form':form})
 
+
+def user_login(request):
+    if request.method == 'POST':
+        pass
+    else:
+        form = UserLoginForm()
+    return render(request, 'login.html', {'form':form})
+    
