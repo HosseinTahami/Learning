@@ -1,8 +1,9 @@
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, UserLoginForm
-from django.http import HttpResponse
-from django.contrib.auth.models import User
 from django.contrib import messages
+
 
 def user_register(request):
     if request.method == 'POST':
@@ -25,7 +26,19 @@ def user_register(request):
 
 def user_login(request):
     if request.method == 'POST':
-        pass
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(
+                request,
+                username=cd['username'],
+                password=cd['password']
+                )
+            if user is not None:
+                login(request, user)
+                return redirect('home')
+            else:
+                pass
     else:
         form = UserLoginForm()
     return render(request, 'login.html', {'form':form})
