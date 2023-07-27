@@ -6,10 +6,11 @@ from django.contrib import messages
 
 class UserRegister(View):
     form_class = UserRegisterForm
+    template_name = 'accounts/register.html'
     def get(self, request):
         form = self.form_class()
         return render(request,
-                      'accounts/register.html',
+                      self.template_name,
                       {'form': form}
                     )
     def post(self, request):
@@ -27,3 +28,8 @@ class UserRegister(View):
                 'success'
                 )
             return redirect('home:home')
+        return render(
+            request,
+            self.template_name,
+            {'form':form}
+            )
