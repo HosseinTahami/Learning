@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .forms import UserRegistrationForm, UserLoginForm
 from django.contrib import messages
@@ -42,4 +42,7 @@ def user_login(request):
     else:
         form = UserLoginForm()
     return render(request, 'login.html', {'form':form})
-    
+
+def user_logout(request):
+    logout(request)
+    return redirect('home')
