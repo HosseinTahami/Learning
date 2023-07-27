@@ -131,6 +131,10 @@ hw15_venv/
 hw15_venv
 .hw15_venv
 *hw15_venv
+NewVenv/
+.NewVenv
+*NewVenv
+NewVenv
 
 # Spyder project settings
 .spyderproject
