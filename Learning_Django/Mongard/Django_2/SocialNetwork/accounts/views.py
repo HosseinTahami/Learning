@@ -14,7 +14,7 @@ class UserRegister(View):
     def dispatch(self, request, *args: Any, **kwargs: Any):
         if request.user.is_authenticated:
             return redirect('home:home')
-        return super().dispatch(request, *args, **kwargs)
+        return super().disp~/Programming/Learning/Learning_Django/Mongard/Django_2atch(request, *args, **kwargs)
     
     def get(self, request):
         form = self.form_class()
@@ -98,4 +98,15 @@ class UserLogoutView(LoginRequiredMixin, View):
             'success'
         )
         return redirect('home:home')
+    
+class UserProfileView(LoginRequiredMixin, View):
+    def get(self, request, user_id):
+        user = User.objects.get(id = user_id)
+        return render(
+            request,
+            'accounts/profile.html',
+            {'user': user}
+            )
+    def post(self, request):
+        pass
        
