@@ -135,7 +135,10 @@ NewVenv/
 .NewVenv
 *NewVenv
 NewVenv
-
+AnotherVenv
+AnotherVenv/
+.AnotherVenv
+*AnotherVenv
 # Spyder project settings
 .spyderproject
 .spyproject
