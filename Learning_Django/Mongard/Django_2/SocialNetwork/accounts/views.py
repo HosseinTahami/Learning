@@ -1,9 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import UserRegisterForm, UserLoginForm
+from .forms import UserRegisterForm, UserLoginForm, UserLogoutForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 class UserRegister(View):
     form_class = UserRegisterForm
@@ -72,3 +72,16 @@ class UserLoginView(View):
                 'warning'
             )
         return render(request, self.template_name, {'form': form})
+    
+    
+    
+    class UserLogoutView(View):      
+       def get(self, request):
+           logout(request)
+           messages.success(
+               request,
+               'Logged out successfully',
+               'success'
+           )
+           return redirect('home:home')
+       
