@@ -33,3 +33,11 @@ class UserRegister(View):
             self.template_name,
             {'form':form}
             )
+
+
+class UserLoginView(View):
+    def get(self, request):
+        pass
+    
+    def post(self, request):
+        pass
