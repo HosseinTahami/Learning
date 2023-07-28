@@ -6,7 +6,7 @@ from .forms import UserRegisterForm, UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 class UserRegister(View):
     form_class = UserRegisterForm
     template_name = 'accounts/register.html'
@@ -89,7 +89,7 @@ class UserLoginView(View):
     
     
     
-class UserLogoutView(View):      
+class UserLogoutView(LoginRequiredMixin, View):      
     def get(self, request):
         logout(request)
         messages.success(
