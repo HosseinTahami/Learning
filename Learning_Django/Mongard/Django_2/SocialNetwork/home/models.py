@@ -6,3 +6,5 @@ class Post(models.Model):
     slug = models.SlugField()
     create_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
+    def __str__(self) -> str:
+        return f'{self.id}-{self.slug}'
