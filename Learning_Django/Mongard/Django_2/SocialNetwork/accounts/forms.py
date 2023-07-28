@@ -6,7 +6,7 @@ class UserRegisterForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Username'
+                'placeholder': 'Username',
             }
         )
     )
@@ -64,7 +64,8 @@ class UserLoginForm(forms.Form):
         widget=forms.TextInput(
             attrs={
                 'class': 'form-control',
-                'placeholder': 'Username'
+                'placeholder': 'Username or Email',
+                'label': 'Username or Email'
             }
         )
         
