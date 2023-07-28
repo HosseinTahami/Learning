@@ -14,7 +14,7 @@ class UserRegister(View):
     def dispatch(self, request, *args: Any, **kwargs: Any):
         if request.user.is_authenticated:
             return redirect('home:home')
-        return super().disp~/Programming/Learning/Learning_Django/Mongard/Django_2atch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
     
     def get(self, request):
         form = self.form_class()
