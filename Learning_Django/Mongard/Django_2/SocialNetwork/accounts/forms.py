@@ -27,6 +27,14 @@ class UserRegisterForm(forms.Form):
             }
         )
     )
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Confirm Password'
+            }
+        )
+    )
     
     def clean_email(self):
         email = self.cleaned_data['email']
@@ -41,3 +49,10 @@ class UserRegisterForm(forms.Form):
         if user:
             raise ValidationError('This username is already in use.')
         return username
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get('password')
+        confirm_password = cleaned_data.get('confirm_password')
+        if password and confirm_password and password != confirm_password:
+            raise ValidationError('Password does not match.')
