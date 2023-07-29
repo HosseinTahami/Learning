@@ -27,5 +27,5 @@ class UserAdmin(BaseUserAdmin):
     ordering = ('full_name',)
     filter_horizontal = ('groups', 'user_permissions',)
     
-admin.site.unregister(Group)
+#admin.site.unregister(Group)
 admin.site.register(User, UserAdmin)
