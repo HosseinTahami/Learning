@@ -17,7 +17,7 @@ class User(AbstractBaseUser):
     
     # This Field is called username but actually it is the field we authenticate our users with it !
     USERNAME_FIELD = 'phone_number'
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = ['email', 'full_name']
     
     def __str__(self) -> str:
         return f'Full Name: {self.full_name}, Phone Number: {self.phone_number}, Email: {self.email}'
