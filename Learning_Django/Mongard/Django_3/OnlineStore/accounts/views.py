@@ -33,3 +33,12 @@ class UserRegisterView(View):
             messages.success(request, 'You have successfully registered.', 'success')
             return redirect('accounts:verify_code')
         return redirect('home:home')
+    
+class VerifyCodeView(View):
+    
+    def get(self, request):
+        pass
+    
+    def post(self, request):
+        pass
+    
