@@ -4,13 +4,12 @@ from .forms import UserRegistrationForm
 
 
 class UserRegisterView(View):
-    
     form_class = UserRegistrationForm
-    template = 'accounts/register.html'
-    
+    template = "accounts/register.html"
+
     def get(self, request):
         form = self.form_class
-        return render(request, self.template, {'form': form})
-    
+        return render(request, self.template, {"form": form})
+
     def post(self, request):
         pass
