@@ -43,6 +43,7 @@ class VerifyCodeView(View):
             'accounts/verify_code.html',
             {'form': form}
             )
+        
     
     def post(self, request):
         user_session = request.session['user_registration_info']
