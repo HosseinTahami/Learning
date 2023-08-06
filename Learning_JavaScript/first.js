@@ -12,7 +12,7 @@ function Car(name, price){
     this.name = name;
     this.price = price;
     this.final_price = function(discount){
-        this.price = price * (100-discount)/100;
+        this.price = this.price * (100-discount)/100;
         console.log(this.price)
     }
 }
