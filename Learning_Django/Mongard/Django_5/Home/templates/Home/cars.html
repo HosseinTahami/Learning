@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %} Cars {% endblock %}
+{% block content %}
+<h2>Car List:</h2>
+{% for car in object_list %}
+<h2>----------------------------------------------------</h2>
+<h4>Brand: {{ car.brand }} || Owner's Name:{{ car.owner }} || Built Year: {{car.build_year}} </h4>
+{% endfor %}
+{% endblock %}
