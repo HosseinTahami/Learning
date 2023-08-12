@@ -1,7 +1,8 @@
+from typing import Any, Optional
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from .models import Car
 
 
@@ -52,3 +53,14 @@ class About(TemplateView):
         context = super().get_context_data(**kwargs)
         context["cars"] = Car.objects.all()
         return context
+
+
+class Main(RedirectView):
+    url = "https://www.mongard.ir"
+    # pattern_name = "Home:about"
+    # url = "/home/%(id)i/%(name)s"
+    # query_string = True
+
+    # def get_redirect_url(self, *args: Any, **kwargs: Any):
+    #     print(kwargs["name"], kwargs["id"])  # .../main/hossein/12
+    #     return super().get_redirect_url(*args, **kwargs)
