@@ -3,5 +3,13 @@
 About
 {% endblock %}
 {% block content %}
-About
+<h1>About</h1>
+<h2>Our Cars:</h2>
+<h2>---------------------------------------------------</h2>
+{% for car in cars %}
+<h4>Brand: {{ car.brand }}</h4>
+<h4>Owner: {{ car.owner}}</h4>
+<h2>---------------------------------------------------</h2>
+{% endfor %}
+
 {% endblock %}
