@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.models import User
+from django.views.generic import TemplateView
 
 
 class Home(View):
@@ -41,3 +42,7 @@ class Home(View):
     def http_method_not_allowed(self, request, *args, **kwargs):
         super().http_method_not_allowed(request, *args, **kwargs)
         return render(request, "method_not_allowed.html")
+
+
+class About(TemplateView):
+    template_name = "Home/about.html"
