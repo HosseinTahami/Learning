@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.models import User
@@ -68,4 +69,15 @@ class Main(RedirectView):
 
 class CarsView(ListView):
     template_name = "Home/cars.html"
-    model = Car  # --> object_list
+    # model = Car  # --> object_list
+    context_object_name = "cars"
+    # queryset = Car.objects.filter(build_year__gt=1930)
+
+    def get_queryset(self):
+        result = Car.objects.filter(build_year__gt=1990)
+        return result
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["specific_title"] = "New Car List:"
+        return context
