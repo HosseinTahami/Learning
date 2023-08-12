@@ -7,7 +7,7 @@ About
 <h2>Our Cars:</h2>
 <h2>---------------------------------------------------</h2>
 {% for car in cars %}
-<h4>Brand: {{ car.brand }}</h4>
+<a href="{% url 'Home:cars_detail' car.id %}">Brand: {{ car.brand }}</a>
 <h4>Owner: {{ car.owner}}</h4>
 <h2>---------------------------------------------------</h2>
 {% endfor %}
