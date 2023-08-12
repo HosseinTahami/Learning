@@ -1,4 +1,5 @@
 from typing import Any, Optional
+from django.db import models
 from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views import View
@@ -84,4 +85,31 @@ class CarsView(ListView):
 
 
 class CarDetailView(DetailView):
-    pass
+    template_name = "Home/car_detail.html"
+    model = Car
+    context_object_name = "car"
+    pk_url_kwarg = "car_id"
+
+    def get_queryset(self):
+        if self.request.user.is_authenticated:
+            return Car.objects.filter(pk=self.kwargs["car_id"])
+        else:
+            return Car.objects.none()
+
+
+# class CarDetailView(DetailView):
+#     template_name = "Home/car_detail.html"
+#     model = Car
+#     slug_field = "name"
+#     slug_url_kwarg = "my_slug"
+
+
+# class CarDetailView(DetailView):
+#     template_name = "Home/car_detail.html"
+
+#     def get_object(self, queryset=None):
+#         return Car.objects.get(
+#             name=self.kwargs["name"],
+#             owner=self.kwargs["owner"],
+#             build_year=self.kwargs["build_year"],
+#         )  # --> in the html file href={% url 'Home:cars_detail' car.name car.owner car.build_year %}
