@@ -3,7 +3,7 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, RedirectView, ListView
+from django.views.generic import TemplateView, RedirectView, ListView, DetailView
 from .models import Car
 
 
@@ -81,3 +81,7 @@ class CarsView(ListView):
         context = super().get_context_data(**kwargs)
         context["specific_title"] = "New Car List:"
         return context
+
+
+class CarDetailView(DetailView):
+    pass
