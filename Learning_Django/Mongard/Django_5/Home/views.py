@@ -2,7 +2,7 @@ from typing import Any, Optional
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, RedirectView
+from django.views.generic import TemplateView, RedirectView, ListView
 from .models import Car
 
 
@@ -64,3 +64,8 @@ class Main(RedirectView):
     # def get_redirect_url(self, *args: Any, **kwargs: Any):
     #     print(kwargs["name"], kwargs["id"])  # .../main/hossein/12
     #     return super().get_redirect_url(*args, **kwargs)
+
+
+class CarsView(ListView):
+    template_name = "Home/cars.html"
+    model = Car  # --> object_list
