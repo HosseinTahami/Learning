@@ -4,8 +4,16 @@ from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django.views import View
 from django.contrib.auth.models import User
-from django.views.generic import TemplateView, RedirectView, ListView, DetailView
+from django.views.generic import (
+    TemplateView,
+    RedirectView,
+    ListView,
+    DetailView,
+    FormView,
+)
 from .models import Car
+from .forms import CreateCarForm
+from django.urls import reverse_lazy
 
 
 class Home(View):
@@ -113,3 +121,20 @@ class CarDetailView(DetailView):
 #             owner=self.kwargs["owner"],
 #             build_year=self.kwargs["build_year"],
 #         )  # --> in the html file href={% url 'Home:cars_detail' car.name car.owner car.build_year %}
+
+
+class CreateCarView(FormView):
+    template_name = "Home/create_car.html"
+    form_class = CreateCarForm
+    success_url = reverse_lazy("Home:home")
+
+    def form_valid(self, form):
+        self._create_car_(form.cleaned_data)
+        return super().form_valid(form)
+
+    def _create_car_(self, data):
+        Car.objects.create(
+            brand=data["brand"],
+            owner=data["owner"],
+            build_year=data["build_year"],
+        )
