@@ -10,8 +10,9 @@ from django.views.generic import (
     ListView,
     DetailView,
     FormView,
+    CreateView,
 )
-from .models import Car
+from .models import Car, Building
 from .forms import CreateCarForm
 from django.urls import reverse_lazy
 
@@ -138,3 +139,16 @@ class CreateCarView(FormView):
             owner=data["owner"],
             build_year=data["build_year"],
         )
+
+
+class CreateBuildingView(CreateView):
+    model = Building
+    fields = ["pool", "area"]
+    template_name = "Home/create_building.html"
+    success_url = reverse_lazy("Home:home")
+
+    def form_valid(self, form):
+        building = form.save(commit=False)
+        building.owner = self.request.user.username
+        building.save()
+        return super().form_valid(form)
