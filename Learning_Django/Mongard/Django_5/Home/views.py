@@ -11,6 +11,7 @@ from django.views.generic import (
     DetailView,
     FormView,
     CreateView,
+    DeleteView,
 )
 from .models import Car, Building
 from .forms import CreateCarForm
@@ -158,3 +159,8 @@ class BuildingsView(ListView):
     template_name = "Home/buildings.html"
     context_object_name = "buildings"
     queryset = Building.objects.all()
+
+
+class DeleteBuildingsView(DeleteView):
+    model = Building
+    success_url = reverse_lazy("Home:home")
