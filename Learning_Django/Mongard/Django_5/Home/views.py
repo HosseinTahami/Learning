@@ -152,3 +152,9 @@ class CreateBuildingView(CreateView):
         building.owner = self.request.user.username
         building.save()
         return super().form_valid(form)
+
+
+class BuildingsView(ListView):
+    template_name = "Home/buildings.html"
+    context_object_name = "buildings"
+    queryset = Building.objects.all()
