@@ -5,5 +5,5 @@ app_name = "home"
 
 urlpatterns = [
     path("", Home.as_view(), name="home"),
-    path("about/", About.as_view(), name="about"),
+    path("about/<str:username>", About.as_view(), name="about"),
 ]
