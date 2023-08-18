@@ -8,6 +8,7 @@ from .views import (
     CreateCarView,
     CreateBuildingView,
     BuildingsView,
+    DeleteBuildingsView,
 )
 
 app_name = "Home"
@@ -23,4 +24,9 @@ urlpatterns = [
     path("create/", CreateCarView.as_view(), name="create_car"),
     path("create_building", CreateBuildingView.as_view(), name="create_building"),
     path("buildings", BuildingsView.as_view(), name="buildings"),
+    path(
+        "delete_buildings/<int:pk>",
+        DeleteBuildingsView.as_view(),
+        name="delete_buildings",
+    ),
 ]
