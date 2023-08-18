@@ -164,3 +164,4 @@ class BuildingsView(ListView):
 class DeleteBuildingsView(DeleteView):
     model = Building
     success_url = reverse_lazy("Home:home")
+    template_name = "Home/delete_buildings.html"
