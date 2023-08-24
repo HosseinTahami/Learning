@@ -151,4 +151,12 @@ Inside Template:
 ...
 {% endif %}
 
---------------------------------------------
+-----------------------------------------------
+dispatch method will always run before other methods
+
+def dispatch(self, request, *args, **kwargs):
+    if request.user.is_authenticated :
+        redirect(request, 'home:home')
+    return super().dispatch(request, *args, **kwargs)
+
+------------------------------------------------
