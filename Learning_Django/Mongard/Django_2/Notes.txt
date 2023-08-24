@@ -19,3 +19,21 @@ urlpatterns = [
     path('', views.<...>, name='<...>')
 ]
 ------------------------------------
+setting.py :
+TEMPLATES = {
+
+'DIRS': [BASE_DIR / 'templates'],
+'APP_DIRS': True,
+
+}
+Now we have 2 kind of templates directories : 
+1. inside each app a directory named templates and inside that a template named the app itself
+2. one directory next to the app directories named templates
+
+include and extend :
+
+extend is for inheritance and include is using an html inside other html
+for example we inheritance base.html inside all of the files with extend and use navbar.html inside base.html
+with include command !
+
+-------------------------------------
