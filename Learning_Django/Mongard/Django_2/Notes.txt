@@ -116,6 +116,7 @@ def clean(self):
 -----------------------------------------
 
 from django.contrib.auth import authenticate, login
+from django.core import messages
 
 class UserLoginView(View):
         form_class = UserLoginForm
@@ -132,3 +133,5 @@ class UserLoginView(View):
             user = authenticate(request, username = username, password = password)
             if user:
                 login(request, user)
+                messages.success(request, 'You are Logged', 'success')
+            messages.error(request, 'Wrong info', 'danger')
