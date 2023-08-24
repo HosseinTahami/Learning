@@ -135,3 +135,20 @@ class UserLoginView(View):
                 login(request, user)
                 messages.success(request, 'You are Logged', 'success')
             messages.error(request, 'Wrong info', 'danger')
+
+---------------------------------------------
+
+from django.contrib.auth import logout
+
+class UserLogoutView(View):
+
+    def get(self, request):
+        logout(request)
+
+Inside Template:
+
+{% if request.user.is_authenticated %}
+...
+{% endif %}
+
+--------------------------------------------
