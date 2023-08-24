@@ -61,3 +61,9 @@ class Name(forms.Form):
     pass
 
 --------------------------------------
+Widgets for Forms:
+
+forms.CharField(required=False)
+forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', placeholder='YourPassword}))
+forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control}))
+forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
