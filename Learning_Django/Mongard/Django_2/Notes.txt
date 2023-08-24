@@ -113,3 +113,22 @@ def clean(self):
     f2 = cleaned_data.get('f2')
     if f1 and f2 and f1 != f2:
         return ValidationError(" 2 Fields Should Match!")
+-----------------------------------------
+
+from django.contrib.auth import authenticate, login
+
+class UserLoginView(View):
+        form_class = UserLoginForm
+        template_name = ''
+    def get(self, request):
+        form = self.form_class()
+        return render(request, self.template_name, {'form': form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid :
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username = username, password = password)
+            if user:
+                login(request, user)
