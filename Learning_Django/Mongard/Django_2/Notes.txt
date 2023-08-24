@@ -86,3 +86,18 @@ Messages:
 {% endif %}
 
 --------------------------------------
+from django.core.exception import ValidationError
+
+def clean_<...>(self):
+    sth = self.cleaned_data[<...>]
+    .
+    .
+    .
+    return sth
+
+def clean_username(self):
+    username = self.cleaned_data['username']
+    user = User.objects.filter(username=username).exists()
+    if user:
+        raise ValidationError('Duplicate username !')
+    return username
