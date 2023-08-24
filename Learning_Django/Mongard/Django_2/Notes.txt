@@ -101,3 +101,15 @@ def clean_username(self):
     if user:
         raise ValidationError('Duplicate username !')
     return username
+
+---------------------------------------
+
+we override the clean method of forms in django when we want to 
+validate fields that depends on each other 
+
+def clean(self):
+    cleaned_data = super().clean()
+    f1 = cleaned_data.get('f1')
+    f2 = cleaned_data.get('f2')
+    if f1 and f2 and f1 != f2:
+        return ValidationError(" 2 Fields Should Match!")
