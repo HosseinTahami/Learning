@@ -36,4 +36,18 @@ extend is for inheritance and include is using an html inside other html
 for example we inheritance base.html inside all of the files with extend and use navbar.html inside base.html
 with include command !
 
--------------------------------------
+--------------------------------------
+views.py:
+
+from django.views import View
+
+class Name(View):
+    def get(self):
+        pass
+    def post(View):
+        pass
+
+in the urls.py when you want to call Name Class you should as_view() !
+path( '', Name.as_view(), name='Name')
+
+--------------------------------------
