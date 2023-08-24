@@ -160,3 +160,12 @@ def dispatch(self, request, *args, **kwargs):
     return super().dispatch(request, *args, **kwargs)
 
 ------------------------------------------------
+
+from django.contrib.auth.mixins import LoginRequiredMixin
+|___ LoginRequiredMixin should be in the leftest position Possible
+
+class UserLogoutView(LoginRequiredMixin, View):
+
+    def get(self, request):
+        pass
+    
