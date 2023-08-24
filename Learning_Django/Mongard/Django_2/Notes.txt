@@ -67,3 +67,10 @@ forms.CharField(required=False)
 forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', placeholder='YourPassword}))
 forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control}))
 forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+--------------------------------------
+
+NameSpace:
+
+inside urls.py of project needs a namespace in all the includes 
+and then use a variable named app_name = 'namespace we chose'
