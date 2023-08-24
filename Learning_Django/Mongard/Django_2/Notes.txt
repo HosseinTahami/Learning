@@ -1,0 +1,21 @@
+python3 -m venv name
+source name/bin/activate
+django-admin startproject name
+pip install django
+python manage.py startproject
+python manage.py migrate
+python manage.py createsuperuser
+python manage.py startapp (exp:home)
+setting.py : home.apps.HomeConfig
+urls.py : 
+from django.urls import path, include
+urlpatterns = [
+    path('', admin.site.urls),
+    path('home/', include('home.urls'))
+]
+create urls.py:
+from django.urls import path
+urlpatterns = [
+    path('', views.<...>, name='<...>')
+]
+------------------------------------
