@@ -40,14 +40,24 @@ with include command !
 views.py:
 
 from django.views import View
+from django.shortcuts import render
 
-class Name(View):
+class Name(View, request):
     def get(self):
         pass
-    def post(View):
+    def post(View, request):
         pass
 
 in the urls.py when you want to call Name Class you should as_view() !
 path( '', Name.as_view(), name='Name')
+
+--------------------------------------
+
+forms.py:
+
+from django import forms
+
+class Name(forms.Form):
+    pass
 
 --------------------------------------
