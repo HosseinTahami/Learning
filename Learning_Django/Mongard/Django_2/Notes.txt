@@ -188,3 +188,12 @@ class EmailBackend:
         try:
             User.objects.get(pk=user_id)
         except User.DoesNotExist
+
+setting:
+
+AUTHENTICATION_BACKENDS = [
+    django.contrib.auth.backends.ModelBackend,
+    accounts.authenticate.EmailBackend
+]
+
+-------------------------------------------------
