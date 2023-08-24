@@ -74,3 +74,15 @@ NameSpace:
 
 inside urls.py of project needs a namespace in all the includes 
 and then use a variable named app_name = 'namespace we chose'
+
+--------------------------------------
+
+Messages:
+
+{% if messages %}
+{% for msg in messages %}
+<p>{{msg}}</p>
+{% endfor %}
+{% endif %}
+
+--------------------------------------
