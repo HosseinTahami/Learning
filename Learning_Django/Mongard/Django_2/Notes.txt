@@ -207,7 +207,17 @@ AUTHENTICATION_BACKENDS = [
 
 inside the templates in django:
 
- {{ request.user.username }}
- {% if request.user.is_authenticated %}
+{{ request.user.username }}
+{% if request.user.is_authenticated %}
 
- ------------------------------------------------
+------------------------------------------------
+ 
+admin.py:
+
+@admin.register(ModelName)
+class ModelNameAdmin(admin.ModelAdmin):
+    list_display = ('field1', 'field2', ...)
+    search_fields = ('field2', ...)
+    list_filter = ('field4', ...)
+    #create field2 by field4
+    prepopulated_fields = {'field2':('field4', ...)}
