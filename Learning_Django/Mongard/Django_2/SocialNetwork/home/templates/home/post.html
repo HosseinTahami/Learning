@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Post
+{% endblock title %}
+
+{% block content %}
+<h2 class="text-center">Profile</h3>
+    <br>
+    <br>
+    <div class="text-center">
+        <h3>{{ post.title }}</h3>
+        <div class="card mt-3">
+            <br>
+            <div class="card-detail">Created: {{ post.create_time|date:" Y - M - D "}}</div>
+            <br>
+            <div class="card-detail">Author: {{ post.user.username }}</div>
+            <br>
+            {{ post.body }}
+        </div>
+
+    </div>
+    {% endblock content %}
