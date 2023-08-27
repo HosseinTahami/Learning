@@ -204,3 +204,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 -------------------------------------------------
+
+inside the templates in django:
+
+ {{ request.user.username }}
+ {% if request.user.is_authenticated %}
+
+ ------------------------------------------------
