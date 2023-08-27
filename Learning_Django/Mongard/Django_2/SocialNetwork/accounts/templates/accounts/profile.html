@@ -8,4 +8,19 @@ Profile
 <h2 class="text-center">Profile</h3>
     <br>
     <h4 class="text-center">{{user.username}}</h4>
+    <br>
+    <br>
+    <div class="center">
+        <h3>Posts</h3>
+        {% for post in posts %}
+
+        <div class="card mt-3">
+            {{ post.title }}
+            {{ post.user.username }}
+            {{ post.body }}
+            {{ post.created_date|date:" Y - M - D " }}
+        </div>
+
+        {% endfor %}
+    </div>
     {% endblock content %}
