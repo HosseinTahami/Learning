@@ -171,6 +171,8 @@ class UserLogoutView(LoginRequiredMixin, View):
 
 -------------------------------------------------
 
+authentication.py :
+
 from django.contrib.auth.models import User
 
 class EmailBackend:
@@ -189,7 +191,12 @@ class EmailBackend:
             User.objects.get(pk=user_id)
         except User.DoesNotExist
 
-setting:
+EXPLANATION FOR THE ABOVE CODE:
+    The reason we are using try and except block is because when there is no user with that
+    email address or with that user id, the user variable will not become equal to None but
+    an Error named User Does Not Exist will be raised. 
+
+setting.py :
 
 AUTHENTICATION_BACKENDS = [
     django.contrib.auth.backends.ModelBackend,
