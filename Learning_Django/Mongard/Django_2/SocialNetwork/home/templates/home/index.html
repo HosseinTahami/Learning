@@ -2,5 +2,14 @@
 
 {%block title%}Home{%endblock%}
 {%block content%}
-<h3>Home Sweet Home</h3>
+<div class="center">
+    <h3>Posts</h3>
+    {% for post in posts %}
+
+    <div class="card mt-3">
+        <a href="{% url 'home:posts' post.id post.slug %}">{{ post.title }}</a>
+    </div>
+
+    {% endfor %}
+</div>
 {%endblock%}
