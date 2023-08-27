@@ -2,23 +2,27 @@
 
 
 {% block title %}
-Post
+Title: {{post.title}}
 {% endblock title %}
 
 {% block content %}
-<h2 class="text-center">Profile</h3>
-    <br>
-    <br>
-    <div class="text-center">
-        <h3>{{ post.title }}</h3>
-        <div class="card mt-3">
-            <br>
-            <div class="card-detail">Created: {{ post.create_time|date:" Y - M - D "}}</div>
-            <br>
-            <div class="card-detail">Author: {{ post.user.username }}</div>
-            <br>
-            {{ post.body }}
-        </div>
-
+<h1 class="text-center">{{ post.title }}</h1>
+<br>
+<br>
+<div class="text-center">
+    <div class="card m-3">
+        <br>
+        <div class="card-detail">Created: {{ post.create_time|date:" Y - M - D "}}</div>
+        <br>
+        <div class="card-detail">Author: {{ post.user.username }}</div>
+        <br>
+        {{ post.body }}
     </div>
-    {% endblock content %}
+
+</div>
+
+{% if post.user.id == request.user.id %}
+<a href="{% url 'home:delete_post' post.id %}" class="btn btn-danger m-3">Delete</a>
+<a href="{% url 'home:update_post' post.id %}" class="btn btn-warning m-3">Update</a>
+{% endif %}
+{% endblock content %}
