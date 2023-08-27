@@ -221,3 +221,16 @@ class ModelNameAdmin(admin.ModelAdmin):
     list_filter = ('field4', ...)
     #create field2 by field4
     prepopulated_fields = {'field2':('field4', ...)}
+
+--------------------------------------------------
+
+Your Models should be full of methods so your
+Templates and View be as simple as possible !
+
+class Post(models.Model):
+    .
+    .
+    .
+    
+    def get_absolute_url(self):
+        return reverse('home:post_detail', self.id, self.slug)
