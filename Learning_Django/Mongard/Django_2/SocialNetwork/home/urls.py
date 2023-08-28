@@ -23,4 +23,9 @@ urlpatterns = [
         views.PostUpdateView.as_view(),
         name="update_post",
     ),
+    path(
+        "posts/create/",
+        views.CreatePostView.as_view(),
+        name="create_post",
+    ),
 ]
