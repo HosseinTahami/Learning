@@ -9,3 +9,12 @@ class PostUpdateForm(forms.ModelForm):
             "title",
             "body",
         )
+
+
+class PostCreateForm(forms.ModelForm):
+    class Meta:
+        model = Post
+        fields = (
+            "title",
+            "body",
+        )
