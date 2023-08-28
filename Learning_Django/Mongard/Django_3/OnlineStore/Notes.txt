@@ -1,0 +1,33 @@
+from django.contrib.auth.models import AbstractUser, AbstractBaseUser
+from django.contrib.auth.mixins import PermissionsMixin
+
+class CustomUser(AbstractBaseUser):
+    full_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=11, unique=True)
+    is_active = models.BooleanField(default=True)
+    is_admin = models.BooleanField(default=True)
+    
+    # Fields for Authentication
+    USERNAME_FIELD = [
+        'phone_number',
+        'email',
+    ]
+
+    # Only createsuperuser
+    REQUIRED_FIELDS = [
+        'full_name',
+        'email',
+    ] 
+
+    # is_staff could also be a BooleanField 
+    @property
+    def is_staff(self):
+        return self.is_admin
+    
+    def __str__(self):
+        return f'{self.full_name} || {self.phone_number}'
+    
+
+# Mongard: AbstractBaseUser Vs AbstractUser
+-----------------------------------------------------------------------------
