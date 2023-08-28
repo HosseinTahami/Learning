@@ -10,14 +10,17 @@ Profile
     <h4 class="text-center">{{user.username}}</h4>
     <br>
     <br>
-    <div class="center">
+    <div class="center m-3">
         <h3>Posts</h3>
         {% for post in posts %}
 
-        <div class="card mt-3">
+        <div class="card m-3">
             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
         </div>
 
         {% endfor %}
+        {% if request.user.id == user.id %}
+        <a href="{% url 'home:create_post' %}" class="btn btn-primary m-3">Create</a>
+        {% endif %}
     </div>
     {% endblock content %}
