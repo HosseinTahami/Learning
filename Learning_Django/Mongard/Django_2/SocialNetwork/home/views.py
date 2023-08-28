@@ -4,7 +4,7 @@ from django.views import View
 from .models import Post
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import PostUpdateForm
+from .forms import PostUpdateForm, PostCreateForm
 from django.utils.text import slugify
 
 
@@ -59,3 +59,23 @@ class PostUpdateView(LoginRequiredMixin, View):
             new_post.save()
             messages.success(request, "Post Updated Successfully", "success")
             return redirect("home:home")
+
+
+class CreatePostView(LoginRequiredMixin, View):
+    form_class = PostCreateForm
+
+    def get(self, request):
+        form = self.form_class()
+        return render(request, "home/create_post.html", {"form": form})
+
+    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid:
+            new_post = form.save(commit=False)
+            new_post.slug = slugify(form.cleaned_data["title"])
+            new_post.user = request.user
+            new_post.save()
+            messages.success(request, "New Post Created", "success")
+            return redirect("home:posts", new_post.id, new_post.slug)
+        messages.error(request, "Cant Create new Post", "danger")
+        return redirect("home:home")
