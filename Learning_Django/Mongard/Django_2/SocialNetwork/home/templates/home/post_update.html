@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form action="" method="POST">
+<form action="" method="POST" class="m-3">
     {% csrf_token %}
     {{form.as_table}}
     <input class=" btn btn-info" type="submit" value="Update">

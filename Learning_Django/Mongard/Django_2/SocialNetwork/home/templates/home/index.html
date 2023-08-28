@@ -2,11 +2,11 @@
 
 {%block title%}Home{%endblock%}
 {%block content%}
-<div class="center">
+<div class="center m-3">
     <h3>Posts</h3>
     {% for post in posts %}
 
-    <div class="card mt-3">
+    <div class="card m-3">
         <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
     </div>
 
