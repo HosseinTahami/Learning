@@ -234,3 +234,27 @@ class Post(models.Model):
     
     def get_absolute_url(self):
         return reverse('home:post_detail', self.id, self.slug)
+
+--------------------------------------------
+
+from django.contrib.auth.models import User
+
+class Post(models.Model):
+    user = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name='posts',
+        )
+    title = models.CharField(max_length=30)
+    ...
+    ...
+
+Each Post belongs to only one User and each User can have multiple posts
+so if I want to find post with the user I can use related_name !
+
+u1 = User.objects.first()
+Options:
+1- u1.post_set.all() --> if we do not user related_name
+2- u1.posts.all() --> finding posts by the user model (backward) with related_name
+
+----------------------------------------------------------------
