@@ -1,4 +1,55 @@
 """
+__call__
+"""
+
+
+class Person:
+    def __call__(self, *args, **kwds):
+        print("Calling ...")
+
+
+p1 = Person()
+print(p1())  # Calling ...
+print(p1)  # <__main__.Person object at ...>
+
+
+"""
+__new__ : This method create a class not the initializer and before the initializer method run this method will run
+            first, for example at first it will check if name is bad boy the Dog class will not be created but if its not
+            then it will let the the class be created and also __new__ get cls not self !
+"""
+
+
+class Dog:
+    def __init__(self, name):
+        self.name = name
+
+    def __new__(cls, name, *args, **kwargs):
+        if name == "bad boy":
+            return None
+        else:
+            return super().__new__(cls, *args, **kwargs)
+
+
+"""
+Meta Class
+"""
+
+
+class A:
+    pass
+
+
+a1 = A()
+print(a1.__class__)  # <class __main__.A object at ..>
+print(a1.__class__.__class__)  # <class 'type'>
+
+""" type(name, base, dict) -> new type"""
+a2 = type("Person", (), {})
+print(a2)  # <__main__.Person object at ... >
+
+
+"""
 Make sure our class only have one instance
 &
 Provide a global point of access to it
@@ -50,6 +101,6 @@ class B(metaclass=Singleton):
 first = B()
 second = B()
 
-# id(second) and id(first   ) are equal
+# id(second) and id(first) are equal
 print(id(first))
 print(id(second))
