@@ -8,45 +8,28 @@ A collection of codes and files related to the subjects and technologies I have 
 
 ## Technologies and Subjects Covered
 
-- Django
-- Django Rest Framework
-- HTML
-- CSS
-- JavaScript
-- Object-Oriented Programming in Python
-- NumPy
-- Pandas
-- Bootstrap
-- Git
-- Design Patterns
-- SQL
-- MongoDB
-- Redis
-- Docker
-- Celery
-
-## Badges
-
-![Django](https://img.shields.io/badge/-Django-092E20?logo=django&logoColor=white&style=for-the-badge)
-![Django Rest Framework](https://img.shields.io/badge/-Django%20Rest%20Framework-092E20?logo=django&logoColor=white&style=for-the-badge)
-![HTML](https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=for-the-badge)
-![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=for-the-badge)
-![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
-![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=for-the-badge)
-![NumPy](https://img.shields.io/badge/-NumPy-013243?logo=numpy&logoColor=white&style=for-the-badge)
-![Pandas](https://img.shields.io/badge/-Pandas-150458?logo=pandas&logoColor=white&style=for-the-badge)
-![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?logo=bootstrap&logoColor=white&style=for-the-badge)
-![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=for-the-badge)
-![Design Patterns](https://img.shields.io/badge/-Design%20Patterns-FFD700?logoColor=black&style=for-the-badge)
-![SQL](https://img.shields.io/badge/-SQL-4479A1?logo=mysql&logoColor=white&style=for-the-badge)
-![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white&style=for-the-badge)
-![Redis](https://img.shields.io/badge/-Redis-DC382D?logo=redis&logoColor=white&style=for-the-badge)
-![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge)
-![Celery](https://img.shields.io/badge/-Celery-37814A?logo=celery&logoColor=white&style=for-the-badge)
+- ![Django](https://img.shields.io/badge/-Django-092E20?logo=django&logoColor=white&style=for-the-badge)
+- ![Django Rest Framework](https://img.shields.io/badge/-Django%20Rest%20Framework-092E20?logo=django&logoColor=white&style=for-the-badge)
+- ![HTML](https://img.shields.io/badge/-HTML-E34F26?logo=html5&logoColor=white&style=for-the-badge)
+- ![CSS](https://img.shields.io/badge/-CSS-1572B6?logo=css3&logoColor=white&style=for-the-badge)
+- ![JavaScript](https://img.shields.io/badge/-JavaScript-F7DF1E?logo=javascript&logoColor=black&style=for-the-badge)
+- ![Python](https://img.shields.io/badge/-Python-3776AB?logo=python&logoColor=white&style=for-the-badge)
+- ![NumPy](https://img.shields.io/badge/-NumPy-013243?logo=numpy&logoColor=white&style=for-the-badge)
+- ![Pandas](https://img.shields.io/badge/-Pandas-150458?logo=pandas&logoColor=white&style=for-the-badge)
+- ![Bootstrap](https://img.shields.io/badge/-Bootstrap-7952B3?logo=bootstrap&logoColor=white&style=for-the-badge)
+- ![Git](https://img.shields.io/badge/-Git-F05032?logo=git&logoColor=white&style=for-the-badge)
+- ![Design Patterns](https://img.shields.io/badge/-Design%20Patterns-FFD700?logoColor=black&style=for-the-badge)
+- ![SQL](https://img.shields.io/badge/-SQL-4479A1?logo=mysql&logoColor=white&style=for-the-badge)
+- ![MongoDB](https://img.shields.io/badge/-MongoDB-47A248?logo=mongodb&logoColor=white&style=for-the-badge)
+- ![Redis](https://img.shields.io/badge/-Redis-DC382D?logo=redis&logoColor=white&style=for-the-badge)
+- ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge)
+- ![Celery](https://img.shields.io/badge/-Celery-37814A?logo=celery&logoColor=white&style=for-the-badge)
 
 ## Repository Structure
 
-...
+- [Folder 1](folder1/): Description of the folder.
+- [Folder 2](folder2/): Description of the folder.
+- ...
 
 ## Contributing
 
