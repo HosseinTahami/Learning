@@ -4,7 +4,8 @@
 [![GitHub forks](https://img.shields.io/github/forks/your-username/your-repository.svg?style=social)](https://github.com/your-username/your-repository/network/members)
 [![GitHub watchers](https://img.shields.io/github/watchers/your-username/your-repository.svg?style=social)](https://github.com/your-username/your-repository/watchers)
 
-A collection of codes and files related to the subjects and technologies I have learned or currently learning.
+Welcome to my learning repository! This repository contains codes and files related to various subjects and technologies that I have learned or currently learning. Below is a list of the subjects and technologies covered in this repository:
+
 
 ## Technologies and Subjects Covered
 
