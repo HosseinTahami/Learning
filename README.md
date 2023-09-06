@@ -46,9 +46,7 @@ A collection of codes and files related to the subjects and technologies I have 
 
 ## Repository Structure
 
-- [Folder 1](folder1/): Description of the folder.
-- [Folder 2](folder2/): Description of the folder.
-- ...
+...
 
 ## Contributing
 
