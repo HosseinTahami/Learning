@@ -28,8 +28,6 @@ Welcome to my learning repository! This repository contains codes and files rela
 
 ## Repository Structure
 
-- [Folder 1](folder1/): Description of the folder.
-- [Folder 2](folder2/): Description of the folder.
 - ...
 
 ## Contributing
