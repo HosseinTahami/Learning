@@ -139,6 +139,14 @@ AnotherVenv
 AnotherVenv/
 .AnotherVenv
 *AnotherVenv
+*djanog_env/
+django_env/
+django_env
+*django_env
+*MLvenv/
+MLvenv/
+MLvenv
+
 # Spyder project settings
 .spyderproject
 .spyproject
