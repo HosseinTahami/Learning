@@ -127,25 +127,15 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-hw15_venv/
 hw15_venv
-.hw15_venv
-*hw15_venv
-NewVenv/
-.NewVenv
-*NewVenv
 NewVenv
 AnotherVenv
-AnotherVenv/
-.AnotherVenv
-*AnotherVenv
-*djanog_env/
-django_env/
 django_env
-*django_env
-*MLvenv/
-MLvenv/
 MLvenv
+rest_venv
+
+
+
 
 # Spyder project settings
 .spyderproject
