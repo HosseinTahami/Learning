@@ -28,9 +28,11 @@ class UserRegisterSerializer(serializers.Serializer):
 
 
 class UserRegisterSerializer(serializers.ModelSerializer):
+    confirm_password = serializers.CharField(required=True, write_only=True)
+
     class Meta:
         model = User
-        fields = ("username", "password", "email")
+        fields = ("username", "password", "email", "confirm_password")
         extra_kwargs = {
             "password": {"write_only": True},
             "email": {"validators": (clean_email,)},
