@@ -30,7 +30,7 @@ Welcome to my learning repository! This repository contains codes and files rela
 - Python 🐍
 - JavaScript 🌐
 - HTML/CSS 🎨
-- Git 🗄️
+- Git 🗄️💬
 - Design Patterns 📐
 - Machine Learning and Deep Learning 🤖
 - Testing 🧪
