@@ -7,4 +7,4 @@ WORKDIR /src
 
 COPY one.py /src
 
-CMD ["python", 'one.py']
+CMD ["python", "one.py"]
