@@ -34,3 +34,25 @@ docker <whatever you want> help ===> docker container help
 
 docker container prune ===> delete all stopped containers
 
+docker run -d <An Image Name> ===> docker run -d redis -----> for detach running in the background !
+
+docker run -itd <An Image Name> ===> docker run -itd busybox ---> the -it is for making busybox interactive
+
+docker create --name <Container Name> <An Image Name>
+|
+|
+|===> docker create --name Hossein_Ubuntu ubuntu
+                |
+                |===> this will only create the container but wont run it !
+
+docker start < > ===> after you create a container you can start it with this command
+
+docker stop < > ==> stops the container slowly and make sure that container is not in the middle of something
+
+docker restart < > 
+
+docker kill < > ==> stops the container even if its middle of something 
+
+docker pause < > ==> wont stop the container but pause it 
+
+docker unpause < > ==> un pause the container
