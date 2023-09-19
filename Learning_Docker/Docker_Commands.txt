@@ -66,3 +66,5 @@ Restart Policy:
 - always | - unless-stopped | - on-failed
 
 docker run -it --restart (restart policy) (container name)
+
+--------------- Dockerfile reference -----------------------
