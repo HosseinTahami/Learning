@@ -68,3 +68,11 @@ Restart Policy:
 docker run -it --restart (restart policy) (container name)
 
 --------------- Dockerfile reference -----------------------
+FROM
+
+LABEL
+
+WORKDIR
+
+CMD []
+
