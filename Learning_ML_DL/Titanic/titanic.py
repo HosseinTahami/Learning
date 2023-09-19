@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-%matplotlib ipympl
+
 import matplotlib.pyplot as mpl
 from sklearn.linear_model import LogisticRegression
 
