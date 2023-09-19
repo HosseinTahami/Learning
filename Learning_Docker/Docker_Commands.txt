@@ -74,5 +74,14 @@ LABEL
 
 WORKDIR
 
+COPY 
+
 CMD []
+
+command: docker image build -t (image name):(tag) (where is dockerfile)
+|
+|===> if dockerfile is exactly where you are only put an . 
+    |
+    |===> docker image build -t hossein_image:2.2 .
+
 
