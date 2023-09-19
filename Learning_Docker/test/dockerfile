@@ -1,0 +1,10 @@
+FROM python:latest
+
+LABEL maintainer="hosseintahami2000@gmail.com"
+LABEL version="0.0"
+
+WORKDIR /src
+
+COPY one.py /src
+
+CMD ["python", 'one.py']
