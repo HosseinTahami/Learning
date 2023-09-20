@@ -85,3 +85,8 @@ command: docker image build -t (image name):(tag) (where is dockerfile)
     |===> docker image build -t hossein_image:2.2 .
 
 
+-------------------------------------------------------------
+
+docker image tag (image name:tag) (docker hub username)/(image name:tag)
+
+docker push (docker hub username)/(image name:tag)
