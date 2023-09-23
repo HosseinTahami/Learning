@@ -85,10 +85,18 @@ command: docker image build -t (image name):(tag) (where is dockerfile)
     |===> docker image build -t hossein_image:2.2 .
 
 
--------------------------------------------------------------
+------------------------------------------------------------------------------------
 
 docker image tag (image name:tag) (docker hub username)/(image name:tag)
                     |
                     |==> the image you want to change its name so you can push it !
 
 docker push (docker hub username)/(image name:tag)
+
+------------------------------------------------------------------------------------
+
+------------------------------------ Port Forwarding ---------------------------
+
+-p (first port):(second port) 
+==> first port is for your local computer
+==> second port is for the container
