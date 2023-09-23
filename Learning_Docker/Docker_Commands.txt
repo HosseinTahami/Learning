@@ -88,5 +88,7 @@ command: docker image build -t (image name):(tag) (where is dockerfile)
 -------------------------------------------------------------
 
 docker image tag (image name:tag) (docker hub username)/(image name:tag)
+                    |
+                    |==> the image you want to change its name so you can push it !
 
 docker push (docker hub username)/(image name:tag)
