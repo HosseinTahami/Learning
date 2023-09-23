@@ -142,3 +142,27 @@ docker run -itd --name (container name) -v (volume name):/(what you want to save
 so after saving all the data you wanted inside your volume 
 even if you delete your container you can attach a new container 
 to a specific volume you want ! ==> with the exact upper command
+
+
+---------------------------------- network ------------------------------------------
+
+docker network ls
+
+docker network create (Network Name)
+
+docker network inspect (Network Name)
+
+docker run -itd --name (container name) (image name)
+docker run -itd --name (container name) (image name)
+|
+|==> now we have two separate containers
+
+docker network connect (Network Name) (first Container)
+docker network connect (Network Name) (Second Container)
+
+docker network inspect (Network Name)
+
+For example you have 2 container named pypy from python image and ubn from ubuntu image
+and you connect them through NN network that you created so if you go inside pypy with 
+command docker exec -it pypy bash and when you are inside then write ( ping ubn ) then
+you will see that these 2 containers are connected to each other !
