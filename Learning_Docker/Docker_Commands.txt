@@ -179,3 +179,15 @@ services:
 
 So when we run the command docker-compose up in the directory where the yaml file
 is it will create two containers with python and redis latest version !
+
+
+EXAMPLE:
+|
+|
+|==> | docker run -itd --name alp -v V1:/home alpine
+     | docker run -itd --name alp2 --volume-from alp alpine ==> Read & Write
+     | docker run -itd --name alp3 --volume-from alp:ro alpine ==> Read Only
+
+
+
+
