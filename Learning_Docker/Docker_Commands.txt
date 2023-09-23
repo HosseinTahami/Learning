@@ -59,7 +59,7 @@ docker unpause < > ==> un pause the container
 
 docker exec (Container Name) (command you want)
 |
-|==> docker exec Hossein_Ubuntu ls
+|==> docker exec Hossein_Ubuntu ls ==> docker exec -it (container name) (bash or sh)
 
 Restart Policy:
 
@@ -123,3 +123,22 @@ docker diff (container name)
 |
 |===> shows the changes in the container | A : add, C: change, D: delete
 
+----------------------------------  volume  ----------------------------------------------
+
+docker volume ls
+
+docker volume prune
+
+docker volume create (name)
+
+docker volume rm (name)
+
+docker volume inspect (name)
+
+docker run -itd --name (container name) -v (volume name):/(what you want to save from your image) (image name)
+|
+|==> example: docker run -itd --name alp -v V1:/home alpine
+
+so after saving all the data you wanted inside your volume 
+even if you delete your container you can attach a new container 
+to a specific volume you want ! ==> with the exact upper command
