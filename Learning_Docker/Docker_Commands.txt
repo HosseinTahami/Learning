@@ -166,3 +166,16 @@ For example you have 2 container named pypy from python image and ubn from ubunt
 and you connect them through NN network that you created so if you go inside pypy with 
 command docker exec -it pypy bash and when you are inside then write ( ping ubn ) then
 you will see that these 2 containers are connected to each other !
+
+--------------------------  docker-compose  -----------------------------------
+
+docker-compose.yaml
+
+services:
+  rd:
+    image: redis
+  py:
+    image: python
+
+So when we run the command docker-compose up in the directory where the yaml file
+is it will create two containers with python and redis latest version !

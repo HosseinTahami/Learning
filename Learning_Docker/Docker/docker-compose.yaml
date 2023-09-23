@@ -1,0 +1,5 @@
+services:
+  rd:
+    image: redis:latest
+  py:
+    image: python:latest
