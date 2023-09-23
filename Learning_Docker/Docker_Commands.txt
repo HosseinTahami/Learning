@@ -93,9 +93,9 @@ docker image tag (image name:tag) (docker hub username)/(image name:tag)
 
 docker push (docker hub username)/(image name:tag)
 
-------------------------------------------------------------------------------------
 
------------------------------------- Port Forwarding ---------------------------
+
+------------------------------------ Port Forwarding -------------------------------
 
 -p (first port):(second port) 
 ==> first port is for your local computer
@@ -106,3 +106,9 @@ docker run -d --name redis_test -p 3030:6379 redis
 docker exec -it redis_test bash
 redis-cli
 get name
+
+------------------------------------------------------------------------------------
+
+docker save -o (name you want.tar) (An Image Name:tag)
+
+docker load -i (name of the file.tar)
