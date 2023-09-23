@@ -100,3 +100,9 @@ docker push (docker hub username)/(image name:tag)
 -p (first port):(second port) 
 ==> first port is for your local computer
 ==> second port is for the container
+
+docker run -d --name redis_test -p 3030:6379 redis
+
+docker exec -it redis_test bash
+redis-cli
+get name
