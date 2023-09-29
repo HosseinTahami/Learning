@@ -20,9 +20,38 @@ clear : Clean Terminal
 
 ls : List of every thing in directory
 
+ls -a: -a is for hidden files and directories
+
+ls -l: -l is for longer information about files and directories
+
 mkdir : Make Directory
 
-cd : Change Directory
+cd : Change Directory ==> cd .. : backward move
 
 uname -a : information about OS | -a stands for (all)
 
+man : Manual ==> man (command you want)
+
+type: Tells if a command is Third Party or Built-In
+
+touch: Create a File
+
+rm: Delete a File ==> rm (File Name)
+
+rm -r: Delete a Directory ==> rm -r (Directory Name)
+
+cat: concatenate files
+|
+|==> cat -n (file name): shows inside the file and put a number next to each line
+
+nl: Works like cat -n but blank lines wont have number
+
+history: Shows history of your commands (last 500)
+|
+|==> !(number of the command you want to work again) ==> exm: !67
+|
+|==> !! last command work again
+
+echo: Works like print or insert sth in a file
+|
+|==> echo (text you want) >> (file name)
