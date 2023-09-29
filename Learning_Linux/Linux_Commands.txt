@@ -274,3 +274,19 @@ tr "sth in file" "sth new" < (filename)
 
 cmd1 | cmd2 | cmd3 ==> result of 1 go to 2 result of 2 go to 3
 
+================ Hard & Soft Link =================
+
+Soft Link: Base on Name of the File
+|
+|==> ln -s (existing file) (new file to create)
+|
+|==> unlink (filename)
+|
+|==> readlink -f (filename)
+
+Hard Link: Base on the node id
+|
+|==> ln (existing file) (new file to create) 
+|
+|==> unlink (filename)
+
