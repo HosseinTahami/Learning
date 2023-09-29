@@ -149,6 +149,19 @@ kill (id of command): find the if of command you want with jobs command
 |
 |==> kill %(id) %(id) ...
 
+==============   Temux   =============
+sudo apt install temux
+
+
+==============  Niceness Scale  =============
+
+Niceness Scale is a number that belongs to processes and starts
+from -20 and ends at 19 and the more positive this
+number be the more cpu could give to other process if they 
+are short of cpu.
+
+nice -n (number) (command you want) &
+renice (new number) -p (id that you found by jobs command)
 
 
 ============== Environment Variable =============
