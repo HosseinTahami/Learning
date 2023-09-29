@@ -4,6 +4,13 @@ Shell: is a interface between User and Kernel
 ==================    File Structure    ===================
 
 /dev: information about devices
+|
+|==> sda: first hard-drive / sdb: second hard-drive
+|
+|==> sda1: first partition of first hard-drive
+|
+|==> sdb3: third partition of second hard-drive
+
 /etc: configs
 /home: users information
 /mnt : information of mount devices like hard and ...
@@ -215,13 +222,18 @@ systemctl:
 
 -    | - - - | - - - | - - -
 type | Owner | Group | Others
+  |
+  |==> d: means Directory
+  |==> c: means Char-Device File
+  |==> b: means Block-Device File
 
 r : Read / w : Write / x : Execute
 
 Sample:
 -rw-r--r--
-drw--re-r-- ==> if the first place is d means directory
-                else it is a file.
+drw--re-r--
+ 
+
 
 chown : Change Owner
 |
