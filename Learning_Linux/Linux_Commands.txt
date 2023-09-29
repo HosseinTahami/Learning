@@ -5,9 +5,10 @@ Shell: is a interface between User and Kernel
 
 /dev: information about devices
 /etc: configs
-/home: user information
+/home: users information
 /mnt : information of mount devices like hard and ...
 /tmp : temporary files
+/root : exactly like home directory but for root user
 
 
 ====================    Shortcuts    ====================
@@ -58,6 +59,7 @@ history: Shows history of your commands (last 500)
 echo: Works like print or insert sth in a file
 |
 |==> echo (text you want) >> (file name)
+
 
 whoami: say which user you are
 
@@ -112,3 +114,15 @@ old one you can just call it like the this example
 
 In the example we add (Something New) to our old PATH
 Environment Variable !
+
+================ Redirect & Pipe Line ================
+
+(Command) >> (filename)
+|
+|==> ls -la >> (filename)
+
+(sth that will cause error) 2>> (filename)
+
+tr "sth in file" "sth new" < (filename)
+
+cmd1 | cmd2 | cmd3 ==> result of 1 go to 2 result of 2 go to 3
