@@ -8,7 +8,7 @@ Redis is mostly used for cache and message broker.
 Key Name | Type of Value | Value
 |
 |==> first name | string | Hossein
-
+|==> Type of Value is not necessary
 Command:
 
 systemctl status redis.service
@@ -18,3 +18,5 @@ systemctl stop redis.service
 =====================  redis-cli  =====================
 
 ping --> should return PONG 
+
+=====================  NoSQL vs SQL  =====================  
