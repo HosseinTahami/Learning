@@ -193,6 +193,8 @@ find: give it a directory and filename
 |
 |==> find (directory) --name (filename)
 
+pstree: Shows a tree diagram of how your system works
+
 ================  Permission  ==============
 
 -    | - - - | - - - | - - -
