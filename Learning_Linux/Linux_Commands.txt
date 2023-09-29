@@ -113,6 +113,20 @@ dpkg: Under the Hood of apt-get
 
 dpkg-reconfigure (package_name) : will reset the package to its default setting
 
+ps : Process
+|
+|==> ps -ef : Shows all of the processes with detail
+
+top : Like ps Command but Live
+
+uptime: Shows detail about running time of devices
+
+free : Shows free space of Memory and swap and ...
+|
+|==> free -h: shows memory by Gb
+
+
+
 ============== Environment Variable =============
 PATH: Directories that search for a command you use to call it
 |
@@ -142,3 +156,4 @@ Environment Variable !
 tr "sth in file" "sth new" < (filename)
 
 cmd1 | cmd2 | cmd3 ==> result of 1 go to 2 result of 2 go to 3
+
