@@ -290,3 +290,40 @@ Hard Link: Base on the node id
 |
 |==> unlink (filename)
 
+=====================  vim & vi =====================
+
+vim : improved version of vi
+
+Shortcuts:
+
+shift+: ==> Command Mode
+
+i ==> Insert Mode
+
+v ==> Visual Mode
+
+esc ==> Escape from any mode
+
+Insert Mode: you can change file
+
+Command Mode: 
+|
+|==> w means Write 
+|
+|==> q means quit
+|
+|==> exit means exit
+|
+|==> q! means quit without saving the changes
+
+Default: 
+|
+|==> x will delete from where the cursor is 
+|
+|==> u Undo letter by letter and shift+u Undo at once
+
+Visual Mode:
+|
+|==> dd wil delete a line at once
+|
+|==> select a line and with d cut it and with p paste it
