@@ -125,6 +125,30 @@ free : Shows free space of Memory and swap and ...
 |
 |==> free -h: shows memory by Gb
 
+sleep: terminal will go to sleep
+|
+|==> sleep (number) & : & will make the command run in background
+|
+|==> if you forgot the & sign you can use CTRL+Z
+
+jobs: shows what happening in the background
+
+fg: ForeGround
+|
+|==> move a command from background to foreground
+|
+|==> fg %(id of the command)
+
+bg: BackGround
+|
+|==> exactly like fg but for moving to background
+
+kill (id of command): find the if of command you want with jobs command
+|
+|==> killall (a command for example sleep): kill all of the sleep commands
+|
+|==> kill %(id) %(id) ...
+
 
 
 ============== Environment Variable =============
