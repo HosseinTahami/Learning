@@ -28,6 +28,8 @@ ls -a: -a is for hidden files and directories
 
 ls -l: -l is for longer information about files and directories
 
+ls -i: -i is for showing inode of files 
+
 mkdir : Make Directory
 
 cd : Change Directory ==> cd .. : backward move
@@ -227,13 +229,9 @@ chmod: Change Mode
                |
                |==> 0:9
 
+=================   Tmux   ================
 
-
-
-=================   Temux   ================
-
-sudo apt install temux
-
+sudo apt install tmux
 
 ==============  Niceness Scale  =============
 
