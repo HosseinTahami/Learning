@@ -191,6 +191,44 @@ find: give it a directory and filename
 |
 |==> find (directory) --name (filename)
 
+================  Permission  ==============
+
+-    | - - - | - - - | - - -
+type | Owner | Group | Others
+
+r : Read / w : Write / x : Execute
+
+Sample:
+-rw-r--r--
+drw--re-r-- ==> if the first place is d means directory
+                else it is a file.
+
+chown : Change Owner
+|
+|==> chown (new username):(new group name) (file name)
+
+different levels:
+- g: Group
+- o: Others
+- u: Owner
+- a: All Tiers
+
+chmod: Change Mode
+|
+|==> chmod (level)=(permissions) (file name)
+|
+|==> chmod g=wr 1.txt
+|
+|==> chmod a=wre a.txt
+|
+|==> chmod u= a.txt
+|
+|==> chmod (number)(number)(number) (filename)
+               |
+               |==> 0:9
+
+
+
 
 =================   Temux   ================
 
