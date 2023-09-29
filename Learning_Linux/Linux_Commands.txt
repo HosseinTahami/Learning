@@ -195,6 +195,22 @@ find: give it a directory and filename
 
 pstree: Shows a tree diagram of how your system works
 
+systemctl:
+|
+|==> systemctl start (system you want)
+|
+|==> systemctl stop (system you want)
+|
+|==> systemctl status (system you want)
+|
+|==> systemctl enable (system you want)
+|
+|==> systemctl disable (system you want)
+
+* disable and enable are options for when you
+  turn on your computer you want that system to
+  start by default or not !
+
 ================  Permission  ==============
 
 -    | - - - | - - - | - - -
