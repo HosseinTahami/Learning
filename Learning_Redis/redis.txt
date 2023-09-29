@@ -1,0 +1,20 @@
+Redis is a Key, Value and NoSql DataBase.
+
+Redis is a memory database means
+ saving important information in RAM.
+
+Redis is mostly used for cache and message broker.
+
+Key Name | Type of Value | Value
+|
+|==> first name | string | Hossein
+
+Command:
+
+systemctl status redis.service
+systemctl start redis.service
+systemctl stop redis.service
+
+=====================  redis-cli  =====================
+
+ping --> should return PONG 
