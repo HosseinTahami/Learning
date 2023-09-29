@@ -97,6 +97,22 @@ grep: search for something in a file
 |
 |==> grep -i (sth) (filename) : -i will not consider the uppercase and lowercase
 
+add-apt-repository "Repository Link"
+|
+|==> will add repository in etc/apt/source.list
+     so when you want to install a package it 
+     will search those repositories.
+
+dpkg: Under the Hood of apt-get
+|
+|==> dpkg -i "app-name.deb" : -i will install the package
+|
+|==> dpkg -r "app-name.deb" : -r will remove the package
+|
+|==> dpkg -s "app-name.deb" : -s will show status of the package
+
+dpkg-reconfigure (package_name) : will reset the package to its default setting
+
 ============== Environment Variable =============
 PATH: Directories that search for a command you use to call it
 |
