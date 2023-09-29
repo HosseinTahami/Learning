@@ -62,3 +62,53 @@ echo: Works like print or insert sth in a file
 whoami: say which user you are
 
 sudo su: Substitute User ==> su (Username)
+
+head: Shows the first 10 line of a file
+|
+|==> head -n (number) (file name)
+
+tail: Shows the last 10 line of a file
+|
+|==> tail -n (number) (file name)
+
+less: Show a file Page by Page and Navigate Up and Down
+|
+|==> less (file name)
+
+printenv: Print Environment Variable
+
+export: create a Environment Variable
+|
+|==> export (VARIABLE NAME)="What Ever You Want"
+
+unset: Delete a Environment Variable
+|
+|==> unset (VARIABLE NAME)
+
+grep: search for something in a file
+|
+|==> grep (sth) (file name)
+|
+|==> grep -w (sth) (filename) : -w is for the exact word not part of a word
+|
+|== > grep -c (sth) (filename) : -c will count and give a number
+|
+|==> grep -i (sth) (filename) : -i will not consider the uppercase and lowercase
+
+============== Environment Variable =============
+PATH: Directories that search for a command you use to call it
+|
+|==> with the command : which (Command name) ==> which ls
+
+the output of (( which ls )) wil be where this command where called from !
+
+
+add Environment Variable inside .bashrc or .zshrc
+with export command if you want to create a new 
+Environment Variable but if you want to change an
+old one you can just call it like the this example
+|
+|==> PATH=$PATH:(Something New)
+
+In the example we add (Something New) to our old PATH
+Environment Variable !
