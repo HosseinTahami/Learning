@@ -149,7 +149,51 @@ kill (id of command): find the if of command you want with jobs command
 |
 |==> kill %(id) %(id) ...
 
-==============   Temux   =============
+file: determine the type of a file 
+|
+|==> file (filename)
+
+cal: Calender ==> shows calender
+
+ping: send request to a server
+|
+|==> ping (website or ip or ...)
+
+wget: downloader
+|
+|==> wget (link)
+
+passwd: let you change your password
+
+state: show lots of information about a file or directory
+|
+|==> state (filename or directory)
+
+mv: Move or Rename a file
+|
+|==> mv (filename) (where to move)
+|
+|==> mv (old filename) (new filename)
+
+cp: Copy a file 
+
+alias: change commands
+|
+|==> alias (what ever you want)=(what to do)
+|==> alias cls=clear /// alias hello='echo hello'
+|
+|==> an empty alias show all aliases
+
+locate: tells you where is the file 
+updatedb: will update  the db of locate package !
+
+find: give it a directory and filename
+|
+|==> find (directory) --name (filename)
+
+
+=================   Temux   ================
+
 sudo apt install temux
 
 
