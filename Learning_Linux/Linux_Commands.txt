@@ -184,7 +184,7 @@ alias: change commands
 |
 |==> an empty alias show all aliases
 
-locate: tells you where is the file 
+plocate: tells you where is the file 
 updatedb: will update  the db of locate package !
 
 find: give it a directory and filename
