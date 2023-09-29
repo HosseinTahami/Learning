@@ -1,0 +1,28 @@
+==================    File Structure    ===================
+
+/dev: information about devices
+/etc: configs
+/home: user information
+/mnt : information of mount devices like hard and ...
+/tmp : temporary files
+
+
+====================    Shortcuts    ====================
+
+CTRL + ALT + T ==> Open Terminal
+exit / CTRL + D ==> Close Terminal
+
+====================    Commands    =====================
+
+pwd : Print Working Directory
+
+clear : Clean Terminal
+
+ls : List of every thing in directory
+
+mkdir : Make Directory
+
+cd : Change Directory
+
+uname -a : information about OS | -a stands for (all)
+
