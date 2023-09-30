@@ -24,6 +24,8 @@ ping --> should return PONG
 
 redis-cli -h (server ip) -p (port number) -a (password)
 
+=====================   Key   =========================
+
 SET (Key) (Value)
 |
 |==> SET num1 123
@@ -126,6 +128,55 @@ STRLEN (key)
 |==> SET name Hossein
 |==> STRLEN name --> 7
 
+=======================   List   ==========================
 
+LPUSH & RPUSH (key) (value) (value) ...
+|
+|==> LPUSH names peter tom jack
+|==> RPUSH names tony john
+
+LRANGE (key) (start) (end)
+|
+|==> LRANGE names 0 -1 --> all of the list
+|
+|==> LRANGE names 1 3 --> second and third
+
+LPUSHX (key) (value) (value) ...
+|
+|==> push the values if the key EXIST
+
+LINDEX (key) (index)
+|
+|==> LINDEX names 2
+
+LPOS (key) (value)
+|
+|==> LPOS names jack --> (index)
+
+
+LINSERT (key) (Before or After) (value inside list) (value you want to add)
+|
+|==> LINSERT names AFTER john james --> add james after john
+
+LLEN (key) --> Length of list
+
+LPOP & RPOP (key) : Left & Right POP
+|
+|==> LPOP names
+
+LREM (key) (+ or -)(number) (value)
+|
+|==> remove from start or end of a list
+     number of the values you want.
+
+LSET (key) (index) (value)
+|
+|==> overwrite the index you want with the value you gave
+
+RPOPLPUSH (source list) (destination list)
+|
+|==> Transfer last index of source to first index of destination
+
+BLPOP (keys) (timeout)
 
 =====================  NoSQL vs SQL  =====================  
