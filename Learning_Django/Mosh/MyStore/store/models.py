@@ -112,9 +112,6 @@ class Address(models.Model):
         )
 
 
-class Item(models.Model):
-    pass
-
 class Cart(models.Model):
     # auto_now_add will save the time only for the first time
     created_at = models.DateTimeField(auto_now_add=True)
