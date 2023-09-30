@@ -1,5 +1,21 @@
 sudo su postgres --> switch user to postgres
 
+**other databases are created from template1
+  and template1 is only an empty database.
+
+**template0 is exactly like template1 and
+  only a frame for other databases but the 
+  difference from template1 is you cant even
+  connect to it nor change it.
+
+|
+|==> CREATE DATABASE (DB_Name) will by default 
+     use template1 but if you want to choose another
+     database to create your new one use TEMPLATE 
+     |
+     |==> CREATE DATABASE (DB_Name) TEMPLATE template0
+      
+
 psql --> terminal-based front-end to postgreSQL
 
 psql -l : shows all DataBases
@@ -14,3 +30,12 @@ psql -d (DataBases Name) : Connect to a database
 |==> CREATE DATABASE (Name)
 |
 |==> DROP DATABASE (Name)
+|
+|==> \c (DataBase Name)
+|
+|==> \x : will on and off expanded mode
+|
+|==> \d : will show all of the tables from the database
+
+
+
