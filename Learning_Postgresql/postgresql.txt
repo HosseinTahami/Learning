@@ -14,13 +14,18 @@ sudo su postgres --> switch user to postgres
      database to create your new one use TEMPLATE 
      |
      |==> CREATE DATABASE (DB_Name) TEMPLATE template0
-      
+
 
 psql --> terminal-based front-end to postgreSQL
 
 psql -l : shows all DataBases
 
 psql -d (DataBases Name) : Connect to a database
+
+psql -U (Name) -d (DB_Name) : specific user connect to a database
+
+
+
 
 |
 |==> \l : Shows all DataBases
@@ -36,6 +41,25 @@ psql -d (DataBases Name) : Connect to a database
 |==> \x : will on and off expanded mode
 |
 |==> \d : will show all of the tables from the database
-
+|
+|==> \du : shows all the roles
+|
+|==> CREATE ROLE (Name) WITH (Attributes) (Attributes) ...
+|
+|==> CREATE ROLE hossein WITH login superuser
+|
+|==> DROP ROLE (Name)
+|
+|==> ALTER ROLE (Name) (Attributes) (Attributes)
+|
+|==> ALTER ROLE hossein NOLOGIN NOSUPERUSER
+|
+|==> CREATE ROLE DevOps
+|
+|==> CREATE ROLE jack IN ROLE Devops
+|
+|==> ALTER GROUP DevOps DROP USER jack
+|
+|==> ALTER GROUP DevOps ADD USER jack
 
 
