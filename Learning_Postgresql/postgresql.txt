@@ -1,0 +1,16 @@
+sudo su postgres --> switch user to postgres
+
+psql --> terminal-based front-end to postgreSQL
+
+psql -l : shows all DataBases
+
+psql -d (DataBases Name) : Connect to a database
+
+|
+|==> \l : Shows all DataBases
+|
+|==> \conninfo: information about our connection to postgreSQL
+|
+|==> CREATE DATABASE (Name)
+|
+|==> DROP DATABASE (Name)
