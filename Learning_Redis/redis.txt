@@ -18,5 +18,59 @@ systemctl stop redis.service
 =====================  redis-cli  =====================
 
 ping --> should return PONG 
+127.0.0.1:6379> 
+|
+|==> 127.0.0.1 is local host & 6379 is port number
+
+redis-cli -h (server ip) -p (port number) -a (password)
+
+SET (Key) (Value)
+|
+|==> SET num1 123
+|
+|==> SET num2 456
+
+GET (Key)
+|
+|==> GET num1 --> "123"
+|
+|==> GET num4 --> (nil)
+
+DEL (Key)
+|
+|==> DEL num1 num2 --> (integer) 3
+
+EXISTS (key)
+|
+|==> EXISTS num1 num1 num1 --> (integer) 3
+|
+|==> EXISTS num2 num3 num8 --> (integer) 2
+
+EXPIRE (key) (seconds)
+|
+|==> EXPIRE num1 40
+
+PEXPIRE (Key) (MilliSeconds)
+|
+|==> EXPIRE num2 7000
+
+TTL (key): Time To Live
+|
+|==> TTL num1 --> (integer) 10
+
+KEYS (regex pattern)
+|
+|==> KEYS num* --> 1) "num1" 
+                   2) "num2"
+                   3) "num3"
+
+PERSIST (key that have expire time): no expire time any more
+|
+|==> PERSIST num1
+
+RENAME (old key name) (new key name)
+|
+|==> RENAME num1 number1
+
 
 =====================  NoSQL vs SQL  =====================  
