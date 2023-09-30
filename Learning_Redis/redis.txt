@@ -72,5 +72,60 @@ RENAME (old key name) (new key name)
 |
 |==> RENAME num1 number1
 
+APPEND (key) (value you want to append)
+|
+|==> SET name Hossein
+|==> APPEND name " Tahami"
+|==> GET name "Hossein Tahami"
+
+DECR (key): Decrement
+|
+|==> SET num 10
+|==> DECR num --> 9
+|==> DECR num -- 8
+
+DECRBY (key) (value you want to Decrement)
+|
+|==> SET num 10
+|==> DECRBY num 3 --> 7
+
+GETRANGE (key) (start) (end)
+|
+|==> SET name "Hossein Tahami"
+|==> GETRANGE name 0 6 --> Hossein
+
+GETSET (key) (new value): set new value & return the old one
+|
+|==> SET name Hossein
+|==> GETSET name "Hossein Tahami" --> Hossein
+
+INCR (key): Increment opposite of DECR
+INCRBY (key) (value you want to add): opposite of DECRBY
+INCRBYFLOAT (key) (float number)
+
+MSET (key) (value) (key) (value) ...
+|
+|==> MSET name Hossein age 20 country Iran
+
+MGET (multiple key)
+|
+|==> MGET name age country --> Hossein 20 Iran
+
+MSETNX (key) (value) (key) (value) ...
+|
+|==> SET value for those keys if they do Not Exist
+
+SETRANGE (key) (starting index) (value)
+|
+|==> SET name amir
+|==> SETRANGE name 1 bcd
+|==> GET name --> abcd
+
+STRLEN (key)
+|
+|==> SET name Hossein
+|==> STRLEN name --> 7
+
+
 
 =====================  NoSQL vs SQL  =====================  
