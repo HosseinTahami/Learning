@@ -5,10 +5,11 @@ from django.db import models
     but if you want to do it your self you can put the
     primary_key in the arguments of the Field!
 """
-# Create your models here.
+
 class Promotion(models.Model):
     description = models.CharField(max_length=255)
     discount = models.FloatField()
+    
 class Collection(models.Model):
     title = models.CharField(max_length=255)
     
@@ -86,38 +87,30 @@ class Order(models.Model):
         Customer,
         on_delete=models.ProtectedError
     )
-# class Address(models.Model):
-#     """
-#     There is a one to one relationship between
-#     Customer and Address so each Customer should
-#     only have one and only Address and each Address
-#     should belongs to one and only one Customer!
-#     """
-#     street = models.CharField(max_length=255)
-#     city = models.CharField(max_length=255)
-#     # Customer is the parent of the Address Entity
-#     ''' on_delete is to set the behavior of Address Entity when
-#         the Customer entity is deleted and CASCADE means that 
-#         the address will be deleted too.
-        
-#         primary_key is there so that django do not make
-#         an ID for the Address entity by default.
-#     '''
-    
-#     customer = models.OneToOneField(
-#         Customer,
-#         on_delete=models.CASCADE,
-#         primary_key=True,
-#         )
-
 class Address(models.Model):
+    """
+    There is a one to one relationship between
+    Customer and Address so each Customer should
+    only have one and only Address and each Address
+    should belongs to one and only one Customer!
+    """
     street = models.CharField(max_length=255)
     city = models.CharField(max_length=255)
-    # ForeignKey: Multiple Address for the same Customer
-    customer = models.ForeignKey(
+    # Customer is the parent of the Address Entity
+    ''' on_delete is to set the behavior of Address Entity when
+        the Customer entity is deleted and CASCADE means that 
+        the address will be deleted too.
+        
+        primary_key is there so that django do not make
+        an ID for the Address entity by default.
+    '''
+    
+    customer = models.OneToOneField(
         Customer,
         on_delete=models.CASCADE,
-    )
+        primary_key=True,
+        )
+
 
 class Item(models.Model):
     pass
