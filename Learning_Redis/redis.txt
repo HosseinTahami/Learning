@@ -179,4 +179,38 @@ RPOPLPUSH (source list) (destination list)
 
 BLPOP (keys) (timeout)
 
+
+=====================   Hash   =========================
+
+HSET (key) (field) (value) (field) (value)
+|
+|==> HSET user1 name Hossein age 20 status dead
+
+
+HGET (key) (field)
+|
+|==> HGET user1 name --> Hossein
+
+HGETALL (key)
+
+HMGET (key) (field) (field)
+
+HDEL (key) (field)
+
+HEXISTS (key) (field)
+
+HINCRBY (key) (field) (+ or -)(number)
+|
+|==> + will increase and - will decrease
+
+HINCRBYFLOAT (key) (field) (+ or -)(float number)
+
+HKEYS (key) --> show all fields
+
+HVALS (key) --> show all values
+
+HLEN (key) --> number of fields
+
+HSTRLEN (key) (field) --> character numbers of a field
+
 =====================  NoSQL vs SQL  =====================  
