@@ -8,3 +8,11 @@ class Person(models.Model):
 
     def __str__(self):
         return f"{self.id} || {self.name}"
+
+class Car(models.Model):
+    brand = models.CharField(max_length=40)
+    built_year = models.SmallIntegerField()
+    name = models.name = models.CharField(max_length=40)
+    
+    def __str__(self):
+        return f"{self.brand} || {self.name}"

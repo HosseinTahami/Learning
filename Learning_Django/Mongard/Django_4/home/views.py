@@ -1,8 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .models import Person
-from .serializers import PersonSerializer
+from .models import Person, Car
+from .serializers import PersonSerializer, CarSerializer
 
 
 @api_view(["GET", "POST", "PUT", "DELETE"])
@@ -41,3 +41,9 @@ class PersonView(APIView):
         persons = Person.objects.all()
         ser_per = PersonSerializer(instance=persons, many=True)
         return Response(data=ser_per.data)
+
+class CarView(APIView):
+    def get(self, request):
+        cars = Car.objects.all()
+        ser_data = CarSerializer(instance=cars, many=True)
+        return Response(data=ser_data.data)
