@@ -1,0 +1,8 @@
+API is a connection between DataBase
+and different apps !
+ 
+ ------------------------------------------
+
+ 1- pip install djangorestframework
+ 2- add 'rest_framework' in INSTALLED_APPS
+ 
