@@ -78,3 +78,26 @@ def ...(value):
     ....
 
 specific_field = ...Field(validators=[...])
+
+---------------- STATUS CODES ----------------
+
+from rest_framework import status
+return Response(status=status.HTTP_...)
+
+1- Informational 
+2- Successful
+|==> 200: OK
+
+3- Redirect to other page
+|
+|==> 301: Moved Permanently
+|==> 302: Moved Temporarily
+|==> 304: Read From Cache
+
+4- Client Error
+|==> 404: Page Not Found
+|==> 403: Permission Denied
+
+5- Server Error
+|==> 500: Internal Server Error
+|==> 503: Server Unavailable

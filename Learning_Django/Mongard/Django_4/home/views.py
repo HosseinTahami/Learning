@@ -1,9 +1,8 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework.views import APIView, status
 from .models import Person, Car
 from .serializers import PersonSerializer, CarSerializer
-
 
 @api_view(["GET", "POST", "PUT", "DELETE"])
 def home(request):
@@ -13,7 +12,7 @@ def home(request):
         "age": 22,
     }
     # Response : take a dict and convert it to json
-    return Response(data)
+    return Response(data, status=status.HTTP_200_OK)
 
 
 class Home(APIView):
