@@ -6,3 +6,26 @@ and different apps !
  1- pip install djangorestframework
  2- add 'rest_framework' in INSTALLED_APPS
  
+ ------------- Function Views ------------------
+
+ from rest_framework.decorators import api_view
+ from rest_framework.response import Response
+
+ @api_view(['GET', 'POST',...])
+ def first(request):
+    return Response(data) --> data: should be dictionary
+
+# Response take a dict and convert it to json
+
+-------------- Class Base Views --------------------
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+
+class First(APIView):
+    def get(self, request):
+        return Response(data)
+    
+    def put...
+
+    def post...

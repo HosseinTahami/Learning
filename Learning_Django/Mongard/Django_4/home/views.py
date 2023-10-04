@@ -12,6 +12,7 @@ def home(request):
         "Last_name": "Tahami",
         "age": 22,
     }
+    # Response : take a dict and convert it to json
     return Response(data)
 
 

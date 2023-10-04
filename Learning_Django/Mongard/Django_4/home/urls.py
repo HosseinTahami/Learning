@@ -6,3 +6,5 @@ urlpatterns = [
     path("home/2/", views.Home.as_view()),
     path("persons", views.PersonView.as_view()),
 ]
+
+# these urls called 'End-Point'
