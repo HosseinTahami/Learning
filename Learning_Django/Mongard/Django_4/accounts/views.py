@@ -7,6 +7,11 @@ from .serializers import UserRegisterSerializer
 
 class UserRegister(APIView):
     def post(self, request):
+        """
+        The Reason we user Serializer(instance=...) & Serializer(data=...)
+        is <instance> argument is used when you read data from db and want to convert it
+        but <data> argument is used when we get them from user and we should validate them. 
+        """
         ser_data = UserRegisterSerializer(data=request.POST)
         if ser_data.is_valid():
             vd = ser_data.validated_data
