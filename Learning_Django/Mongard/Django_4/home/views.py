@@ -18,15 +18,23 @@ def home(request):
 
 class Home(APIView):
     def get(self, request):
+        
+        # name = request.GET['name']
         name = request.query_params[
             "name"
         ]  # --> http://127.0.0.1:8000/home/2/?name=kevin
         return Response({"name": name})
 
     def post(self, request):
-        name = request.data["name"]  # --> inside the body of url {'name' : 'kevin'}
-        return Response({"name": name})
+        info = request.data # --> inside the body of url {'name' : 'kevin'}
+        # name = request.data['name']
+        # age = request.data['age']
+        return Response(info)
 
+
+class First(APIView):
+    def get(self, request, name):
+        return Response({'name':name})
 
 class PersonView(APIView):
     def get(self, request):

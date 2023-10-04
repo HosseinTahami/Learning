@@ -29,3 +29,14 @@ class First(APIView):
     def put...
 
     def post...
+
+
+----------------------------------------------------
+
+query parameters : ?name="name you want"
+|
+|==> request.query_params['name']
+
+url: localhost/first/Hossein
+|
+|==> request.GET['name']
