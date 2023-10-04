@@ -56,3 +56,25 @@ from rest_framework import Serializers
 class NameSerializer(serializers.Serializer):
 
 class NameSerializer(serializers.ModelSerializer):
+
+
+
+Field Level Validation:
+
+def <fieldname_validation> (self, value):
+    if ...
+        raise serializers.ValidationError('...')
+
+
+Object Level Validation:
+
+def validate(self, data):
+    if data[...]:
+        raise serializers.ValidationError('...')
+
+Validator:
+
+def ...(value):
+    ....
+
+specific_field = ...Field(validators=[...])

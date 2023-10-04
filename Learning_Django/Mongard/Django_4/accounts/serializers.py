@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 
-
+# Validator
 def clean_email(value):
     if "admin" in value:
         raise serializers.ValidationError("admin word should not be in email")
@@ -38,12 +38,16 @@ class UserRegisterSerializer(serializers.ModelSerializer):
             "email": {"validators": (clean_email,)},
         }
 
+        # Field Level Validation
+        
         def validate_username(self, value):
             if value == "admin":
                 raise serializers.ValidationError("username can not be 'admin'")
 
             return value
-
+        
+        
+        # Object Level Validation --> you have to overwrite the validate method
         def validate(self, data):
             if data["password"] != data["confirm_password"]:
                 raise serializers.ValidationError("passwords must match")
