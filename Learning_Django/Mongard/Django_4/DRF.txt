@@ -126,3 +126,17 @@ REST_FRAMEWORK = {
         
     ]
 }
+
+--------------- Permission ---------------
+|
+|==> Postman: Inside Header
+                |
+                |==> Authorization: Token (Token Code Itself)
+
+AllowAny: everyone | by default 
+
+IsAuthenticated: Only Authenticated Users
+
+IsAdminUser: Authenticated & Admin Users
+
+IsAuthenticatedOrReadOnly: Authenticate Users Can Change others only can read

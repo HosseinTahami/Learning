@@ -2,6 +2,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
 from .models import Person, Car
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .serializers import PersonSerializer, CarSerializer
 
 @api_view(["GET", "POST", "PUT", "DELETE"])
@@ -36,6 +37,9 @@ class First(APIView):
         return Response({'name':name})
 
 class PersonView(APIView):
+    
+    permission_classes = [IsAdminUser,]
+    
     def get(self, request):
         persons = Person.objects.all()
         ser_per = PersonSerializer(instance=persons, many=True)
