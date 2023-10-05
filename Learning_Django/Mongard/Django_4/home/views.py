@@ -1,10 +1,10 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
-from .models import Person, Car
+from .models import Person, Car, Question, Answer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .serializers import PersonSerializer, CarSerializer
-
+from .serializers import PersonSerializer, CarSerializer, QuestionSerializer
+from rest_framework import status
 @api_view(["GET", "POST", "PUT", "DELETE"])
 def home(request):
     data = {
@@ -50,3 +50,21 @@ class CarView(APIView):
         cars = Car.objects.all()
         ser_data = CarSerializer(instance=cars, many=True)
         return Response(data=ser_data.data)
+
+
+class QuestionView(APIView):
+    
+    def get(self, request):
+        questions = Question.objects.all()
+        questions_ser = QuestionSerializer(instance=questions, many=True)
+        return Response(questions_ser.data, status=status.HTTP_200_OK)
+    
+    def post(self, request):
+        ...
+    
+    def put(self, request, pk):
+        ...
+    
+    def delete(self, request, pk):
+        ...
+        
