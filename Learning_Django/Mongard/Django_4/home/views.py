@@ -1,10 +1,15 @@
+# Inside Django Imports
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView, status
-from .models import Person, Car, Question, Answer
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .serializers import PersonSerializer, CarSerializer, QuestionSerializer
 from rest_framework import status
+
+# Inside Project Imports
+from .models import Person, Car, Question, Answer
+from .serializers import PersonSerializer, CarSerializer, QuestionSerializer
+from permissions import IsOwnerOrReadOnly
+
 @api_view(["GET", "POST", "PUT", "DELETE"])
 def home(request):
     data = {
@@ -60,6 +65,9 @@ class QuestionListView(APIView):
         return Response(questions_ser.data, status=status.HTTP_200_OK)
     
 class QuestionCreateView(APIView):
+    
+    permission_classes=[IsAuthenticated,]
+    
     def post(self, request):
         srz_data = QuestionSerializer(data=request.POST)
         if srz_data. is_valid():
@@ -81,8 +89,12 @@ class QuestionDeleteView(APIView):
 
 
 class QuestionEditView(APIView):
+    
+    permission_classes = [IsOwnerOrReadOnly,]
+    
     def put(self, request, pk):
         question = Question.objects.get(pk=pk)
+        self.check_object_permissions(request, question)
         srz_question = QuestionSerializer(instance=question, data=request.POST, partial=True)
         if srz_question.is_valid():
             srz_question.save()
