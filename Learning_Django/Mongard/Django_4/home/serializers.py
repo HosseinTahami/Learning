@@ -20,6 +20,13 @@ class AnswerSerializer(serializers.ModelSerializer):
 
 class QuestionSerializer(serializers.ModelSerializer):
     
+    answers = serializers.SerializerMethodField()
     class Meta:
         model = Question
         fields = '__all__'
+    
+    def get_answers(self, obj):
+        
+        # answer in the below line is the related_name we chose ourselves in the models.py
+        result = obj.answers.all()
+        return AnswerSerializer(instance=result, many=True).data
