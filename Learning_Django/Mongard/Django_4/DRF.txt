@@ -101,3 +101,28 @@ return Response(status=status.HTTP_...)
 5- Server Error
 |==> 500: Internal Server Error
 |==> 503: Server Unavailable
+
+--------------------- Authentication ---------------------
+
+request.user --> user info
+
+request.auth --> user authentication info
+
+---------- Token Authentication ------------
+
+INSTALLED_APPS = [
+    'rest_framework.authtoken',
+]
+
+from rest_framework.authtoken import views as auth_token
+
+urlpatterns = [
+    path('token/', auth_token.obtain_auth_token)
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[
+        'rest_framework.authentication.TokenAuthentication',
+        
+    ]
+}
