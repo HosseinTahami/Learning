@@ -55,16 +55,32 @@ class CarView(APIView):
 class QuestionView(APIView):
     
     def get(self, request):
-        questions = Question.objects.all()
+        questions = Question.objects.all() 
         questions_ser = QuestionSerializer(instance=questions, many=True)
         return Response(questions_ser.data, status=status.HTTP_200_OK)
     
     def post(self, request):
-        ...
+        srz_data = QuestionSerializer(data=request.POST)
+        if srz_data. is_valid():
+            srz_data.save()
+            return Response(srz_data.data, status=status.HTTP_201_CREATED)
+        return Response(srz_data.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def put(self, request, pk):
-        ...
+        question = Question.objects.get(pk=pk)
+        srz_question = QuestionSerializer(instance=question, data=request.POST, partial=True)
+        if srz_question.is_valid():
+            srz_question.save()
+            return Response(srz_question.data, status=status.HTTP_200_OK)
+        return Response(srz_question.errors, status=status.HTTP_406_NOT_ACCEPTABLE)
     
     def delete(self, request, pk):
-        ...
+        question = Question.objects.get(pk=pk)
+        question.delete()
+        return Response(
+            {
+                'messages':'Question Deleted Successfully'
+            },
+            status=status.HTTP_202_ACCEPTED
+        )
         
