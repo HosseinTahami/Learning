@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import Car, Question, Answer
-
+from .custom_related_fields import UsernameEmailRelationalField
 class PersonSerializer(serializers.Serializer):
     name = serializers.CharField()
     email = serializers.EmailField()
@@ -21,6 +21,9 @@ class AnswerSerializer(serializers.ModelSerializer):
 class QuestionSerializer(serializers.ModelSerializer):
     
     answers = serializers.SerializerMethodField()
+    #user = serializers.SlugRelatedField(read_only=True, slug_field='username')
+    #user = serializers.StringRelatedField(read_only=True) # --> shows whats in the __str__ of model
+    user = UsernameEmailRelationalField(read_only=True)
     class Meta:
         model = Question
         fields = '__all__'
