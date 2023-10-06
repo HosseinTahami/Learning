@@ -173,6 +173,8 @@ throttle_classes = [UserRateThrottle]
 
 OR
 
+inside setting.py:
+
 REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.throttling.AnonRateThrottle',
@@ -184,4 +186,12 @@ REST_FRAMEWORK = {
     }
 }
 
----------------------------------------------------
+------------------  JWT  -------------------
+
+1- Header --> algorithm & Token Type
+2- Payload --> Data --> sub & name , ...
+3- Signature --> secret key, ...
+
+"AUTH_HEADER_TYPES": ("Bearer",) --> inside setting of simplejwt
+
+Authorization : Bearer (access Token Itself)
