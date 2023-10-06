@@ -58,13 +58,21 @@ class CarView(APIView):
 
     
 class QuestionListView(APIView):
-    
+        
     def get(self, request):
         questions = Question.objects.all() 
         questions_ser = QuestionSerializer(instance=questions, many=True)
         return Response(questions_ser.data, status=status.HTTP_200_OK)
     
 class QuestionCreateView(APIView):
+    
+    # This docstring is for better documentation
+    """
+    Create Question
+    """
+    
+    serializer_class = QuestionSerializer # Only for better documentation
+
     
     permission_classes=[IsAuthenticated,]
     
