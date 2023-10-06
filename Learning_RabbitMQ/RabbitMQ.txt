@@ -47,3 +47,25 @@ rabbitmq-plugins list -e
 rabbitmq-plugins list -E
 
 rabbitmq-plugins directories
+
+Default Virtual Host -->  named / (a slash)
+Default User --> username: guest, password: guest
+
+-------- Authentication Vs Authorization ------
+
+Authentication: check if you are the user you are claimming !
+Authorization: check your permissions after find out how you really are !
+
+-------- rabbitmqctl --------
+
+rabbitmqctl add_user "username" "password" 
+
+rabbitmqctl list_users
+
+rabbitmqctl set_user_tags "username" "tag"
+|
+|==> ... user_tags root administrator
+
+rabbitmq set_permissions -p "host" "username" "configure_permission" "read_permission" "write_permission"
+|
+|==> ..._permissions -p "/" "root" ".*" ".*" ".*"

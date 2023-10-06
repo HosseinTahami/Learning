@@ -1,9 +1,12 @@
 import pika
 
+credentials = pika.PlainCredentials('root', 'iran1379')
+
 ''' First we are creating a connection'''
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(
-        host='localhost'
+        host='localhost',
+        credentials=credentials
         )
     )
 
