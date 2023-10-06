@@ -140,3 +140,26 @@ IsAuthenticated: Only Authenticated Users
 IsAdminUser: Authenticated & Admin Users
 
 IsAuthenticatedOrReadOnly: Authenticate Users Can Change others only can read
+
+
+-----------------  ViewSets  --------------------
+
+def list --> list all obj
+
+def create --> Create new obj
+
+def retrieve --> find one specific obj
+
+def update --> update a obj or if not found it will be created
+
+def partial_update --> update only part of an obj
+
+def destroy --> delete an obj
+
+-----------------  Router  --------------------
+
+from rest_framework import routers
+
+router = routers.SimpleRouter()
+router.register('prefix', views.NameViewSet)
+urlpatterns += router.urls

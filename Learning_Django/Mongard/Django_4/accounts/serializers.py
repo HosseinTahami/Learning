@@ -29,18 +29,18 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 
 
         # Field Level Validation
-        def validate_username(self, value):
-            if value == "admin":
-                raise serializers.ValidationError("username can not be 'admin'")
+    def validate_username(self, value):
+        if value == "admin":
+            raise serializers.ValidationError("username can not be 'admin'")
 
-            return value
-        
-        
-        # Object Level Validation --> you have to overwrite the validate method
-        def validate(self, data):
-            if data["password"] != data["confirm_password"]:
-                raise serializers.ValidationError("passwords must match")
-            return data
+        return value
+    
+    
+    # Object Level Validation --> you have to overwrite the validate method
+    def validate(self, data):
+        if data["password"] != data["confirm_password"]:
+            raise serializers.ValidationError("passwords must match")
+        return data
         
         
         
@@ -63,3 +63,10 @@ class UserRegisterSerializer(serializers.Serializer):
             raise serializers.ValidationError("passwords must match")
         return data
 """
+
+
+class UserSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = '__all__'
