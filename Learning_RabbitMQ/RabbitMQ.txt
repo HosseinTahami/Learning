@@ -1,0 +1,31 @@
+AMQP: Advanced Message Queuing Protocol
+
+publisher ---> Exchange ---> Queue ---> Consumer
+
+Exchange Types:
+
+1- Direct Exchange:
+|
+|==> Producer has a routing key which is name
+     of the Queue !
+
+2- Fanout Exchange:
+|
+|==> None of the queues have name and what ever Producer
+     gave will go through all of the queues !
+
+3- Topic Exchange:
+|
+|==> Producer has a routing key which is a pattern 
+     and all the queues names are patters too so 
+     the message will go through the queues that 
+     match the routing key pattern.
+
+4- Header Exchange:
+|
+|==> Producer will send some headers with it's message 
+     and if the headers match with headers of queues the
+     message go through them !
+     |
+     |==> inside the header of queues we have a key named x-match
+          which tell us how many keys need to be matched !
