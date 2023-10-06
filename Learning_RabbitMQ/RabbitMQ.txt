@@ -29,3 +29,21 @@ Exchange Types:
      |
      |==> inside the header of queues we have a key named x-match
           which tell us how many keys need to be matched !
+
+
+--------------------  Plugins  ---------------------
+
+rabbitmq-plugins --help
+
+rabbitmq-plugins list
+
+rabbitmq-plugins enable rabbitmq_management
+|
+|==> http://(server_name):15672/ --> http://localhost:15672/
+|
+|==> username: guest | password: guest --> by default
+
+rabbitmq-plugins list -e
+rabbitmq-plugins list -E
+
+rabbitmq-plugins directories
