@@ -171,6 +171,8 @@ ping: send request to a server
 wget: downloader
 |
 |==> wget (link)
+|
+|==> wget --user 'USERNAME' --password 'PASSWORD' (link)
 
 passwd: let you change your password
 
