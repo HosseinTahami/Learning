@@ -1,0 +1,11 @@
+lsusb, lspci, lsblk, lshw
+|
+|==> ls hardware : lshw
+
+
+lsmod : all modules on Kernel
+rmmode: will remove the module
+modprobe or insmod: will install the module again
+|
+|==> insmod need the exact address
+     but modprobe only need the name 

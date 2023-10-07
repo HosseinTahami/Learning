@@ -69,3 +69,5 @@ rabbitmqctl set_user_tags "username" "tag"
 rabbitmq set_permissions -p "host" "username" "configure_permission" "read_permission" "write_permission"
 |
 |==> ..._permissions -p "/" "root" ".*" ".*" ".*"
+
+rabbitmqctl delete_user "username"
