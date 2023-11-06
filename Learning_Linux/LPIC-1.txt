@@ -1,3 +1,6 @@
+Jadi LPIC1 Book
+https://linux1st.com/
+
 lsusb, lspci, lsblk, lshw
 |
 |==> ls hardware : lshw

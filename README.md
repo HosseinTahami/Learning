@@ -27,9 +27,6 @@ Hello & Welcome to my learning repository! This repository contains codes and fi
 - ![Redis](https://img.shields.io/badge/-Redis-DC382D?logo=redis&logoColor=white&style=for-the-badge)
 - ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white&style=for-the-badge)
 - ![Celery](https://img.shields.io/badge/-Celery-37814A?logo=celery&logoColor=white&style=for-the-badge)
-- Design Patterns 📐
-- Machine Learning and Deep Learning 🤖
-- Testing 🧪
 
 ## Repository Structure
 
