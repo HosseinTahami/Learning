@@ -89,7 +89,7 @@ git push [-u] [<REPOSITORY>] [<BRANCH>] ---> for repo you can put url or the rem
 
 ------------------------------------- git pull ------------------------------------------
 
-PULL: for geting the latest files on the online server on your local computer
+PULL: for getting the latest files on the online server on your local computer
 
 git pull [<REPOSITORY>] [<BRANCH>]
 git pull -t [<REPOSITORY>] [<BRANCH>] ----> -t is used to get all the tags beside the commits
