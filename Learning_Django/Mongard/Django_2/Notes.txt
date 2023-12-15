@@ -13,31 +13,35 @@ urlpatterns = [
     path('', admin.site.urls),
     path('home/', include('home.urls'))
 ]
-create urls.py:
+------------------------------------
+#create urls.py:
 from django.urls import path
 urlpatterns = [
     path('', views.<...>, name='<...>')
 ]
 ------------------------------------
-setting.py :
+#setting.py :
 TEMPLATES = {
 
 'DIRS': [BASE_DIR / 'templates'],
 'APP_DIRS': True,
 
 }
+
 Now we have 2 kind of templates directories : 
 1. inside each app a directory named templates and inside that a template named the app itself
 2. one directory next to the app directories named templates
 
-include and extend :
+--------------------------------------
+
+#include and extends :
 
 extend is for inheritance and include is using an html inside other html
-for example we inheritance base.html inside all of the files with extend and use navbar.html inside base.html
-with include command !
+for example we inheritance base.html inside all of the files with extends 
+and use navbar.html inside base.html with include command !
 
 --------------------------------------
-views.py:
+#views.py:
 
 from django.views import View
 from django.shortcuts import render
@@ -53,7 +57,7 @@ path( '', Name.as_view(), name='Name')
 
 --------------------------------------
 
-forms.py:
+#forms.py:
 
 from django import forms
 
