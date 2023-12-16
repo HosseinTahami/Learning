@@ -2,6 +2,26 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 
+class UserLoginForm(forms.Form):
+    username = forms.CharField(
+        label='@Username',
+        widget=forms.TextInput(
+            attrs={
+                'placeholder':'@username',
+                'class':'form-control'
+            }
+        )
+    )
+    password = forms.CharField(        
+        label='Password',
+        widget=forms.PasswordInput(
+            attrs={
+                'placeholder':'password',
+                'class':'form-control'
+            }
+        )
+    )
+
 class UserRegisterForm(forms.Form):
     username = forms.CharField(
         label='Username',
