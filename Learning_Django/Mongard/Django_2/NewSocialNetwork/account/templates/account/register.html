@@ -1,8 +1,17 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Register User</h1>
+
 <br />
-<form action="" method="POST">{% csrf_token %} {{ form.as_p }}</form>
-<br />
-<input type="submit" value="Register" />
-<br />
+<center>
+  <h1>Register</h1>
+  <div>
+    <br />
+    <form action="" method="POST" class="col-md-4">
+      {% csrf_token %} {{ form.as_p }}
+    </form>
+    <br />
+    <input class="btn btn-danger" type="submit" value="Register" />
+    <br />
+  </div>
+</center>
+
 {% endblock content %}
