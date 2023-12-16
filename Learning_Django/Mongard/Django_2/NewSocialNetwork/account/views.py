@@ -8,15 +8,17 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 
 class RegisterView(View):
+    form_class = UserRegisterForm
+    template_name = 'account/register.html'
     def get(self, request):
-        form = UserRegisterForm()
-        return render(request, 'account/register.html', {'form':form})
+        form = self.form_class()
+        return render(request, self.template_name, {'form':form})
 
     def post(self, request):
-        print("POST")
-        form = UserRegisterForm(request.POST)
+        form = self.form_class(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            user = User.objects.create_user(email=cd['email'], username=cd['username'], password=cd['password'])
+            User.objects.create_user(cd['username'], cd['email'],cd['password'])
             messages.success(request, 'Registration Completed', 'success')
             return redirect('home:home')
+        return render(request, self.template_name, {'form':form})
