@@ -1,4 +1,7 @@
 """ Django Imports """
+from typing import Any
+from django.http import HttpRequest
+from django.http.response import HttpResponse as HttpResponse
 from django.shortcuts import render, redirect
 from django.views import View
 from django.contrib.auth.models import User
@@ -14,6 +17,13 @@ from .forms import (
 class UserRegisterView(View):
     form_class = UserRegisterForm
     template_name = 'account/register.html'
+
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
+        if request.user.is_authenticated:
+            messages.warning(request, 'Already Login, No registration', 'warning')
+            return redirect('home:home')
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
         form = self.form_class()
         return render(request, self.template_name, {'form':form})
@@ -34,6 +44,12 @@ class UserRegisterView(View):
 class UserLoginView(View):
     form_class = UserLoginForm
     template_name = 'account/login.html'
+
+    def dispatch(self, request: HttpRequest, *args: Any, **kwargs: Any) -> HttpResponse:
+        if request.user.is_authenticated:
+            messages.warning(request, 'Already Login', 'warning')
+            return redirect('home:home')
+        return super().dispatch(request, *args, **kwargs)
     
     def get(self, request):
         form = self.form_class
