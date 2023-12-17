@@ -3,9 +3,7 @@
 <div>
   {% for post in posts %}
   <div>
-    <a href="{% url 'home:post_detail' post.id post.slug %}"
-      >{{ post.body|truncatewords:4 }}</a
-    >
+    <a href="{{ post.get_absolute_url }}">{{ post.body|truncatewords:4 }}</a>
   </div>
   {% endfor %}
 </div>

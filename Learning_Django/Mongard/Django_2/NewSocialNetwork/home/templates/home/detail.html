@@ -16,4 +16,14 @@
 </strong>
 
 <p>{{post.body}}</p>
-{% endblock content %}
+
+<br />
+
+{% if request.user.id == post.user.id %}
+<a href="{% url 'home:post_delete' post.id %}" class="btn btn-danger">
+  Delete
+</a>
+<a href="{% url 'home:post_update' post.id %}" class="btn btn-primary">
+  Update
+</a>
+{% endif %} {% endblock content %}
