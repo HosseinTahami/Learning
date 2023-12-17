@@ -1,0 +1,19 @@
+{% extends 'base.html' %} {% block content %}
+
+<strong
+  >Author:
+  <p>{{post.user.username}}</p>
+</strong>
+
+<strong
+  >Email:
+  <p>{{post.user.email}}</p></strong
+>
+
+<strong
+  >Date:
+  <p>{{ post.created }}</p>
+</strong>
+
+<p>{{post.body}}</p>
+{% endblock content %}
