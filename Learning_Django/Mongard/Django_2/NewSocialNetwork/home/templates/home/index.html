@@ -1,3 +1,12 @@
 {% extends 'base.html' %} {% block content %}
-<p>Index Page</p>
+<h2 class="text-center">Index Page</h2>
+<div>
+  {% for post in posts %}
+  <div>
+    <a href="{% url 'home:post_detail' post.id post.slug %}"
+      >{{ post.body|truncatewords:4 }}</a
+    >
+  </div>
+  {% endfor %}
+</div>
 {% endblock content %}
