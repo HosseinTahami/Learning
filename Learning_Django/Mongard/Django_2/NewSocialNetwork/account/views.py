@@ -14,6 +14,7 @@ from .forms import (
     UserRegisterForm,
     UserLoginForm,
 )
+from home.models import Post
 
 class UserRegisterView(View):
     form_class = UserRegisterForm
@@ -77,5 +78,6 @@ class UserLogoutView(LoginRequiredMixin, View):
 class UserProfileView(LoginRequiredMixin, View):
     def get(self, request, user_id):
         user = User.objects.get(id=user_id)
-        return render(request, 'account/profile.html', {'user':user })
+        posts = Post.objects.filter(user=user)
+        return render(request, 'account/profile.html', {'user':user , 'posts':posts})
     
