@@ -7,17 +7,17 @@
 
 ---
 ## File Structure
-
-- `/dev`: Contains information about devices.
-  - `sda`: First hard drive.
-  - `sdb`: Second hard drive.
-  - `sda1`: First partition of the first hard drive.
-  - `sdb3`: Third partition of the second hard drive.
-- `/etc`: Contains configurations.
-- `/home`: Contains user information.
-- `/mnt`: Contains information of mounted devices like hard drives.
-- `/tmp`: Contains temporary files.
-- `/root`: Similar to the home directory but for the root user.
+-`/ (root)`
+  - `/dev`: Contains information about devices.
+    - `sda`: First hard drive.
+    - `sdb`: Second hard drive.
+    - `sda1`: First partition of the first hard drive.
+    - `sdb3`: Third partition of the second hard drive.
+  - `/etc`: Contains configurations.
+  - `/home`: Contains user information.
+  - `/mnt`: Contains information of mounted devices like hard drives.
+  - `/tmp`: Contains temporary files.
+  - `/root`: Similar to the home directory but for the root user.
 
 ---
 
@@ -33,7 +33,7 @@
 - **pwd**: Print Working Directory.
 - **clear**: Clears the terminal.
 - **ls**: Lists everything in the current directory.
-- **ls -a**: Lists hidden files and directories.
+- **ls -a**: Lists hidden files and directories. `-a` stands for all
 - **ls -l**: Lists files and directories with more detailed information.
 - **ls -i**: Shows the inode of files.
 - **mkdir**: Creates a directory.
