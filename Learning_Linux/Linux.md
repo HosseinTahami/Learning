@@ -7,7 +7,7 @@
 
 ---
 ## File Structure
--`/ (root)`
+- `/ (root)`
   - `/dev`: Contains information about devices.
     - `sda`: First hard drive.
     - `sdb`: Second hard drive.
@@ -46,7 +46,7 @@
 - **rm -r**: Deletes a directory. Use `rm -r [directory name]`.
 - **cat**: Concatenates files. Use `cat -n [file name]` to show the contents of the file with line numbers.
 - **nl**: Works like `cat -n`, but blank lines will not have numbers.
-- **history**: Shows the history of your commands (last 500). Use `![number]` to repeat a specific command, or `!!` to repeat the last command.
+- **history**: Shows the history of your commands (last 500). Use `![number]` to repeat a specific command, or `!!` to repeat the last command. All of these commands are saved in `/home/[username]/.bash_history`
 - **echo**: Prints or inserts text into a file. Use `echo [text] >> [file name]`.
 - **whoami**: Shows the current user.
 - **sudo su**: Allows you to switch to another user. Use `su [username]`.
