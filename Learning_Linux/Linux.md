@@ -1,9 +1,11 @@
-# Terminal Commands Cheat Sheet
+# Linux
+---
 
 ## Definitions
 
 - **Shell**: An interface between the user and the kernel. The most popular shells are bash and zsh.
 
+---
 ## File Structure
 
 - `/dev`: Contains information about devices.
@@ -17,10 +19,14 @@
 - `/tmp`: Contains temporary files.
 - `/root`: Similar to the home directory but for the root user.
 
+---
+
 ## Shortcuts
 
 - **CTRL + ALT + T**: Opens a terminal.
 - **exit** or **CTRL + D**: Closes the terminal.
+
+---
 
 ## Commands
 
