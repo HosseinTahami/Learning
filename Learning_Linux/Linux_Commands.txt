@@ -1,3 +1,5 @@
+================== Definitions =================
+
 Shell: is a interface between User and Kernel 
        bash & zsh are most popular Shell
 
