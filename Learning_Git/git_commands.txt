@@ -20,7 +20,6 @@ git config --global --unset core.editor
 
 git config --list ----> user.email=hosseintahami2000@gmail.com
 			user.name=HosseinTahami
-			user.signingkey=8ADC738B2748C0AED5E5E0E58BDCDBC5872CCE68
 			init.defaultbranch=main
 			core.editor=nano
 
