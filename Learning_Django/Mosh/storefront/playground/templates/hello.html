@@ -11,5 +11,10 @@
 {% else %}
 <h1>Hello World</h1>
 {% endif %}
+<br>
+<h2>Products</h2>
+{% for product in products %}
+    <p>{{ product.title }}</p>
+{% endfor %}
 </body>
 </html>
