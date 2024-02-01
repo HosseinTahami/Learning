@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from store.models import Product, Order, OrderItem
-from django.db.models import Q, F
+from django.db.models import Q, F, Value
 
 
 def say_hello(request):
