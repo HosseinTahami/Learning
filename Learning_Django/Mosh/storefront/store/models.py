@@ -55,7 +55,7 @@ class Order(models.Model):
         (FAILED_STATUS, 'Failed'),
     ]
     placed_at = models.DateTimeField(auto_now_add=True)
-    placement_status = models.CharField(
+    payment_status = models.CharField(
         max_length=1,
         choices=PAYMENT_STATUS_CHOICES,
         default=PENDING_STATUS
