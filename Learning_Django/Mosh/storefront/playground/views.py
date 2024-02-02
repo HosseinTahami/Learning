@@ -84,6 +84,8 @@ def say_hello(request):
     queryset_24 = OrderItem.objects.filter(
         product__id=1).aggregate(total_sold=Sum('quantity'))
 
+    # annotate add to the table
+
     queryset_25 = Product.objects.annotate(new_id=F(id)+10)
 
     queryset_26 = Product.objects.annotate(is_new=Value(True))
