@@ -13,9 +13,9 @@
 {% endif %}
 <br>
 <h2>Products</h2>
-{% for product in products %}
-    <p>{{ product.title }}</p>
-    <p>{{ product }}</p>
+{% for order in orders %}
+    <p>{{ order.id }}</p>
+    <p>{{ order.customer.first_name }}</p>
     <b>--</b>
 {% endfor %}
 </body>
