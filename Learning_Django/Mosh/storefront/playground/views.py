@@ -103,6 +103,6 @@ def say_hello(request):
         'hello.html',
         {
             'name': 'Hossein',
-            'orders': list(queryset_20)
+            'orders': queryset_23
         }
     )

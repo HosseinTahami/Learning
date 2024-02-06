@@ -1,6 +1,0 @@
-Step 1:
-in the admin.py file of the application
-import model_name from models.pyramid
-
-Step 2:
-admin.site.register(model_name)

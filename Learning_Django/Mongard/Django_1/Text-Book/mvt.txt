@@ -1,7 +1,0 @@
-MVT: Model View Template
-
-                                |===> Model (our database)
-                                |
-User ===> django ===> URL ===> View
-                                |
-                                |===> Template (our HTML pages)
