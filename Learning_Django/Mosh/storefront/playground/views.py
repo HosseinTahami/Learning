@@ -76,8 +76,8 @@ def say_hello(request):
     queryset_21 = Order.objects.aggregate(Count('id'))
 
     # {'count':500, 'min_price':2.0}
-    queryset_22 = Order.objects.aggregate(
-        count=Count('id'), min_price=Min('unit_price'))
+    # queryset_22 = Order.objects.aggregate(
+    #     count=Count('id'), min_price=Min('unit_price'))
 
     queryset_23 = Order.objects.aggregate(count=Count('id'))
 
@@ -86,18 +86,18 @@ def say_hello(request):
 
     # annotate add to the table
 
-    queryset_25 = Product.objects.annotate(new_id=F(id)+10)
+    # queryset_25 = Product.objects.annotate(new_id=F(id)+10)
 
     queryset_26 = Product.objects.annotate(is_new=Value(True))
 
     # CONCATENATING
-    queryset_27 = Product.objects.annotate(full_name=Func(
-        F('first_name'), Value(' '), F('last_name'), function='CONCAT'))
+    # queryset_27 = Product.objects.annotate(full_name=Func(
+    #     F('first_name'), Value(' '), F('last_name'), function='CONCAT'))
 
     queryset_28 = Customer.objects.annotate(full_name=Concat(
         'first_name', Value(' '), 'last_name')
     )
-
+    print(Product.title)
     return render(
         request,
         'hello.html',
