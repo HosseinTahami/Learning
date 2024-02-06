@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 
 from .models import Todo
@@ -10,8 +10,12 @@ def home(request):
     return render(request, 'home.html', {'todos': all_todo})
 
 
-def say_hello(request):
-    person = {
-        'name': 'admin'
-    }
-    return render(request, 'hello.html', person)
+def details(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    return render(request, 'detail.html', {'todo': todo})
+
+
+def delete(request, todo_id):
+    todo = Todo.objects.get(id=todo_id)
+    todo.delete()
+    return redirect('home')

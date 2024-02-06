@@ -2,7 +2,7 @@
 {% block content %}
 <h1>Todos</h1>
 {% for todo in todos %}
-<strong>{{todo.title}}</strong>
+<a href="{% url 'detail' todo.id %}"><strong>{{todo.title}}</strong></a>
 <small>{{ todo.created_at }}</small>
 <p>{{todo.body}}</p>
 <br>
