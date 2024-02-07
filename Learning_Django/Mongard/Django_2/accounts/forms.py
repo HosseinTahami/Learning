@@ -28,8 +28,9 @@ class UserRegistrationForm(forms.Form):
         label='Password',
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'your password',
-                'class': 'form-control'
+                'placeholder': '******',
+                'class': 'form-control',
+                'autocomplete': 'off', 'data-toggle': 'password'
             }
         )
     )
@@ -38,7 +39,7 @@ class UserRegistrationForm(forms.Form):
         label='Confirm Password',
         widget=forms.PasswordInput(
             attrs={
-                'placeholder': 'repeat password',
+                'placeholder': '******',
                 'class': 'form-control'
             }
         )
@@ -68,3 +69,14 @@ class UserRegistrationForm(forms.Form):
 
         if password and confirm_password and password != confirm_password:
             raise ValidationError("Passwords must match")
+
+
+class UserLoginForm(forms.Form):
+    authenticator = forms.CharField(
+        label="Email or Username",
+        widget=forms.TextInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Email or Username'
+        })
+    )
+    password = forms.CharField()
