@@ -24,11 +24,8 @@
   </head>
   <body>
     {% include 'navbar.html' %} 
-    <div class="jumbotron">{% block content %} {% endblock content %}</div>
+    <div class="jumbotron">{% include 'messages.html' %}{% block content %} {% endblock content %}</div>
     <br>
-    <br>
-    
-    {% include 'messages.html' %}
     {% include 'footer.html' %}
   </body>
 </html>
