@@ -10,12 +10,19 @@
 
 {% block content %}
 
-<p><b>Author:</b> {{ post.user }}</p>
+<p><b>Author:</b> <a href="{% url 'accounts:user_profile' post.user.id %}">{{ post.user.username }}</a></p>
 <b>{{ post.title }}</b>
 <p>"{{ post.body }}"</p>
 <small><b>created:</b> {{ post.created }}</small>
 <br>
 <small><b>updated:</b>{{  post.updated }}</small>
+<br>
+<br>
+{% if request.user.id == post.user.id %}
+    <a href="{% url 'core:post_delete' post.id %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'core:post_update' post.id %}" class="btn btn-primary">Update</a>
+{% endif %}
+    
 
 {% endblock content %}
     
