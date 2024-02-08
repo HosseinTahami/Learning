@@ -1,11 +1,18 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.contrib.auth.views import (
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetConfirmView,
+    PasswordResetCompleteView,
+)
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import UserRegistrationForm, UserLoginForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from core.models import Post
+from django.urls import reverse_lazy
 
 
 class UserRegisterView(View):
@@ -73,3 +80,22 @@ class UserProfileView(LoginRequiredMixin, View):
         user = User.objects.get(id=user_id)
         posts = Post.objects.filter(user__id=user_id)
         return render(request, 'accounts/profile.html', {'user': user, 'posts': posts})
+
+
+class UserPasswordResetView(PasswordResetView):
+    template_name = 'accounts/password/password_reset_form.html'
+    success_url = reverse_lazy('accounts:password_reset_done')
+    email_template_name = 'accounts/password/password_reset_email.html'
+
+
+class UserPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'accounts/password/password_reset_done.html'
+
+
+class UserPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'accounts/password/password_reset_confirm.html'
+    success_url = reverse_lazy('accounts:password_reset_complete')
+
+
+class UserPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'accounts/password/password_reset_complete.html'
