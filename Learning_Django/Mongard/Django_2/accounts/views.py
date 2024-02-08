@@ -47,3 +47,10 @@ class UserLoginView(View):
                 return redirect('core:home')
             messages.error(request, 'Password or Username is Wrong', 'danger')
         return render(request, self.template_name, {'form': form})
+
+
+class UserLogoutView(View):
+    def get(self, request):
+        logout(request)
+        messages.success(request, 'Logged Out Successfully', 'warning')
+        return redirect('core:home')

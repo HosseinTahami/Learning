@@ -74,9 +74,19 @@ class UserRegistrationForm(forms.Form):
 class UserLoginForm(forms.Form):
     authenticator = forms.CharField(
         label="Email or Username",
-        widget=forms.TextInput(attrs={
-            'class': 'form-control',
-            'placeholder': 'Email or Username'
-        })
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Email or Username'
+            }
+        )
     )
-    password = forms.CharField()
+    password = forms.CharField(
+        label="Password",
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': '******'
+            }
+        )
+    )
