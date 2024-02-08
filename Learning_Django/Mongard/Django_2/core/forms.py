@@ -18,5 +18,18 @@ class CommentCreateForm(forms.ModelForm):
             'body': forms.Textarea(attrs={'class': 'form-control col-md-9', 'placeholder': 'Write your Comment'})
         }
         labels = {
-            'body': 'Comment',
+            'body': 'New Comment',
+        }
+
+
+class ReplyCreateForm(forms.ModelForm):
+
+    class Meta:
+        model = Comment
+        fields = ['body']
+        widgets = {
+            'body': forms.Textarea(attrs={'class': 'form-control col-md-9', 'placeholder': 'Reply the Comment'})
+        }
+        labels = {
+            'body': 'Reply Comment',
         }
