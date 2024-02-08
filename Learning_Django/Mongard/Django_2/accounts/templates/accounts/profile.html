@@ -14,4 +14,11 @@
         </div>
             {% endfor %}
         <hr>
+        <br>
+        <br>
+        
+        {% if request.user.id == user.id %}
+        <a href="{% url 'core:post_create'  %}" class="btn btn-primary">Create</a>
+        {% endif %}
+            
 {% endblock content %}
