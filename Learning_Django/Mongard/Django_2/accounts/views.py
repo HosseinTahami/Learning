@@ -78,7 +78,8 @@ class UserLogoutView(LoginRequiredMixin, View):
 class UserProfileView(LoginRequiredMixin, View):
     def get(self, request, user_id):
         user = User.objects.get(id=user_id)
-        posts = Post.objects.filter(user__id=user_id)
+        # posts = Post.objects.filter(user__id=user_id)
+        posts = user.posts.all()
         return render(request, 'accounts/profile.html', {'user': user, 'posts': posts})
 
 
