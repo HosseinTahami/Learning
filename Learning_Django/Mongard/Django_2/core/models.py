@@ -16,7 +16,22 @@ class Post(models.Model):
         ordering = ['title']
 
     def __str__(self):
-        return f'{self.slug} || {self.user}'
+        return f'{self.title} || {self.user}'
 
     def get_absolute_url(self):
         return reverse('core:post_detail', args=(self.id, self.slug))
+
+
+class Comment(models.Model):
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='comments')
+    post = models.ForeignKey(
+        Post, on_delete=models.CASCADE, related_name='comments')
+    reply_to = models.ForeignKey(
+        'self', on_delete=models.CASCADE, related_name='replies', blank=True, null=True)
+    body = models.TextField()
+    is_reply = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f'{self.user}||{self.body[:10]}||{self.post.title}'

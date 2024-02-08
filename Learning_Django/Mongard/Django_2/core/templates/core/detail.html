@@ -22,7 +22,35 @@
     <a href="{% url 'core:post_delete' post.id %}" class="btn btn-danger">Delete</a>
     <a href="{% url 'core:post_update' post.id %}" class="btn btn-primary">Update</a>
 {% endif %}
+
+<b><hr></b>
+{% for comment in comments %}
+    <div class="card bg-dark text-white " >
+        <p class="card-header text-primary" >
+            {{ comment.user }} | {{    comment.created|timesince }}
+        </p>
+        <p class="card-body" >
+            {{ comment.body }}
+        </p>
+    </div>
+    <br>
+{% empty %}
+<p>No Comments Yet!</p>
+{% endfor %}
+
+
+{% if request.user.is_authenticated %}
+    <form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="btn btn-primary">
+</form>
+<br>
+<br>
+{% endif %}
     
+
+
 
 {% endblock content %}
     

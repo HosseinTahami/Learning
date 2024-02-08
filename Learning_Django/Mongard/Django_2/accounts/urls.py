@@ -16,4 +16,6 @@ urlpatterns = [
          name='password_reset_confirm'),
     path('reset/complete/', views.UserPasswordResetCompleteView.as_view(),
          name='password_reset_complete'),
+    path('follow/<int:user_id>/',
+         views.UserRelationView.as_view(), name='user_relation'),
 ]

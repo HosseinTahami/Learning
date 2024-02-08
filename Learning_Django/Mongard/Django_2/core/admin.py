@@ -12,3 +12,10 @@ class PostAdmin(admin.ModelAdmin):
         'slug': ['body'],
     }
     raw_id_fields = ['user']
+
+
+@admin.register(models.Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ['user', 'post', 'is_reply']
+    raw_id_fields = ['user', 'post', 'reply_to']
+    list_filter = ['created']

@@ -3,7 +3,9 @@ from django.utils.text import slugify
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
-from .forms import PostCreateUpdateForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+from .forms import PostCreateUpdateForm, CommentCreateForm
 from .models import Post
 
 
@@ -17,12 +19,36 @@ class HomeView(View):
 
 
 class PostDetailView(View):
+
+    form_class = CommentCreateForm
+    template_name = 'core/detail.html'
+
+    def setup(self, request, *args, **kwargs):
+        self.post_instance = Post.objects.get(
+            id=kwargs['post_id'], slug=kwargs['post_slug'])
+        return super().setup(request, *args, **kwargs)
+
     def get(self, request, post_id, post_slug):
-        post = Post.objects.get(id=post_id)
-        return render(request, 'core/detail.html', {'post': post})
+        comments = self.post_instance.comments.filter(
+            is_reply=False).order_by('-created')
+        form = self.form_class()
+        return render(request, self.template_name, {'post': self.post_instance, 'comments': comments, 'form': form})
+
+    @method_decorator(login_required)
+    def post(self, request, post_id, post_slug):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            new_comment = form.save(commit=False)
+            new_comment.user = request.user
+            new_comment.post = self.post_instance
+            new_comment.save()
+            messages.success(
+                request, 'Comment Submitted Successfully', 'success')
+            return redirect('core:post_detail', post_id, post_slug)
 
 
 class PostDeleteView(LoginRequiredMixin, View):
+
     def get(self, request, post_id):
         post = Post.objects.get(id=post_id)
         if post.user.id == request.user.id:
