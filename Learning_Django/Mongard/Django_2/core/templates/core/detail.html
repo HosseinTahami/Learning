@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    post
+{% endblock title %}
+    
+
+
+{% block content %}
+
+<p><b>Author:</b> {{ post.user }}</p>
+<b>{{ post.title }}</b>
+<p>"{{ post.body }}"</p>
+<small><b>created:</b> {{ post.created }}</small>
+<br>
+<small><b>updated:</b>{{  post.updated }}</small>
+
+{% endblock content %}
+    
+

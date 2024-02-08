@@ -2,5 +2,16 @@
 
 
 {% block content %}
-    <h2>{{ user.username }}</h2>
+    <h1 class="text-center">{{ user.username }}</h1>
+    <br>
+        {% for post in posts %}
+        <div class="text-center" >
+            <hr>
+            <p>Title: <b><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></b></p>
+            <p>Author: <a href="{% url 'accounts:user_profile' post.user.id %}">{{post.user.username}}</a></p>
+            <p>{{ post.body|truncatewords:5 }}</p>
+            <small>{{ post.created }}</small>
+        </div>
+            {% endfor %}
+        <hr>
 {% endblock content %}

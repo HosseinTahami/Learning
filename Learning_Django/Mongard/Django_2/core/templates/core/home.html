@@ -7,6 +7,17 @@
     
 
 {% block content %}
-    <h1>Home Page</h1>
+    <h1 class="text-center">Home</h1>
+    <br>
+        {% for post in posts %}
+        <div class="text-center" >
+            <hr>
+            <p><b>Title:</b><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+            <p>Author: <a href="{% url 'accounts:user_profile' post.user.id %}">{{post.user.username}}</a></p>
+            <p>{{ post.body|truncatewords:5 }}</p>
+            <small>{{ post.created }}</small>
+        </div>
+            {% endfor %}
+        <hr>
 {% endblock content %}
     
