@@ -46,7 +46,7 @@ class UserLoginView(View):
     template_name = 'accounts/login.html'
 
     def setup(self, request, *args, **kwargs):
-        self.next = request.GET.get('next', 'None')
+        self.next = request.GET.get('next', None)
         return super().setup(request, *args, **kwargs)
 
     def dispatch(self, request, *args, **kwargs):
