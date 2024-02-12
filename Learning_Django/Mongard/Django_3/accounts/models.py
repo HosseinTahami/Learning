@@ -1,14 +1,21 @@
+# Django Imports
+
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 
-#
+# Project Imports
 
 from .managers import UserManager
 
+# Third-Party Imports
+
+from random import randint
+
 
 class User(AbstractBaseUser):
-    username = models.CharField(max_length=50, unique=True)
-    email = models.EmailField(unique=True)
+    username = models.CharField(
+        max_length=50, unique=True, blank=True, null=True)
+    email = models.EmailField(unique=True, blank=True, null=True)
     phone_number = models.CharField(max_length=11, unique=True)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
@@ -39,3 +46,13 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+
+
+class OTP(models.Model):
+
+    phone_number = models.CharField(max_length=11, unique=True)
+    code = models.IntegerField()
+    created = models.DateTimeField(auto_now_add=True)
+
+    def code_creator(self):
+        self.code = randint(1000, 9999)
