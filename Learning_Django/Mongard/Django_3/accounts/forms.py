@@ -50,3 +50,18 @@ class UserChangeForm(forms.ModelForm):
         model = User
         fields = ['first_name', 'last_name', 'phone_number',
                   'email', 'password', 'birth_date', 'address', 'last_login']
+
+
+class UserRegisterForm(forms.Form):
+
+    first_name = forms.CharField(label='First Name', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'John'}))
+
+    last_name = forms.CharField(label='Last Name', widget=forms.TextInput(
+        attrs={'class': 'form-control', 'placeholder': 'Doe'}))
+
+    phone_number = forms.CharField(label='Phone Number', widget=forms.NumberInput(
+        attrs={'class': 'form-control', 'placeholder': '09123456789'}))
+
+    code = forms.IntegerField(label="Code", widget=forms.NumberInput(
+        attrs={'class': 'form-control', 'placeholder': '******'}))
