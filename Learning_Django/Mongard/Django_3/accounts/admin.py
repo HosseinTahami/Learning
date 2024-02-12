@@ -1,7 +1,10 @@
+# Django Imports
+
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import Group, User
-#
+
+# Project Imports
 
 from .forms import UserChangeForm, UserCreationForm
 from . import models
@@ -45,3 +48,8 @@ class UserAdmin(BaseUserAdmin):
 
 
 admin.site.unregister(Group)
+
+
+@admin.register(models.OTP)
+class OTPAdmin(admin.ModelAdmin):
+    list_display = ['phone_number', 'code']
