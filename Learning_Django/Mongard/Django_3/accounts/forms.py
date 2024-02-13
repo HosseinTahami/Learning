@@ -63,5 +63,8 @@ class UserRegisterForm(forms.Form):
     phone_number = forms.CharField(label='Phone Number', widget=forms.NumberInput(
         attrs={'class': 'form-control', 'placeholder': '09123456789'}))
 
-    code = forms.IntegerField(label="Code", widget=forms.NumberInput(
+    email = forms.EmailFieldField(label='Email', widget=forms.EmailInput(
+        attrs={'class': 'form-control', 'placeholder': 'mail@email.com'}))
+
+    password = forms.CharField(label="Password", widget=forms.PasswordInputInput(
         attrs={'class': 'form-control', 'placeholder': '******'}))
