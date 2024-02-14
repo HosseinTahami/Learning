@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core.apps.CoreConfig',
     'accounts.apps.AccountsConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -122,9 +123,23 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 
+# Media Files
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.User'
+
+# Django-Storages (Abr Arv)
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3.S3Storage"
+AWS_ACCESS_KEY_ID = '93cdf982-c16d-4064-b916-809df2fbc507'
+AWS_SECRET_ACCESS_KEY = 'e9a94fd68aa3ec6991d70952196c350143b97121260d3fce16501b2c0479a574'
+AWS_S3_ENDPOINT_URL = 'https://s3.ir-thr-at1.arvanstorage.ir'
+AWS_SERVICE_NAME = 's3'
+AWS_S3_FILE_OVERWRITE = False
