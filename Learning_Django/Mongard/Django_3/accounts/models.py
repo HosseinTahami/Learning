@@ -55,7 +55,7 @@ class OTP(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def code_creator(self):
-        self.code = randint(1000, 9999)
+        return randint(1000, 9999)
 
     def __str__(self) -> str:
         return f'{self.phone_number} || {self.code}'
