@@ -56,3 +56,6 @@ class OTP(models.Model):
 
     def code_creator(self):
         self.code = randint(1000, 9999)
+
+    def __str__(self) -> str:
+        return f'{self.phone_number} || {self.code}'
