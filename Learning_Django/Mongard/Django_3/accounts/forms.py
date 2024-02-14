@@ -63,8 +63,13 @@ class UserRegisterForm(forms.Form):
     phone_number = forms.CharField(label='Phone Number', widget=forms.NumberInput(
         attrs={'class': 'form-control', 'placeholder': '09123456789'}))
 
-    email = forms.EmailFieldField(label='Email', widget=forms.EmailInput(
+    email = forms.EmailField(label='Email', widget=forms.EmailInput(
         attrs={'class': 'form-control', 'placeholder': 'mail@email.com'}))
 
-    password = forms.CharField(label="Password", widget=forms.PasswordInputInput(
+    password = forms.CharField(label="Password", widget=forms.PasswordInput(
         attrs={'class': 'form-control', 'placeholder': '******'}))
+
+
+class VerifyCodeForm(forms.Form):
+    code = forms.IntegerField(label='OTP', widget=forms.NumberInput(
+        attrs={"class": "form-control", "placeholder": "****"}))
