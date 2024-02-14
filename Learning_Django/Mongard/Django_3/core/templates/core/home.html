@@ -2,7 +2,6 @@
 {% load static %}
 
 
-
 {% block extra_head %}
     <link rel="stylesheet" href="{% static 'core/CSS/styles.css' %}">
 {% endblock extra_head %}
@@ -11,7 +10,22 @@
 {% block content %}
 
 <div class="p-6 m-6">
-    <h1>Welcome</h1>
+    <h1>Products</h1>
+    <hr>
+    <br>
+    {% for product in products  %}
+    <div class="card" style="width: 40rem;">
+        <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <hr>
+          <a href="{{ product.get_absolute_url }}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+    {% endfor %}
+    
+
+        
 </div>
 
 
