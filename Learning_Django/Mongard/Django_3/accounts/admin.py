@@ -52,4 +52,4 @@ admin.site.unregister(Group)
 
 @admin.register(models.OTP)
 class OTPAdmin(admin.ModelAdmin):
-    list_display = ['phone_number', 'code']
+    list_display = ['phone_number', 'code', 'created']
