@@ -1,6 +1,8 @@
-# AMQP: Advanced Message Queuing Protocol
+# 🐇 AMQP: Advanced Message Queuing Protocol
 
-AMQP is an acronym for Advanced Message Queuing Protocol. It provides a standardized way for different applications to communicate with each other using a message-oriented middleware approach. In AMQP, messages are published by a publisher, routed through an exchange, and then placed in a queue for consumption by a consumer.
+AMQP is an acronym for **Advanced Message Queuing Protocol**. It provides a standardized way for different applications to communicate with each other using a message-oriented middleware approach. In AMQP, messages are published by a *publisher*, routed through an *exchange*, and then placed in a *queue* for consumption by a *consumer*.
+
+## 📚 AMQP Architecture Components
 
 The AMQP architecture consists of the following components:
 
@@ -9,7 +11,7 @@ The AMQP architecture consists of the following components:
 - **Queue**: Stores messages until they are consumed by consumers.
 - **Consumer**: Retrieves messages from the queue and processes them.
 
-## Exchange Types
+## 🔄 Exchange Types
 
 AMQP supports different exchange types, each with its own routing behavior:
 
@@ -18,9 +20,9 @@ AMQP supports different exchange types, each with its own routing behavior:
 3. **Topic Exchange**: Messages are routed to queues based on matching patterns between the routing key specified by the publisher and the queue names. Both the routing key and queue names can contain wildcards, allowing for flexible message routing.
 4. **Header Exchange**: Messages are routed to queues based on matching header values. The publisher includes headers with the message, and the queues have header definitions specifying which headers and values they are interested in. The `x-match` key in the queue's header configuration determines how many headers need to match for a message to be routed to the queue.
 
-## Plugins
+## 🧩 Plugins
 
-Plugins in RabbitMQ provide additional functionality and features. Some useful commands related to plugins are:
+Plugins in RabbitMQ provide additional functionality and features. Here are some useful commands related to plugins:
 
 - `rabbitmq-plugins --help`: Displays help information for the plugin-related commands.
 - `rabbitmq-plugins list`: Lists all available plugins.
@@ -30,7 +32,7 @@ Plugins in RabbitMQ provide additional functionality and features. Some useful c
 - `rabbitmq-plugins list -E`: Lists the plugins that failed to start.
 - `rabbitmq-plugins directories`: Displays the directories where RabbitMQ plugins are installed.
 
-## Authentication and Authorization
+## 🔒 Authentication and Authorization
 
 Authentication and authorization are important aspects of securing RabbitMQ.
 
@@ -41,4 +43,10 @@ Use the following commands with `rabbitmqctl` to manage users and their permissi
 
 - `rabbitmqctl add_user "username" "password"`: Adds a new user with the specified username and password.
 - `rabbitmqctl list_users`: Lists all configured users.
-- `rabbitmqctl set_user_tags "username" "tag"`: Sets tags for a user. Common tags are "administrator" and
+- `rabbitmqctl set_user_tags "username" "tag"`: Sets tags for a user. Common tags are "administrator" and "monitoring".
+- `rabbitmqctl set_permissions -p "host" "username" "configure_permission" "read_permission" "write_permission"`: Sets permissions for a user on a specific virtual host. The permissions include configure, read, and write operations.
+- `rabbitmqctl delete_user "username"`: Deletes a user.
+
+By default, RabbitMQ has a default virtual host named `/` (a slash) and a default user with the username "guest" and password "guest".
+
+These are some of the essential concepts and commands related to AMQP and RabbitMQ administration.
