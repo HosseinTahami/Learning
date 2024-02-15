@@ -42,12 +42,18 @@ AMQP supports different exchange types, each with its own routing behavior:
 Plugins in RabbitMQ provide additional functionality and features. Here are some useful commands related to plugins:
 
 - `rabbitmq-plugins --help`: Displays help information for the plugin-related commands.
+  
 - `rabbitmq-plugins list`: Lists all available plugins.
-      ![Plugin List](images/Plugins-List.png)
+  
+  ![Plugin List](images/Plugins-List.png)
+
 - `rabbitmq-plugins enable rabbitmq_management`: Enables the RabbitMQ management plugin, which provides a web interface for managing RabbitMQ.
+  
+  ![Enable Management](images/Enable-Management.png)
+
 - After enabling the management plugin, you can access the management interface at `http://localhost:15672/` with the default credentials: username: guest, password: guest.
-- `rabbitmq-plugins list -e`: Lists enabled plugins.
-- `rabbitmq-plugins list -E`: Lists the plugins that failed to start.
+- `rabbitmq-plugins list -e`: Lists enabled plugins. (Explicit)
+- `rabbitmq-plugins list -E`: Lists enabled plugins. (Explicit & Implicit)
 - `rabbitmq-plugins directories`: Displays the directories where RabbitMQ plugins are installed.
 
 ## 🔒 Authentication and Authorization
