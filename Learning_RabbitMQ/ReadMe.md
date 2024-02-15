@@ -54,7 +54,10 @@ Plugins in RabbitMQ provide additional functionality and features. Here are some
 - After enabling the management plugin, you can access the management interface at `http://localhost:15672/` with the default credentials: username: guest, password: guest.
 - `rabbitmq-plugins list -e`: Lists enabled plugins. (Explicit)
 - `rabbitmq-plugins list -E`: Lists enabled plugins. (Explicit & Implicit)
+- `rabbitmq-plugins list -m`: Lists plugins. (Minimal Version)
+- `rabbitmq-plugins list -v`: Lists plugins. (Verbose Version)
 - `rabbitmq-plugins directories`: Displays the directories where RabbitMQ plugins are installed.
+- `rabbitmq-plugins disable Plugin-Name`: This will disable the plugin that you want.
 
 ## 🔒 Authentication and Authorization
 
@@ -70,6 +73,7 @@ Use the following commands with `rabbitmqctl` to manage users and their permissi
 - `rabbitmqctl set_user_tags "username" "tag"`: Sets tags for a user. Common tags are "administrator" and "monitoring".
 - `rabbitmqctl set_permissions -p "host" "username" "configure_permission" "read_permission" "write_permission"`: Sets permissions for a user on a specific virtual host. The permissions include configure, read, and write operations.
 - `rabbitmqctl delete_user "username"`: Deletes a user.
+
 
 By default, RabbitMQ has a default virtual host named `/` (a slash) and a default user with the username "guest" and password "guest".
 
