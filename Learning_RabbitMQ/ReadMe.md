@@ -29,7 +29,13 @@ AMQP supports different exchange types, each with its own routing behavior:
    
 4. **Header Exchange**: Messages are routed to queues based on matching header values. The publisher includes headers with the message, and the queues have header definitions specifying which headers and values they are interested in. The `x-match` key in the queue's header configuration determines how many headers need to match for a message to be routed to the queue.
 
+
      ![Header Exchange](https://lostechies.com/content/derekgreer/uploads/2012/03/HeadersExchange_thumb2.png)
+
+
+**Note:Consumers are connected to the Broker through multiple channels and they are not connected to the Broker directly.
+
+
 
 ## 🧩 Plugins
 
