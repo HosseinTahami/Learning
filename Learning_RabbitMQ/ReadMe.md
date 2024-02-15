@@ -43,6 +43,7 @@ Plugins in RabbitMQ provide additional functionality and features. Here are some
 
 - `rabbitmq-plugins --help`: Displays help information for the plugin-related commands.
 - `rabbitmq-plugins list`: Lists all available plugins.
+      ![Plugin List](images/Plugins-List.png)
 - `rabbitmq-plugins enable rabbitmq_management`: Enables the RabbitMQ management plugin, which provides a web interface for managing RabbitMQ.
 - After enabling the management plugin, you can access the management interface at `http://localhost:15672/` with the default credentials: username: guest, password: guest.
 - `rabbitmq-plugins list -e`: Lists enabled plugins.
