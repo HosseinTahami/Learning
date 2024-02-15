@@ -16,12 +16,14 @@ The AMQP architecture consists of the following components:
 AMQP supports different exchange types, each with its own routing behavior:
 
 1. **Direct Exchange**: Messages are routed to queues based on a ***routing key***. The routing key specified by the publisher must match the name of the queue.
-   ![Direct Exchange](https://lostechies.com/content/derekgreer/uploads/2012/03/DirectExchange_thumb1.png)
-2. **Fanout Exchange**: Messages are broadcasted to all queues connected to the exchange. Queues do not have names, and all messages sent by the publisher are forwarded to all queues.
    
-3. **Topic Exchange**: Messages are routed to queues based on matching patterns between the routing key specified by the publisher and the queue names. Both the routing key and queue names can contain wildcards, allowing for flexible message routing.
+![Direct Exchange](https://lostechies.com/content/derekgreer/uploads/2012/03/DirectExchange_thumb1.png)
+
+1. **Fanout Exchange**: Messages are broadcasted to all queues connected to the exchange. Queues do not have names, and all messages sent by the publisher are forwarded to all queues.
    
-4. **Header Exchange**: Messages are routed to queues based on matching header values. The publisher includes headers with the message, and the queues have header definitions specifying which headers and values they are interested in. The `x-match` key in the queue's header configuration determines how many headers need to match for a message to be routed to the queue.
+2. **Topic Exchange**: Messages are routed to queues based on matching patterns between the routing key specified by the publisher and the queue names. Both the routing key and queue names can contain wildcards, allowing for flexible message routing.
+   
+3. **Header Exchange**: Messages are routed to queues based on matching header values. The publisher includes headers with the message, and the queues have header definitions specifying which headers and values they are interested in. The `x-match` key in the queue's header configuration determines how many headers need to match for a message to be routed to the queue.
 
 ## 🧩 Plugins
 
