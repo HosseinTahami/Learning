@@ -69,11 +69,18 @@ Authentication and authorization are important aspects of securing RabbitMQ.
 Use the following commands with `rabbitmqctl` to manage users and their permissions:
 
 - `rabbitmqctl add_user "username" "password"`: Adds a new user with the specified username and password.
+
 - `rabbitmqctl list_users`: Lists all configured users.
+
 - `rabbitmqctl set_user_tags "username" "tag"`: Sets tags for a user. Common tags are "administrator" and "monitoring".
-- `rabbitmqctl set_permissions -p "host" "username" "configure_permission" "read_permission" "write_permission"`: Sets permissions for a user on a specific virtual host. The permissions include configure, read, and write operations.
+
+- `rabbitmqctl set_permissions -p "host_name" "username" "configure_permission" "read_permission" "write_permission"`: Sets permissions for a user on a specific virtual host. The permissions include configure, read, and write operations.
+  - `rabbitmqctl set_permissions -p "/" "root" ".*" ".*" ".*"` 
+
 - `rabbitmqctl delete_user "username"`: Deletes a user.
 
+**Notice:**
+When you create a user and even give the user administrator tag it will still need the `set_permission` for using a specified host and the default host is "/".
 
 By default, RabbitMQ has a default virtual host named `/` (a slash) and a default user with the username "guest" and password "guest".
 
