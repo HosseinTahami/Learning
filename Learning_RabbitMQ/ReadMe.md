@@ -84,4 +84,12 @@ When you create a user and even give the user administrator tag it will still ne
 
 By default, RabbitMQ has a default virtual host named `/` (a slash) and a default user with the username "guest" and password "guest".
 
-These are some of the essential concepts and commands related to AMQP and RabbitMQ administration.
+- `rabbitmqctl list_queue`: Lists all queues .
+
+
+## Round Robin
+
+![Round-Robin](https://avinetworks.com/wp-content/uploads/2019/02/round-robin-load-balancing-diagram.png)
+
+This algorithm will receive all the requests and will distribute them from top server to the bottom one, one by one.
+for example if we have 100 requests and 3 servers it will give one to first server, one to the second server and one to the third server and again loop through them and give another request to first server and ...
