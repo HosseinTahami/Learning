@@ -10,6 +10,10 @@ The AMQP architecture consists of the following components:
 - **Exchange**: Receives messages from publishers and routes them to queues based on specific criteria defined by the exchange type.
 - **Queue**: Stores messages until they are consumed by consumers.
 - **Consumer**: Retrieves messages from the queue and processes them.
+- **Binding**: The connection between Queue and Exchange.
+- **Channel**: Clients (Publisher & Consumer) are connected to the Broker through multiple channels and they are not connected to the Broker directly. 
+
+  ![AMQP](https://static.packt-cdn.com/products/9781789131666/graphics/assets/18e8d28a-a508-4004-8e74-5c3d14f7e03b.png)
 
 ## 🔄 Exchange Types
 
@@ -97,3 +101,7 @@ for example if we have 100 requests and 3 servers it will give one to first serv
 ### Note: 
 By default RabbitMQ use the Round Robin algorithm but with prefetch_count you can
 change the way rabbitmq behave in distributing the request at the beginning.
+
+## Acknowledge
+
+When Acknowledge is True it means after consumer received the message it will send a signal to RabbitMQ to delete the request but in this way if the consumer receive the request and send the signal but suddenly something happens to the consumer and do not complete the request that was sent to it we can not recover the request because it is deleted now. So we should not put auto_ack argument inside the basic_consume True and we should use another way.
