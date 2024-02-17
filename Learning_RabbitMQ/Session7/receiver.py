@@ -29,6 +29,7 @@ channel.queue_declare(
 
 def callback(ch, method, properties, body):
     print(f'Received {body}')
+    print(properties.headers)
 
 
 ''' qos stands for Quality Of Service
