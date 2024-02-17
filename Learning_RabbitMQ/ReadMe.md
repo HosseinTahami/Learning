@@ -93,3 +93,7 @@ By default, RabbitMQ has a default virtual host named `/` (a slash) and a defaul
 
 This algorithm will receive all the requests and will distribute them from top server to the bottom one, one by one.
 for example if we have 100 requests and 3 servers it will give one to first server, one to the second server and one to the third server and again loop through them and give another request to first server and ...
+
+### Note: 
+By default RabbitMQ use the Round Robin algorithm but with prefetch_count you can
+change the way rabbitmq behave in distributing the request at the beginning.
