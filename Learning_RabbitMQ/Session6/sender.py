@@ -41,6 +41,18 @@ channel.queue_declare(queue='one')
     headers are more info you want to send next to your message
 '''
 
+properties = pika.BasicProperties(
+    # content_type='text/plain',
+    # content_encoding='gzip',
+    # timestamp=40000000000,
+    # expiration=str(time.time()),
+    # delivery_mode=2,
+    # user_id="10",
+    # app_id="3",
+    # type="exch.queue",
+    headers={"name": "Hossein", "age": 34}
+)
+
 
 ''' basic_publish will publish sth inside the channel we have.
     exchange argument is for the type of our exchange method
@@ -51,17 +63,7 @@ channel.basic_publish(
     exchange='',
     routing_key='one',
     body='hello world !',
-    properties=pika.BasicProperties(
-        # content_type='text/plain',
-        # content_encoding='gzip',
-        # timestamp=40000000000,
-        # expiration=str(time.time()),
-        # delivery_mode=2,
-        # user_id="10",
-        # app_id="3",
-        # type="exch.queue",
-        headers={"name": "Hossein", "age": 34}
-    )
+    properties=properties
 )
 
 print("Message sent !")
