@@ -25,11 +25,32 @@ channel.queue_declare(
     The callback method should have ch as channel
     method, properties and body for argument !
 '''
+'''method:
+<Basic.Deliver(
+    [
+        'consumer_tag=ctag1.efa1b235232641669d74d2f331f74999',
+        'delivery_tag=1', 'exchange=', 'redelivered=False',
+        'routing_key=one'
+        ]
+    )
+>
+'''
+'''properties:
+This is the properties that we declared for the publisher
+'''
+'''ch:
+ch is exactly the channel we are working with and we can do
+what ever we want with it inside the callback method as we did
+outside the method.
+'''
 
 
 def callback(ch, method, properties, body):
     print(f'Received {body}')
+    print(method)
     print(properties.headers)
+    '''This way after the request is done by the consumer the message will be deleted.'''
+    ch.basic_ack(delivery_tag=method.delivery_tag)
 
 
 ''' qos stands for Quality Of Service
@@ -50,7 +71,11 @@ channel.basic_qos(prefetch_count=1)
     auto_ack or auto acknowledge will tell the broker that
     I have received the message so delete it from queue.
 '''
-channel.basic_consume(queue='one', on_message_callback=callback, auto_ack=True)
+channel.basic_consume(
+    queue='one',
+    on_message_callback=callback,
+    # auto_ack=True
+)
 
 
 print('''Waiting for message
