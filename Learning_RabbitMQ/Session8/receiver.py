@@ -26,7 +26,10 @@ channel.exchange_declare(
 '''
 result = channel.queue_declare(queue='', exclusive=True)
 
-channel.queue_bind(exchange='logs', queue=result.method.queue)
+channel.queue_bind(
+    exchange='logs',
+    queue=result.method.queue
+)
 
 print('Waiting for logs...')
 print(result.method.queue)
