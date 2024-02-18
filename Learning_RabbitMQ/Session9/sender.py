@@ -18,7 +18,7 @@ channel = connection.channel()
 
 channel.exchange_declare(
     exchange_type='topic',
-    exchange='logs'
+    exchange='topic_logs'
 )
 
 messages = {
@@ -28,8 +28,8 @@ messages = {
 
 for key, value in messages.items():
     channel.basic_publish(
-        exchange='topics',
-        routing_key='k',
+        exchange='topic_logs',
+        routing_key=key,
         body=value
     )
 
