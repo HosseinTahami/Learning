@@ -10,11 +10,16 @@ parameters = pika.ConnectionParameters(
     host='localhost'
 )
 
-connection = pika.BlockingConnection(parameters=parameters)
+connection = pika.BlockingConnection(
+    parameters=parameters
+)
 
 channel = connection.channel()
 
-channel.exchange_declare(exchange='logs', exchange_type='fanout')
+channel.exchange_declare(
+    exchange='logs',
+    exchange_type='fanout'
+)
 
 ''' exclusive decide if the queue that was created will be deleted each time
     after the message was sent or not
