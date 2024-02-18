@@ -20,7 +20,9 @@ channel.exchange_declare(exchange='logs', exchange_type='fanout')
     after the message was sent or not
 '''
 result = channel.queue_declare(queue='', exclusive=True)
+
 channel.queue_bind(exchange='logs', queue=result.method.queue)
+
 print('Waiting for logs...')
 print(result.method.queue)
 
