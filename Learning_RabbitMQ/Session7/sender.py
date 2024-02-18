@@ -7,13 +7,15 @@ import time
 '''
 credentials = pika.PlainCredentials('root', 'iran1379')
 
+parameters = pika.ConnectionParameters(
+    host='localhost',
+    credentials=credentials,
+)
 
 ''' First we are creating a connection'''
 connection = pika.BlockingConnection(
-    pika.ConnectionParameters(
-        host='localhost',
-        credentials=credentials,
-    )
+    parameters=parameters
+
 )
 
 ''' Create a channel for the connection '''
@@ -58,6 +60,8 @@ properties = pika.BasicProperties(
     exchange argument is for the type of our exchange method
     routing_key argument is for the queue name
     body argument is the thing we want to publish
+    ---
+    Note: When exchange is empty it means it is Direct Exchange
 '''
 channel.basic_publish(
     exchange='',

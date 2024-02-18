@@ -1,12 +1,10 @@
 import pika
 
 
+parameters = pika.ConnectionParameters(host='localhost')
+
 ''' Create a connection'''
-connection = pika.BlockingConnection(
-    pika.ConnectionParameters(
-        host='localhost'
-    )
-)
+connection = pika.BlockingConnection(parameters=parameters)
 
 ''' Create a Channel'''
 channel = connection.channel()
@@ -24,24 +22,24 @@ channel.queue_declare(
     this function will be executed !
     The callback method should have ch as channel
     method, properties and body for argument !
-'''
-'''method:
-<Basic.Deliver(
-    [
-        'consumer_tag=ctag1.efa1b235232641669d74d2f331f74999',
-        'delivery_tag=1', 'exchange=', 'redelivered=False',
-        'routing_key=one'
-        ]
-    )
->
-'''
-'''properties:
-This is the properties that we declared for the publisher
-'''
-'''ch:
-ch is exactly the channel we are working with and we can do
-what ever we want with it inside the callback method as we did
-outside the method.
+    ---
+    method:
+    <Basic.Deliver(
+        [
+            'consumer_tag=ctag1.efa1b235232641669d74d2f331f74999',
+            'delivery_tag=1', 'exchange=', 'redelivered=False',
+            'routing_key=one'
+            ]
+        )
+    >
+    ---
+    properties:
+    This is the properties that we declared for the publisher
+    ---
+    ch:
+    ch is exactly the channel we are working with and we can do
+    what ever we want with it inside the callback method as we did
+    outside the method.
 '''
 
 
