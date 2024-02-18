@@ -11,11 +11,16 @@ parameters = pika.ConnectionParameters(
     credentials=credentials
 )
 
-connection = pika.BlockingConnection(parameters=parameters)
+connection = pika.BlockingConnection(
+    parameters=parameters
+)
 
 channel = connection.channel()
 
-channel.exchange_declare(exchange='logs', exchange_type='fanout')
+channel.exchange_declare(
+    exchange='logs',
+    exchange_type='fanout'
+)
 
 channel.basic_publish(
     exchange='logs',
