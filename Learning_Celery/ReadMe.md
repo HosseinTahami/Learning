@@ -1,4 +1,16 @@
 #Celery 
 ---
 
-` celery -A worker (app_name) `
+- **Run celery:** ` celery -A (app_name) worker`
+
+- **Run celery with more information:** ` celery -A (app_name) worker -l info `
+
+- `task.delay(arg1, arg2, ...)`
+
+- `task.apply_async(args=[arg1, arg2, ...])`
+
+- `task.apply_async(args=[arg1, arg2, ...], countdown=number of seconds)`
+
+- `task.apply_async(args=[arg1, arg2, ...], expires=number of seconds)`
+
+- **Monitoring & Management:**` celery --broker=amqp://guest:guest@localhost:5672// flower `
