@@ -14,3 +14,9 @@
 - `task.apply_async(args=[arg1, arg2, ...], expires=number of seconds)`
 
 - **Monitoring & Management:**` celery --broker=amqp://guest:guest@localhost:5672// flower `
+
+- **Status:** `celery status`
+
+- **Purge:** `celery purge`
+
+- **Worker Status:** `celery inspect status`
