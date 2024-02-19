@@ -7,18 +7,14 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           {% if request.user.is_authenticated %}
+          {% if request.user.is_admin %}
           <li class="nav-item">
-            {# <a class="nav-link active" aria-current="page" href="{% url 'accounts:user_profile' request.user.id %}">My Profile: {{ request.user.username }}</a>#}
+            <a class="nav-link active" aria-current="page" href="{% url 'core:bucket' %}">Bucket</a>
           </li>
-          <li class="nav-item">
-            {# <a class="nav-link" href="{% url 'accounts:user_logout' %}">Logout</a> #}
-          </li>
+          {% endif %}
           {% else %}
           <li class="nav-item">
             <a class="nav-link" href="{% url 'accounts:user_register' %}">Register</a>
-          </li>
-          <li class="nav-item">
-            {# <a class="nav-link" href="{% url 'accounts:user_login' %}">Login</a>#}
           </li>
           {% endif %}
         </ul>
