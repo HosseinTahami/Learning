@@ -13,3 +13,12 @@ pipenv install djangorestframework
     ![REST API](https://toolsqa.com/gallery/selnium%20webdriver/1.REST%20API%20organization.png)
 
 
+### What is REST?
+
+- REST is an architecture which connect client and server.
+
+- Client and Server are separated and connect with each other with Http Requests.
+  
+-  Data should be **cacheable**.
+  
+- The architecture should be **stateless** which means our requests should be aware of each other.
