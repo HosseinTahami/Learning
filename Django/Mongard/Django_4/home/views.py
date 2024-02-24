@@ -31,7 +31,8 @@ class AnotherHomeView(APIView):
 
     def get(self, request, *args, **kwargs):
 
-        first_name = kwargs['first_name']
+        first_name = kwargs['first_name']  # .../Kevin/
+        # ?last_name=...
         last_name = request.GET['last_name'] or request.query_params['last_name']
 
         return Response(
