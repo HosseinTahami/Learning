@@ -1,14 +1,12 @@
-# Django Imports
-
-from django.shortcuts import render
-from django.views import View
-
-
 # Rest Framework Imports
 
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+# Inside Project Imports
+from .models import Person
+from .serializers import PersonSerializer
 
 
 @api_view(['GET', 'POST', 'PUT'])
@@ -42,3 +40,11 @@ class AnotherHomeView(APIView):
                 'l_name': last_name
             }
         )
+
+
+class PersonView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        person = Person.objects.all()
+        ser_data = PersonSerializer(instance=person, many=True)
+        return Response(data=ser_data.data)
