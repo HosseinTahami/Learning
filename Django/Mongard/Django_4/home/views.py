@@ -17,5 +17,28 @@ def home(request):
 
 
 class HomeView(APIView):
-    def get(self, request):
-        return Response({'name': 'Ali'})
+
+    def post(self, request):
+        first_name = request.data['first_name']
+        last_name = request.data['last_name']
+        return Response(
+            {
+                'f_name': first_name,
+                'l_name': last_name
+            }
+        )
+
+
+class AnotherHomeView(APIView):
+
+    def get(self, request, *args, **kwargs):
+
+        first_name = kwargs['first_name']
+        last_name = request.GET['last_name'] or request.query_params['last_name']
+
+        return Response(
+            {
+                'f_name': first_name,
+                'l_name': last_name
+            }
+        )
