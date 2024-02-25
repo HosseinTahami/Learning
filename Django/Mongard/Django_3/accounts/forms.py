@@ -9,7 +9,7 @@ from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from .models import User
 
 
-"""This form is form Admin Panel which you can Create Users inside it"""
+"""This form is for Admin Panel which you can Create Users inside it"""
 
 
 class UserCreationForm(forms.ModelForm):
