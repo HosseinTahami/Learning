@@ -22,3 +22,10 @@ pipenv install djangorestframework
 -  Data should be **cacheable**.
   
 - The architecture should be **stateless** which means our requests should be aware of each other.
+
+---
+
+## What are Serializers ?
+
+Serializers convert complex data to python datatypes which can be rendered to **JSON**, **XML** and others.
+We also have deserializer which reverse what serializers do.
