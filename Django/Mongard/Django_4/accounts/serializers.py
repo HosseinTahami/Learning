@@ -2,6 +2,10 @@
 
 from rest_framework import serializers
 
+# Django Imports
+
+from django.contrib.auth.models import User
+
 
 ''' First Type of Validation in DRF
     Put the name of function inside a list
@@ -41,4 +45,42 @@ class UserRegisterSerializer(serializers.Serializer):
 
         if password != confirm_password:
             raise serializers.ValidationError("Passwords must match..!")
+        return data
+
+
+class OtherUserRegisterSerializer(serializers.ModelSerializer):
+
+    confirm_password = serializers.CharField(write_only=True, required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password', 'confirm_password']
+
+        extra_kwargs = {
+            'email':
+            {
+                'validators': (clean_email,),
+                'required': True
+            },
+            'password':
+            {
+                'write_only': True,
+            },
+            'username':
+            {
+                'required': True,
+            }
+        }
+
+    def validate_username(self, username):
+        if username == 'admin':
+            raise serializers.ValidationError(
+                '`admin` can not be a username..!')
+        return username
+
+    def validate(self, data):
+        password = data.get('password')
+        confirm_password = data.get('confirm_password')
+        if password != confirm_password:
+            raise serializers.ValidationError("Password must match..!")
         return data
