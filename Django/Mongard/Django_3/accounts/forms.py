@@ -39,7 +39,7 @@ class UserCreationForm(forms.ModelForm):
         return user
 
 
-"""This form is form Admin Panel which you can change Users credentials inside it"""
+"""This form is for Admin Panel which you can change Users credentials inside it"""
 
 
 class UserChangeForm(forms.ModelForm):
