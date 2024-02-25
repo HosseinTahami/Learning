@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 
 # Inside Project Imports
 
-from .serializers import UserRegisterSerializer
+from .serializers import UserRegisterSerializer, OtherUserRegisterSerializer
 
 
 class UserRegisterView(APIView):
@@ -22,6 +22,21 @@ class UserRegisterView(APIView):
                 username=vd['username'],
                 email=vd['email'],
                 password=vd['password']
+            )
+            return Response(ser_data.data)
+        return Response(ser_data.errors)
+
+
+class OtherUserRegisterView(APIView):
+
+    def post(self, request, *args, **kwargs):
+        ser_data = OtherUserRegisterSerializer(data=request.POST)
+        if ser_data.is_valid():
+            vd = ser_data.validated_data
+            User.objects.create_user(
+                username=vd['username'],
+                email=vd['username'],
+                password=vd['password'],
             )
             return Response(ser_data.data)
         return Response(ser_data.errors)
