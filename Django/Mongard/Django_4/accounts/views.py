@@ -33,10 +33,6 @@ class OtherUserRegisterView(APIView):
         ser_data = OtherUserRegisterSerializer(data=request.POST)
         if ser_data.is_valid():
             vd = ser_data.validated_data
-            User.objects.create_user(
-                username=vd['username'],
-                email=vd['username'],
-                password=vd['password'],
-            )
+            ser_data.create(vd)
             return Response(ser_data.data)
         return Response(ser_data.errors)

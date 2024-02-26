@@ -72,6 +72,20 @@ class OtherUserRegisterSerializer(serializers.ModelSerializer):
             }
         }
 
+    def create(self, validated_data):
+        return User.objects.create_user(
+            username=validated_data['username'],
+            email=validated_data['email'],
+            password=validated_data['password']
+        )
+        """ If you want to unpack the validated_data dictionary
+            with **, then before that you should delete the confirm_password
+            inside it because when you are using create_user there is only
+            username, email and password..!
+        """
+        del validated_data['confirm_password']
+        return User.objects.create_user(**validated_data)
+
     def validate_username(self, username):
         if username == 'admin':
             raise serializers.ValidationError(
