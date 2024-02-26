@@ -2,6 +2,7 @@
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import status
 
 # Django Imports
 
@@ -23,8 +24,8 @@ class UserRegisterView(APIView):
                 email=vd['email'],
                 password=vd['password']
             )
-            return Response(ser_data.data)
-        return Response(ser_data.errors)
+            return Response(ser_data.data, status=status.HTTP_201_CREATED)
+        return Response(ser_data.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class OtherUserRegisterView(APIView):
@@ -34,5 +35,5 @@ class OtherUserRegisterView(APIView):
         if ser_data.is_valid():
             vd = ser_data.validated_data
             ser_data.create(vd)
-            return Response(ser_data.data)
-        return Response(ser_data.errors)
+            return Response(ser_data.data, status=status.HTTP_201_CREATED)
+        return Response(ser_data.errors, status=status.HTTP_400_BAD_REQUEST)
