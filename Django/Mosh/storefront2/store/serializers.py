@@ -40,7 +40,8 @@ class CollectionSerializer(serializers.ModelSerializer):
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'title', 'collection', 'price', 'price_with_tax']
+        fields = ['id', 'title', 'description', 'slug',
+                  'inventory', 'collection', 'price', 'price_with_tax']
     collection = serializers.HyperlinkedRelatedField(
         queryset=Collection.objects.all(), view_name='collection_detail')
     price = serializers.DecimalField(
