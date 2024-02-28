@@ -12,20 +12,29 @@ from .serializers import ProductSerializer, CollectionSerializer
 
 @api_view(['GET', 'POST'])
 def product_list(request):
-    queryset = Product.objects.all()
-    serializer = ProductSerializer(
-        instance=queryset, many=True, context={'request': request})
-    return Response(serializer.data)
+
+    if request.method == 'GET':
+        queryset = Product.objects.all()
+        serializer = ProductSerializer(
+            instance=queryset, many=True, context={'request': request})
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = ProductSerializer(data=request.POST)
+        return Response('ok')
 
 
 @api_view(['GET', 'POST'])
 def product_detail(request, *args, **kwargs):
-    try:
-        product = get_object_or_404(Product, pk=kwargs['product_id'])
-        serializer = ProductSerializer(instance=product)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-    except Product.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'GET':
+        try:
+            product = get_object_or_404(Product, pk=kwargs['product_id'])
+            serializer = ProductSerializer(instance=product)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Product.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
+    if request.method == 'POST':
+        ...
 
 
 @api_view(['GET', 'POST'])
