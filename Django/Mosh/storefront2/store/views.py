@@ -28,7 +28,7 @@ def product_list(request):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 def product_detail(request, *args, **kwargs):
     product = get_object_or_404(Product, pk=kwargs['product_id'])
     if request.method == 'GET':
@@ -41,6 +41,16 @@ def product_detail(request, *args, **kwargs):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+    elif request.method == 'DELETE':
+        if product.orderitem_set.count() > 0:
+            return Response(
+                {
+                    "error": "This Product Can not be deleted because it is associated with an orderitem..!"
+                },
+                status=status.HTTP_405_METHOD_NOT_ALLOWED
+            )
+        product.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @api_view(['GET', 'POST'])
