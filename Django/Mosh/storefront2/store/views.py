@@ -5,8 +5,9 @@ from django.http import HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
+
 # Inside Project Imports
-from .models import Product
+from .models import Product, Collection
 from .serializers import ProductSerializer, CollectionSerializer
 
 
@@ -20,27 +21,32 @@ def product_list(request):
         return Response(serializer.data)
 
     elif request.method == 'POST':
-        serializer = ProductSerializer(data=request.POST)
-        return Response('ok')
+        serializer = ProductSerializer(
+            data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'PUT'])
 def product_detail(request, *args, **kwargs):
+    product = get_object_or_404(Product, pk=kwargs['product_id'])
     if request.method == 'GET':
-        try:
-            product = get_object_or_404(Product, pk=kwargs['product_id'])
-            serializer = ProductSerializer(instance=product)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Product.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
-    if request.method == 'POST':
-        ...
+        serializer = ProductSerializer(
+            instance=product, context={'request': request})
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    elif request.method == 'PUT':
+        serializer = ProductSerializer(
+            product, data=request.data, context={'request': request})
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
 
 @api_view(['GET', 'POST'])
 def collection_detail(request, *args, **kwargs):
     try:
-        collection = get_object_or_404(Product, pk=kwargs['pk'])
+        collection = get_object_or_404(Collection, pk=kwargs['pk'])
         serializer = CollectionSerializer(instance=collection)
         return Response(serializer.data, status=status.HTTP_200_OK)
     except Product.DoesNotExist:
