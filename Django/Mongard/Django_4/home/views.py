@@ -3,6 +3,7 @@
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework import permissions
 
 # Inside Project Imports
 from .models import Person
@@ -44,6 +45,10 @@ class AnotherHomeView(APIView):
 
 
 class PersonView(APIView):
+    ''' Inside Headers:
+        Authorization: Token (...)
+    '''
+    permission_classes = [permissions.IsAdminUser]
 
     def get(self, request, *args, **kwargs):
         person = Person.objects.all()
