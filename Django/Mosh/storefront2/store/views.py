@@ -55,9 +55,20 @@ def product_detail(request, *args, **kwargs):
 
 @api_view(['GET', 'POST'])
 def collection_detail(request, *args, **kwargs):
-    try:
-        collection = get_object_or_404(Collection, pk=kwargs['pk'])
+    collection = get_object_or_404(Collection, pk=kwargs['pk'])
+    if request.method == 'GET':
         serializer = CollectionSerializer(instance=collection)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    except Product.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'POST':
+        serializer = CollectionSerializer(data=request.data)
+
+
+@api_view(['GET', 'POST', 'PUT', 'PATCH', 'DELETE'])
+def collection_list(request, *args, **kwargs):
+    if request.method == 'POST':
+        ...
+    elif request.method == 'GET':
+        ...
+    elif request.method == 'DELETE':
+        ...
