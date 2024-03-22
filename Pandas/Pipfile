@@ -8,6 +8,12 @@ pandas = "*"
 numpy = "*"
 ipython = "*"
 ipykernel = "*"
+matplotlib = "==3.7.1"
+seaborn = "*"
+joblib = "*"
+scipy = "*"
+jupyter = "*"
+jupyterlab = "*"
 
 [dev-packages]
 
