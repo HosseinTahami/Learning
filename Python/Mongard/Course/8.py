@@ -8,7 +8,6 @@ for name in names:
 else:
     print("End...\n")
 
-
 # Break
 for name in names:
     if name == 'Admin':
@@ -18,7 +17,6 @@ else:
     print("End...")
 
 # Pass
-
 while True:
     ...
 
