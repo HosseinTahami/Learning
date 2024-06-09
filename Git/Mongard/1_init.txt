@@ -1,0 +1,8 @@
+- git config --global user.name "Hossein Tahami"
+- git config --global user.email "hosseintahami2000@gmail.com"
+
+- git config --list | git config -l ===> shows your configs
+
+- git init ==> Initialized empty Git repository in /home/Hossein/Personal/Programming/Projects/git_test_mongard/.git/
+|
+| ==> this will create a file named .git which is hidden and Initialize your directory and this will become a repository!
