@@ -1,0 +1,12 @@
+- There are 3 stages in git:
+|
+|==> 1. untracked files, which are the files that are new !
+|       modified files, which are the files you have changed !
+|
+|==> git add "file name"
+|
+|==> 2. staged files, which are the files you added and confirmed so you should commit them now !
+|
+|==> git commit -m "your message"
+|
+|==> 3. committed files, which are the files that you committed !
