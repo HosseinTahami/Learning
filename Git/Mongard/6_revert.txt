@@ -1,0 +1,10 @@
+git revert (hash code of commit)
+|
+|==> it will remove the changes in that commit !
+
+**Note:
+use revert for your last commit because you
+will get conflict error and if you got conflict
+with your revert 
+|
+|==> git revert --abort
