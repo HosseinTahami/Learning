@@ -30,3 +30,8 @@ git branch -d (branch name)
 git branch -D (branch name)
 |
 |==> delete branches which are not merged !
+
+**Note:
+if you do not commit your changes on a branch 
+and switch to other branch your changes will switch 
+with you.
