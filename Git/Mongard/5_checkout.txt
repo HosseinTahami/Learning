@@ -1,0 +1,7 @@
+git checkout (hash code of your commit)
+|
+|==> you can detach the HEAD to that commit
+
+if you want to create a new branch after going to an old commit
+|
+|==> git branch (branch name) (hash code of your commit) 
