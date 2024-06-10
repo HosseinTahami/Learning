@@ -1,0 +1,16 @@
+we are on main branch and we want to merge develop branch with main !
+|
+|==> git merge develop
+|
+|---> After running this command if there will be a conflict in our files 
+      we will see something like below !
+
+<<<<<<<< HEAD
+what is on main branch....
+========
+what is on develop branch....
+>>>>>>>> develop
+
+if you got confused or wanted to get back after the conflict 
+|
+|==> git merge --abort
