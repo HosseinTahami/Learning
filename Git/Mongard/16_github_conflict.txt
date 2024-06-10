@@ -1,0 +1,4 @@
+git pull origin main
+|
+|==> This we pull the code on the Remote Repository 
+     to your local repository ! 
