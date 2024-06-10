@@ -1,0 +1,32 @@
+git branch 
+|
+|==> shows all of the branches and puts a * next
+     to the activated branch.
+
+
+git branch (branch name)
+|
+|==> this will create a new branch
+
+git checkout (branch name)
+|
+|==> with this command you can switch
+     to the branch you want.
+
+git merge (branch name)
+|
+|==> this will merge the branch you called
+     on the branch you are in other words it will merge
+     the branch you called on the activated branch.
+
+git branch -m (old branch name) (new branch name)
+|
+|==> change your branch name with this command !
+
+git branch -d (branch name)
+|
+|==> delete the branch you called !
+
+git branch -D (branch name)
+|
+|==> delete branches which are not merged !
