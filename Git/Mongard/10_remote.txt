@@ -1,0 +1,16 @@
+git push (git@github.com:Username/Repository_Name.git) (Local Repository Name)
+|
+|==> git push git@github.com/HosseinTahami/Learning.git main
+|
+|==> writing (git@github.com:Username/Repository_Name.git) every time can be hard
+|    so we will give it a name ! (origin)
+|
+|==> git remote add origin git@github.com:Username/Repository_Name.git
+
+
+git remote -v
+|
+|==> origin  git@github.com:HosseinTahami/MongardTest.git (fetch)
+|    origin  git@github.com:HosseinTahami/MongardTest.git (push)
+|
+|==> this will write the name of your remote Repositories !
