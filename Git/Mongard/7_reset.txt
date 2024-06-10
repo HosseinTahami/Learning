@@ -1,0 +1,19 @@
+Reset command have 3 modes:
+1. --soft
+|
+|==> clear commit history and send files to staged phase
+
+
+2. --mixed
+|
+|==> clear commit history, delete staged phase and send files to 
+     first stage (Working Directory) (modified, untracked)
+
+3. --hard
+|
+|==> clear everything
+
+git reset (commit hash code)
+|
+|==> all of the commits will be reset
+     up to the commit you mentioned its hash code.
