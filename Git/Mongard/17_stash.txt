@@ -1,0 +1,18 @@
+if you are in the middle of a task
+and something happens but you can not 
+commit the changes that you have made yet
+|
+|==> git stash || git stash save "a message you want"
+
+After you done what you wanted and now it's time 
+to complete the task that you left 
+|
+|==> git stash list
+|
+|==> git stash apply (id of your stash)
+
+Now the things you done come back !
+
+git stash clear
+|
+|==> delete all of stashes !
