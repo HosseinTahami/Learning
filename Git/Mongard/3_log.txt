@@ -1,0 +1,13 @@
+if we want to return the files from the staged phase to the first phase we use
+|
+|==> git restore --staged (filename)
+
+if you want to see your commits 
+|
+|==> git log
+|
+|==> git log --oneline (shorter version)
+|
+|==> git log --stat (longer version)
+
+(HEAD) means what was your last commit !
