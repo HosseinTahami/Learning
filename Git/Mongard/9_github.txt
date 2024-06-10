@@ -1,0 +1,22 @@
+Local Repository ==> inside yor device
+
+Remote Repository ==> inside github, gitlab, ...
+
+create ssh-key in /.ssh directory
+|
+|==> ssh-keygen
+|
+|==> 2 files inside the directory
+|
+|---> 1.id_rsa
+|
+|---> 2.id_rsa.pub
+
+The first one is private and you should not share
+but the second one can be use to connect to other services such as github !
+
+cat id_rsa.pub 
+|
+|==> ssh-rsa AAAAB3N ... = Hossein@RMFCs
+
+git push (git@github.com:Username/Repositry_Name.git)
