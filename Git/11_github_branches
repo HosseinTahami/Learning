@@ -1,0 +1,5 @@
+git push origin (Local Repository Name)
+|
+|==> 1. git branch develop
+     2. git checkout develop
+     3. git push origin develop ===> this will create a develop branch on your remote Repository.
