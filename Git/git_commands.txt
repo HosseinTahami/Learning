@@ -105,7 +105,7 @@ https://mekaeil.me/wp-content/uploads/2017/09/git-track-stage-commit-mekaeil.jpg
 
 git branch <branch name> ---> create branch
 
-git chekout <brach name> ---> go to the specific branch
+git checkout <brach name> ---> go to the specific branch
 
 git checkout -b <branch name> ---> create and go to the branch
 
