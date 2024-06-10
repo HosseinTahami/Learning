@@ -19,6 +19,8 @@ cat id_rsa.pub
 |
 |==> ssh-rsa AAAAB3N ... = Hossein@RMFCs
 
-git push (git@github.com:Username/Repositry_Name.git) (Repository Name)
+git push (git@github.com:Username/Repositry_Name.git) (Local Repository Name)
 |
 |==> git push git@github.com/HosseinTahami/Learning.git main
+|
+|==> This will send (push) your local Repository to your github
