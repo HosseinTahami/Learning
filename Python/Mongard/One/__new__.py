@@ -13,6 +13,10 @@ class Person:
         self.name = name
 
     def __new__(cls, name, *args, **kwargs):
+        """
+        __new__ should always return the __new__ father method, otherwise
+        the object will not be created and it will be None
+        """
         if name == 'admin':
             return None
         else:
