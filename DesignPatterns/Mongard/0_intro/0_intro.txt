@@ -1,0 +1,15 @@
+Classification of Design patterns:
+
+1. Creational Patterns: How to create an object from class !
+|
+|= = > provide object creation mechanisms that increase flexibility and reuse of existing code !
+
+2. Structural Patterns: How can I add something to my classes and extend them !
+|
+|= = > Explain how to assemble objects and classes into larger structures, while keeping
+the structures flexible and efficient.
+
+3. Behavioral Patterns: How should my classes be related to each other !
+|
+|= = > Take care of effective communication and
+the assignment of responsibilities between objects !
