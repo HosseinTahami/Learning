@@ -2,7 +2,7 @@
 __new__
 
 Constructor of a class is __new__ and  __init__ is only a initializer !
-__new__ will be called first and after the __init__ !
+__new__ will be called first and after that the __init__ !
 
 """
 
@@ -24,3 +24,7 @@ print(p1)
 
 p2 = Person('admin')
 print(p2)
+
+"""
+https://www.mongard.ir/one_part/26/new-python/
+"""
