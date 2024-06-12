@@ -1,0 +1,5 @@
+Client ===========> Server (Docker Engine)
+        REST API    
+
+
+All containers use the kernel of the host's OS !
