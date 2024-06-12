@@ -1,0 +1,5 @@
+We take an application and dockerize it, with a Dockerfile !
+
+Dockerfile is a plain text instruction, so docker package our application and convert it to an Image !
+
+Image will be run inside a container !
