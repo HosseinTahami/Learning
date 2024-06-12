@@ -1,0 +1,10 @@
+Virtual Machines: An abstraction of a machine (physical hardware)
+- Each VM needs a full-blown OS
+- slow to start
+- Resource intensive such as CPU, Memory, Disk Space, ...
+
+Containers: An isolated environment for running an application
+- Use OS of the host
+- start quickly
+- Need less hardware resources
+- Are lightweight 
