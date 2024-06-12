@@ -1,0 +1,12 @@
+Images:
+
+Includes everything an application needs to run
+- A cut-down OS
+- Third-party libraries
+- Application files
+- Environment variables
+
+
+Containers:
+- Provides an isolated Environment
+- Its just a process

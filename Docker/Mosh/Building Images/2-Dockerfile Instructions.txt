@@ -1,0 +1,39 @@
+Dockerfile:
+instructions for building an image !
+
+- FROM
+
+    Specify the base image
+
+- WORKDIR
+
+    specify the working directory
+
+- COPY
+
+    copy files and directories
+
+- ADD
+
+    add files and directories
+
+- RUN
+    
+    Execute OS Commands
+
+- ENV
+
+    Setting Environment variables
+
+- EXPOSE
+
+    Telling docker our container start on a given port
+
+- USER
+
+    specify the user that should run our application
+
+- CMD
+- ENTRYPOINT
+
+    specify the command that should executed when start a container
