@@ -1,0 +1,15 @@
+Dockerfile:
+
+FROM python:alpine
+COPY . /app ==> create this directory in Image
+WORKDIR /app ==> go to this directory in Image
+CMD python app.py ==> run this command 
+
+docker build -t (Image-Name) (Place of the app)
+docker run (Image-Name)
+
+docker images
+
+    REPOSITORY     TAG       IMAGE ID       CREATED         SIZE
+    hello-docker   latest    e660b65fbdbc   4 minutes ago   57.5MB
+    hello-world    latest    d2c94e258dcb   13 months ago   13.3kB
