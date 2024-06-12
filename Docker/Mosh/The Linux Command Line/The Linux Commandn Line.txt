@@ -1,0 +1,73 @@
+more file-name ==> more hello.txt
+less file-name ==> less world.txt
+tail -n number file-name ==> tail -n file.txt
+head -n number file-name ==> head -n file.txt
+cat file-name file-name > file-name ===> cat hello.txt world.txt > third.txt
+
+grep = global regular expression print
+
+grep string file-name ===> grep hello file.txt
+grep -i string ===> -i for case insensitive
+
+find -type f -name "..." ==> find -type f -n "*.py"
+
+
+Chaining commands :
+
+    first command ; second command ; third command
+    first command && second command && third command
+    first command || second command || third command
+
+pipe :
+
+first command | second command ==>  find | less 
+                                    ls /bin | less
+
+
+multiple line command:
+
+first command;\
+second command;\
+third command;\
+.
+.
+.
+
+Environment Variables:
+
+printenv ==> show all printenv
+|
+|   The places linux search for program or command:
+|===> PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/Hossein/.local/bin:/home/Hossein/.local/bin
+|
+|===> printenv PATH or echo $PATH
+
+.bashrc or .zshrc save Environment Variables
+
+echo sth >> .bashrc or .zshrc ==> echo DB_USER=Hossein 
+
+
+Managing Processes:
+
+- ps
+
+    PID TTY          TIME CMD
+  39502 pts/0    00:00:00 zsh
+  39539 pts/0    00:00:00 sleep
+  39553 pts/0    00:00:00 ps
+
+
+- kill process_id
+
+Manage User & Group
+
+useradd, groupadd, usermod, groupmod, 
+
+usermod -G group-name username
+
+grep username /etc/passwd
+
+groups username
+
+
+File Permissions :
