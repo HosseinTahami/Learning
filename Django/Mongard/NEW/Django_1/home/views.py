@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 
-from .forms import CreateTodoForm
+from .forms import CreateTodoForm, UpdateTodoForm
 from .models import Todo
 
 
@@ -20,6 +20,19 @@ def delete_todo(request, todo_id):
     Todo.objects.get(pk=todo_id).delete()
     messages.success(request, f'Todo {title} deleted', 'success')
     return redirect('show_todos')
+
+
+def update_todo(request, todo_id):
+    todo = Todo.objects.get(pk=todo_id)
+    if request.method == 'POST':
+        form = UpdateTodoForm(request.POST, instance=todo)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Todo Updated Successfully !', 'info')
+            return redirect('show_todos')
+    elif request.method == 'GET':
+        form = UpdateTodoForm(instance=todo)
+    return render(request, 'update.html', {'form': form})
 
 
 def create_todo(request):

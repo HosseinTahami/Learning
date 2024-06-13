@@ -8,5 +8,6 @@
 <br>
 <hr>
 <a href="{% url 'todo_delete' todo.id %}" class="btn btn-danger">Delete</a>
+<a href="{% url 'update_todo' todo.id %}" class="btn btn-success">Update</a>
 
 {% endblock content %}
