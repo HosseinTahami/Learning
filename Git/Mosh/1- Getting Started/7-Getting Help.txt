@@ -1,0 +1,6 @@
+- git (command) --help
+- git (command) -h
+|
+|
+|==> git config --help
+|==> git config -h

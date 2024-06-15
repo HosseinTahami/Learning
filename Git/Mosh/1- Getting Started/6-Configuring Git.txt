@@ -1,0 +1,28 @@
+Configuration Settings:
+
+1. Name
+2. Email
+3. Default Editor
+4. Line Ending
+
+|
+|
+|==> 3 Level: 1. System | 2. Global | 3. Local
+
+1. All users of the current computer
+2. All repositories of the current users
+3. The current repository
+
+- git config --global user.name "Hossein Tahami"
+- git config --global user.email "..."
+- git config --global core.editor "code --wait"
+- git config --global -e ===> edit all global settings (.gitconfig file)
+
+CRLF: Carriage Return, Line Feed (\r Carriage Return, \n Line Feed)
+        CR & LF in windows | LF in Linux\MacOS for end of lines !
+        
+- git config --global core.auto 
+|
+|==> windows: git config --global core.auto true
+|
+|==> Linux/MacOS: git config --global core.auto input

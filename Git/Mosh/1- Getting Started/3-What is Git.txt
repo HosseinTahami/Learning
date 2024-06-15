@@ -1,0 +1,13 @@
+Git:
+ The most popular version control system in the world !
+
+Version Control System:
+ Records the changes made to our code over time in a database called repository !
+
+2 Categories of Version Control Systems:
+    1. Centralized:
+        All team members connect to a central server to get the latest copy of the code
+        and share their changes with others ! (Subversion, Microsoft Team Foundation Server)
+    2. Distributed:
+        Every team member has a copy of the project with his history on their machine,
+        So we can save snap shots of our project localy on our machine ! (Git, Mercurial)
