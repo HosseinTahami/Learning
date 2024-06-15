@@ -1,0 +1,12 @@
+You Can Skip the Staging Area, but if you are sure of everything then do it !
+
+git add .
+git commit -m "..."
+|
+|==> Equal to git commit -am "..."
+
+
+
+git commit -am "..." or git commit -a -m "..."
+|
+|==> The -a is for all (all files) !

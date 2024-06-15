@@ -1,0 +1,3 @@
+- git init 
+|
+|==> Initialize a git repository inside a directory !

@@ -1,0 +1,6 @@
+Remove files from staged area:
+
+-   git restore
+|
+|
+|==> git restore --staged file-name

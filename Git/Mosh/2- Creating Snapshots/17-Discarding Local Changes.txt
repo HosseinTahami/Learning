@@ -1,0 +1,21 @@
+If you want to discard the local changes , which are in working directory and not in the staging area !
+|
+|
+|==> git restore file-name
+|
+|==> after running this command, git will go to the staging area and 
+|     copy the version of that file in there and copy it in your working directory !
+|
+|
+|==> what if a file was not in our staging area or repository to be copied in the working area ??
+|
+|----> error: pathspec 'filename' did not match any file(s) known to gi
+|
+|--> Example: new files which you created and now you want to discard 
+|              them are not in staging area or repository !
+|
+|==> Then we should use the " git clean " command !
+|
+|==> git clean -fd ==> f: force , d: directory
+|
+|---> Message you get:  Removing hello.txt

@@ -1,0 +1,20 @@
+git status -s ==> -s stands for short
+|
+|
+|==> There will be 2 columns:
+
+            Left Right
+file-name
+file-name
+file-name
+  .
+  .
+  .
+
+Left: Staging Area
+Right: Working Directory
+
+M: Modified
+??: New File
+A: Added
+D: Deleted

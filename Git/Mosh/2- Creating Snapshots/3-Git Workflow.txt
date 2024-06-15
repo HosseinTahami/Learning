@@ -1,0 +1,16 @@
+Git Workflow:
+
+0. Initialize the project directory !
+1. Create Changes in your project !
+2. Stage your changes !
+3. Review your changes !
+4. Create a snapshot from your project (commit) !
+Note: The Staging Area is not empty now ! ==> The same snapshot we stored in our repository !
+
+
+* Commit:
+- ID
+- Message
+- Date/time
+- Author
+- Complete Snapshot (not the changes)

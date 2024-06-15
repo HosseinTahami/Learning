@@ -1,0 +1,7 @@
+git mv file1 file2
+|
+|==> mv file1 file2
+|==> git add file1
+|==> git add file2
+
+* git mv will change the directory and add to staging area, exactly like git rm command !

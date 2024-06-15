@@ -1,0 +1,11 @@
+- git diff --staged
+|
+|
+|==> Comparison of new and old copy of files in the staged Area !
+
+
+
+- git diff
+|
+|
+|===> Comparison of new and old copy of files in the working Directory !

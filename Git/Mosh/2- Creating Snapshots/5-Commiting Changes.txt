@@ -1,0 +1,3 @@
+-   git commit -m "..."
+-   git commit ==> then a vscode opens, first line write short description
+                    put a empty line and then write a long description.

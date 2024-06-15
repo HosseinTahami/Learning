@@ -1,0 +1,7 @@
+- git restore --source=HEAD~number filename
+|
+|==> git restore --source=HEAD~2 main.py
+|
+|==> with --source git will go to the commit you want and get that version in that and copy it in your 
+     working directory , but " git restore " go to the next stage (staging area) and copy the file from there
+     if it could not find the file it will go the next stage (repository) and copy it from there !

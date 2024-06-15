@@ -1,0 +1,13 @@
+.gitignore file is to mention files and directories
+which you do not want git to track every time the change !
+
+If you commit a file or directory in your repository and then you add it in the .gitignore file
+it will still track the changes, so you have to remove it from the staging area(index) !
+|
+|==> How ? with git rm, but remember git rm will delete files from both working directory and staging area !
+|           so, add a option to only remove it from your staging area !
+|
+|==> git rm --cached -r (file name or directory name)
+|
+|==> --cached is for only removing from staging area
+     and -r stands for recursive when you want to remove a directory !

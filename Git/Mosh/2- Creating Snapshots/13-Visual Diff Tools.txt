@@ -1,0 +1,5 @@
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+git config --global -e ==> To check your changes in git configuration !
+
+-   git difftool --staged ===> use vscode for diff

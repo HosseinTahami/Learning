@@ -1,0 +1,19 @@
+Check Commit History:
+    -   git log
+    -   git log --oneline
+
+
+
+-   git log
+
+commit 9caef2607b32490e257e329f5f810dab2c2f38d5 ----> Unit Identifier of the commit !
+Author: USERNAME <EMAIL>
+Date:   
+
+    Commit Message !
+
+################################
+
+-   git log --oneline
+
+        9caef26 Feat: Session 1, 2 Mosh Python OOP Complete !

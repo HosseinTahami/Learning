@@ -1,0 +1,6 @@
+-   git status
+-   git add . (everything : recursively)
+-   git add *.txt (patterns)
+-   git add file1
+-   git add file1 file2 (multiple files at the same time)
+-   git ls-files ==> shows the files in the staging area !
