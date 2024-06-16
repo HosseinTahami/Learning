@@ -1,0 +1,12 @@
+-   git log
+
+-   git log --oneline
+
+-   git log --oneline --stat
+    
+    All the files which have been changed in each commit !
+
+
+-   git log --oneline --patch
+
+    If you want to see the actual changes in each commit !
