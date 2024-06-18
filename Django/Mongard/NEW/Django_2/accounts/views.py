@@ -62,3 +62,16 @@ class UserLogoutView(LoginRequiredMixin, View):
         logout(request)
         messages.success(request, 'Logged Out of your account !', 'warning')
         return redirect('accounts:login')
+
+
+class UserProfileView(LoginRequiredMixin, View):
+
+    def get(self, request, user_username, *args, **kwargs):
+
+        try:
+            user = User.objects.get(username=user_username)
+            return render(request, 'accounts/profile.html', {'user': user})
+
+        except:
+            messages.error(request, 'This User Does Not Exist !', 'warning')
+            return redirect('accounts:profile', user_username=request.user.username)
