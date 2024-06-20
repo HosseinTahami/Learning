@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    Posts
+{% endblock title %}
+    
+
+{% block content %}
+    <h1 class="text-center">Post</h1>
+    <br>
+        <div class="text-center" >
+            <hr>
+            <p>{{ post.body}}</p>
+            <small>Author: {{ post.user.username }}</small>
+            <small>{{ post.created|date:"D - d - M - Y" }}</small>
+        </div>
+        <hr>
+{% endblock content %}

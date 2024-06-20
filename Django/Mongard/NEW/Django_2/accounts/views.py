@@ -6,7 +6,7 @@ from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import forms
-
+from posts.models import Post
 
 class UserRegistrationView(View):
 
@@ -70,7 +70,8 @@ class UserProfileView(LoginRequiredMixin, View):
 
         try:
             user = User.objects.get(username=user_username)
-            return render(request, 'accounts/profile.html', {'user': user})
+            posts = Post.objects.filter(user=user)
+            return render(request, 'accounts/profile.html', {'user': user, 'posts':posts})
 
         except:
             messages.error(request, 'This User Does Not Exist !', 'warning')
