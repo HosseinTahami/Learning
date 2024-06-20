@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -11,3 +12,7 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.user.username} | {self.slug}'
+
+    def get_absolute_url(self):
+        return reverse("posts:posts_detail", kwargs={"pk":self.pk, "post_slug":self.slug})
+        return reverse("posts:post_details", args=(self.id, self.slug))
