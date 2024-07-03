@@ -12,7 +12,7 @@
         <div class="text-center" >
             <hr>
             <p>{{ post.body}}</p>
-            <small>Author: {{ post.user.username }}</small>
+            <small>Author:<a href="{{ post.user.get_absolute_url }}">{{ post.user.username }}</a></small>
             <small>{{ post.created|date:"D - d - M - Y" }}</small>
         </div>
         <hr>
