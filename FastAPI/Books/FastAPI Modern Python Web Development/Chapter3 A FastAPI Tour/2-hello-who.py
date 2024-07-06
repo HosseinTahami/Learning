@@ -6,7 +6,24 @@ app = FastAPI()
 def greet(who):
     return f"Hello? {who}?"
 
+"""
+$ http -v localhost:9000/hi/kevin
 
+    GET /hi/kevin HTTP/1.1
+    Accept: */*
+    Accept-Encoding: gzip, deflate
+    Connection: keep-alive
+    Host: localhost:9000
+    User-Agent: HTTPie/3.2.2
+
+
+
+    HTTP/1.1 307 Temporary Redirect
+    content-length: 0
+    date: Sat, 06 Jul 2024 10:43:43 GMT
+    location: http://localhost:9000/hi/kevin/
+    server: uvicorn
+"""
 
 
 @app.get("/hi")
@@ -16,22 +33,22 @@ def greet(who):
 """
 $ http -v localhost:9000/hi who==ali
 
-GET /hi?who=ali HTTP/1.1
-Accept: */*
-Accept-Encoding: gzip, deflate
-Connection: keep-alive
-Host: localhost:9000
-User-Agent: HTTPie/3.2.2
+    GET /hi?who=ali HTTP/1.1
+    Accept: */*
+    Accept-Encoding: gzip, deflate
+    Connection: keep-alive
+    Host: localhost:9000
+    User-Agent: HTTPie/3.2.2
 
 
 
-HTTP/1.1 200 OK
-content-length: 13
-content-type: application/json
-date: Thu, 04 Jul 2024 10:20:26 GMT
-server: uvicorn
+    HTTP/1.1 200 OK
+    content-length: 13
+    content-type: application/json
+    date: Thu, 04 Jul 2024 10:20:26 GMT
+    server: uvicorn
 
-"Hello? ali?"
+    "Hello? ali?"
 """
 
 @app.post("/hi")
@@ -67,4 +84,4 @@ server: uvicorn
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run("hello-who:app", reload=True, port=9000)
+    uvicorn.run("2-hello-who:app", reload=True, port=9000)
