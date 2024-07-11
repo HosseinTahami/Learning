@@ -1,13 +1,10 @@
 from fastapi import APIRouter
 
 from model.creature import Creature
-import fake.creature as service
+import service.creature as service
 
 router = APIRouter(prefix="/creature")
 
-@router.get("/")
-def top():
-    return "top creature endpoint"
 
 @router.get("/")
 def get_all() -> list[Creature]:
@@ -20,3 +17,15 @@ def get_one() -> Creature:
 @router.post("/")
 def create(creature: Creature) -> Creature:
     return service.create(creature)
+
+@router.patch("/")
+def modify(creature:Creature) -> Creature:
+    return service.modify(creature)
+
+@router.put("/")
+def replace(creature:Creature) -> Creature:
+    return service.replace(creature)
+
+@router.delete("/{name}")
+def delete(name: str):
+    return service.delete(name)
