@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Todo List:</h1>
+<hr>
+{% for todo in todos %}
+<h1><a href="{{ todo.get_absolute_url }}" style="text-decoration: none">{{ todo.title }}</a></h1>
+<br>
+{% endfor %}
+{% endblock content %}

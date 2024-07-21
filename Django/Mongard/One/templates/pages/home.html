@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{# This is a Comment #}
+<h1>HOME</h1>
+{% if name == 'admin' %}
+<h2>ADMIN</h2>
+{% else %}
+<h3>Hello everyone I am {{ person.name }} a {{ age }} years old {{ job }}.</h3>
+{% endif %}
+{% comment %}
+Multiple Line Comment
+in Django Templates.
+{% endcomment %}
+{% endblock content %}
