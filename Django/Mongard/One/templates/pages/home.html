@@ -1,15 +1,15 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
-{# This is a Comment #}
-<h1>HOME</h1>
-{% if name == 'admin' %}
-<h2>ADMIN</h2>
-{% else %}
-<h3>Hello everyone I am {{ person.name }} a {{ age }} years old {{ job }}.</h3>
-{% endif %}
-{% comment %}
-Multiple Line Comment
-in Django Templates.
-{% endcomment %}
+<div style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+    <div style="display:table-cell; vertical-align:middle; text-align:center">
+        <h1>Django TODO APP</h1>
+        <br>
+        <br>
+        <img src="{% static 'images/header.png' %}" alt="todo-png" width="650" height="500">
+    </div>
+</div>
+
+
+
 {% endblock content %}
