@@ -1,0 +1,19 @@
+h1 {
+    color:dodgerblue
+}
+
+.home-cover {
+    height: 200px;
+    width: auto;
+}
+
+.book-cover {
+    height: 290px;
+    width: auto;
+}
+
+body {
+    min-height: 75rem;
+    padding-top: 4.5rem;
+    padding-left: 1rem;
+}

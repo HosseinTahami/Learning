@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    command: python /code/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+    environment:
+      - DJANGO_SECRET_KEY=django-insecure-2e(yz%$$#vko0b&+(^6^lpsq=x)udfhj3w)md4_6immw82nzwm^
+      - DJANGO_DEBUG=True
+      - DJANGO_SECURE_SSL_REDIRECT=False
+      - DJANGO_SECURE_HSTS_SECONDS=0
+      - DJANGO_SECURE_HSTS_INCLUDE_SUBDOMAINS=False
+      - DJANGO_SECURE_HSTS_PRELOAD=False
+  db:
+    image: postgres:14.12
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+volumes:
+  postgres_data:

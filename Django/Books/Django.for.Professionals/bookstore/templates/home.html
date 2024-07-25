@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<h1>Home Page</h1>
+<img src="{% static 'images/home.png' %}" class="home-cover">
+{% if request.user.is_authenticated %}
+<p> Hi {{ request.user.username }} </p>
+{% comment %}
+<form action="{% url 'account_logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+{% endcomment %}
+<a href="{% url 'account_logout' %}">Logout</a>
+{% else %}
+<p> You are not Logged in.</p>
+<a href="{% url 'account_login' %}">Log In</a>
+<p>Don't have a acount: <a href="{% url 'account_signup' %}">Sign Up</a></p>
+{% endif %}
+{% endblock content %}
