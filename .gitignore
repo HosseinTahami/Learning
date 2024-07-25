@@ -1,7 +1,7 @@
-# docker
+# Docker Files
 docker-compose-prod.yml
 
-# static files
+# Static files
 staticfiles/
 
 # Byte-compiled / optimized / DLL files
