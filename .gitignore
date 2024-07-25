@@ -1,3 +1,6 @@
+# docker
+docker-compose-prod.yml
+
 # static files
 staticfiles/
 
