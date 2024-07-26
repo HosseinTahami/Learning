@@ -1,5 +1,8 @@
-.jumbotron{
-    padding: 20px;
-    margin-bottom: 20px;
+.jumbotron {
     background-color: darkgray;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-top: 70px;
+    min-height: 75rem;
+
 }
