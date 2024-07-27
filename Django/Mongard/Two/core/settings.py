@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
     # Local
     "pages.apps.PagesConfig",
+    "accounts.apps.AccountsConfig",
+    "posts.apps.PostsConfig",
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,11 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Crispy Tags
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+# Login Url
+LOGIN_URL = "accounts/login/"
+
+AUTHENTICATION_BACKENDS = [
+    "django.contrib.auth.backends.ModelBackend",
+    "accounts.backends.EmailBackend",
+]
