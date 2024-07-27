@@ -4,5 +4,11 @@
     padding-left: 20px;
     padding-top: 75px;
     min-height: 75rem;
+    padding-right: 20px;
+}
+
+.username {
+    background-color: gray;
+    padding: 5px;
     
 }
