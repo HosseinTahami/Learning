@@ -13,12 +13,20 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     body = models.TextField()
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="posts") 
+    """
+        related_name:
+
+        post_set --> posts
+        user.post_set.all() ---> user.posts.all()
+    """
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("posts:post_detail", kwargs={"post_slug":self.slug})
+        return reverse("posts:post_detail", kwargs={"post_slug": self.slug})
         # return reverse("posts:post_detail", args=(self.slug,))
-  
+
+    class meta:
+        ordering = ["created", "title"]
