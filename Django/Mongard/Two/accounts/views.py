@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model, login, authenticate, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth import views as auth_views
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.urls import reverse_lazy
 from django.views import View
 
 from . import forms
@@ -109,3 +111,22 @@ class UserProfileView(LoginRequiredMixin, View):
         return render(request, "accounts/profile.html", {"user": user})
 
     def post(self, request, *args, **kwargs): ...
+
+class UserPasswordResetView(auth_views.PasswordResetView):
+    template_name = "accounts/password/password_reset_form.html"
+    email_template_name = "accounts/password/password_reset_email.html"
+    success_url = reverse_lazy("accounts:password_reset_done")
+
+
+class UserPasswordResetDoneView(auth_views.PasswordResetDoneView):
+    # To show an page that email was sent
+    template_name = "accounts/password/password_reset_done.html"
+
+class UserPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
+    template_name = "accounts/password/password_reset_confirm.html"
+    success_url = reverse_lazy("accounts:password_reset_complete")
+
+
+class UserPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
+    template_name = "accounts/password/password_reset_complete.html"
+    success_url = reverse_lazy("accounts:profile")
