@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% load static %}
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<div class="username">
+<h1 class="text-center">{{ user.username }}</h1>
+</div>
+<br>
+<div>
+    {% for post in user.posts.all %}
+    <a href="{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a>
+    <br>
+    {% endfor %}
+</div>
+
+{% if request.user == user %}
+<hr>
+<a href="{% url 'posts:post_create' %}" class="btn btn-primary">Add New Post</a>
+{% endif %}
+{% endblock content %}

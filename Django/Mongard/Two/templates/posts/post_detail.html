@@ -1,0 +1,22 @@
+{% extends "_base.html" %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block content %}
+
+<h5 class="display-5">{{ post.title }}</h5>
+<div style="padding:20px;">
+    <p>Author: <a href="{% url 'accounts:profile' post.author.pk %}">{{ post.author }}</a></p>
+    <p>Created at: {{ post.created|date:"Y M d" }}</p>
+</div>
+<div style="padding: 30px; background: dimgrey;" class="col-md-8">
+       <p>{{ post.body }}</p> 
+</div>
+{% if request.user.id == post.author.id %}
+<hr>
+<div>
+    <a href="{% url 'posts:post_delete' post.pk %}" class="btn btn-danger">Delete</a>
+    <a href="{% url 'posts:post_update' post.pk %}" class="btn btn-primary">Update</a>
+</div>
+{% endif %}
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends "_base.html" %}
+
+{% load  crispy_forms_tags %}
+
+{% block title %}{{ post.title }}{% endblock title %}
+
+{% block content %}
+
+<form action="" method="post" class="col-md-6" novalidate>
+    {% csrf_token %}
+    {{ form | crispy }}
+    <input type="submit" class="btn btn-primary" value="Update">
+</form>
+
+{% endblock content %}
