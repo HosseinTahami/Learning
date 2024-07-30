@@ -1,11 +1,12 @@
 from django.contrib.auth import get_user_model, login, authenticate, logout
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
-from django.shortcuts import render, redirect
-from django.contrib import messages
 from django.urls import reverse_lazy
+from django.contrib import messages
 from django.views import View
 
+from .models import Relation
 from . import forms
 
 User = get_user_model()
@@ -58,6 +59,10 @@ class UserLoginView(View):
     form_class = forms.UserLoginForm
     template_name = "accounts/login.html"
 
+    def setup(self, request, *args, **kwargs):
+        self.next_url = request.GET.get("next")
+        return super().setup(request, *args, **kwargs)
+
     def dispatch(self, request, *args, **kwargs):
 
         if request.user.is_authenticated:
@@ -78,6 +83,8 @@ class UserLoginView(View):
                 messages.success(
                     request, f"{clean_data['username']} Logged In Successfully."
                 )
+                if self.next_url:
+                    return redirect(self.next_url)
                 return redirect("pages:home")
         messages.error(request, "Wrong Credentials try again.", extra_tags="danger")
         return render(request, self.template_name, {"form": form})
@@ -106,11 +113,13 @@ class UserLogoutView(LoginRequiredMixin, View):
 class UserProfileView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
-
-        user = User.objects.get(pk=kwargs["pk"])
-        return render(request, "accounts/profile.html", {"user": user})
+        
+        user = get_object_or_404(User, pk=kwargs["pk"])
+        relation_status = Relation.objects.filter(follower=request.user, following=user.pk).exists()
+        return render(request, "accounts/profile.html", {"user": user, "relation_status":relation_status})
 
     def post(self, request, *args, **kwargs): ...
+
 
 class UserPasswordResetView(auth_views.PasswordResetView):
     template_name = "accounts/password/password_reset_form.html"
@@ -122,6 +131,7 @@ class UserPasswordResetDoneView(auth_views.PasswordResetDoneView):
     # To show an page that email was sent
     template_name = "accounts/password/password_reset_done.html"
 
+
 class UserPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
     template_name = "accounts/password/password_reset_confirm.html"
     success_url = reverse_lazy("accounts:password_reset_complete")
@@ -130,3 +140,31 @@ class UserPasswordResetConfirmView(auth_views.PasswordResetConfirmView):
 class UserPasswordResetCompleteView(auth_views.PasswordResetCompleteView):
     template_name = "accounts/password/password_reset_complete.html"
     success_url = reverse_lazy("accounts:profile")
+
+
+class FollowView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+
+        user = get_object_or_404(User, pk=kwargs["pk"])
+        relation = Relation.objects.filter(follower=request.user, following=user).exists()
+        if relation:
+            messages.warning(request, f"you already follow {user.username}.", "warning")
+        else:
+            Relation.objects.create(
+                follower = request.user, following=user
+            )
+            messages.success(request, f"you start following {user.username}.", "warning")
+        return redirect("accounts:profile", user.pk)
+    
+class UnfollowView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        user = get_object_or_404(User, pk=kwargs["pk"])
+        relation = Relation.objects.filter(follower=request.user, following=user)
+        if not relation.exists():
+            messages.warning(request, f"you are not following {user.username}.", "warning")
+        else:
+            relation.delete()
+            messages.success(request, f"You unfollowed {user.username}.", "warning")
+        return redirect("accounts:profile", user.pk)
