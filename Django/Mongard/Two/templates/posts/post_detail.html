@@ -1,5 +1,7 @@
 {% extends "_base.html" %}
 
+{% load static %}
+{% load crispy_forms_tags %}
 {% block title %}{{ post.title }}{% endblock title %}
 
 {% block content %}
@@ -10,7 +12,7 @@
     <p>Created at: {{ post.created|date:"Y M d" }}</p>
 </div>
 <div style="padding: 30px; background: dimgrey;" class="col-md-8">
-       <p>{{ post.body }}</p> 
+    <p>{{ post.body }}</p>
 </div>
 {% if request.user.id == post.author.id %}
 <hr>
@@ -19,4 +21,52 @@
     <a href="{% url 'posts:post_update' post.pk %}" class="btn btn-primary">Update</a>
 </div>
 {% endif %}
+<hr>
+<h5 class="display-5">Comments:</h5>
+<br>
+
+<div class="col-md-7">
+    {% for comment in comments %}
+    <div class="card bg-dark text-white">
+        <p class="card-header"><a href="{% url 'accounts:profile' comment.commenter.pk %}">{{ comment.commenter }}</a> |
+            {{ comment.created|timesince }} <br> {{ comment.title }}</p>
+        <p class="card-body">{{ comment.body }}</p>
+
+        {% if request.user.is_authenticated %}
+        <div class="col-md-5 m-2 p-2">
+            <form method="post">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input type="submit" class="btn btn-primary" value="send">
+            </form>
+            {% endif %}
+        </div>
+
+        {% for reply in comment.comment_comments.all %}
+        <div class="p-3 m-1">
+            <p class="card-header bg-secondary"><a href="{% url 'accounts:profile' comment.commenter.pk %}">{{
+                    reply.commenter }}</a> |
+                {{ reply.created|timesince }} <br> {{ reply.title }}</p>
+            <p class="card-body bg-secondary">{{ reply.body }}</p>
+        </div>
+        {% endfor %}
+
+    </div>
+    <br>
+    {% empty %}
+    <p>No Comments yet...</p>
+    {% endfor %}
+</div>
+
+{% if request.user.is_authenticated %}
+<hr>
+<div class="comments">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input type="submit" value="Send" class="btn btn-primary">
+    </form>
+</div>
+{% endif %}
+
 {% endblock content %}
