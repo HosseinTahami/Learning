@@ -1,5 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
+from django.utils.decorators import method_decorator
 from django.utils.text import slugify
 from django.shortcuts import redirect
 from django.contrib import messages
@@ -16,14 +18,46 @@ class PostListView(View):
         return render(request, "posts/post_list.html", {"posts": posts})
 
 
-class PostDetailView(LoginRequiredMixin,View):
+class PostDetailView(View):
+
+    form_class = forms.CommentCreateForm
+    form_class_reply = forms.CommentReplyForm
+
+    def setup(self, request, *args, **kwargs):
+        self.post_instance = get_object_or_404(Post, slug=kwargs["post_slug"])
+        return super().setup(request, *args, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        post = get_object_or_404(Post, slug=kwargs["post_slug"])
-        return render(request, "posts/post_detail.html", {"post": post})
+
+        form = self.form_class()
+        reply_form = self.form_class_reply()
+        post = self.post_instance
+        comments = post.post_comments.filter(is_reply=False)
+        return render(
+            request,
+            "posts/post_detail.html",
+            {
+                "post": post,
+                "comments": comments,
+                "form": form,
+                "reply_form": reply_form,
+            },
+        )
+
+    @method_decorator(login_required)
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        post = self.post_instance
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.commenter = request.user
+            comment.post = post
+            comment.save()
+            messages.success(request, "Your Comment submitted Successfully.")
+            return redirect(post)
 
 
-class PostDeleteView(LoginRequiredMixin,View):
+class PostDeleteView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         post = get_object_or_404(Post, pk=kwargs["pk"])
@@ -75,16 +109,17 @@ class PostCreateView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
-        return render(request, self.template_name, {"form":form})
+        return render(request, self.template_name, {"form": form})
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
             new_post = form.save(commit=False)
-            new_post.slug = slugify(form.cleaned_data['title'][:40])
+            new_post.slug = slugify(form.cleaned_data["title"][:40])
             new_post.author = request.user
             new_post.save()
-            messages.success(request, f"{new_post.title} Created Successfully.", "primary")
+            messages.success(
+                request, f"{new_post.title} Created Successfully.", "primary"
+            )
             return redirect(new_post)
-        return render(request, self.template_name, {"form":form})
-        
+        return render(request, self.template_name, {"form": form})
