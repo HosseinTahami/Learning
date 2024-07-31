@@ -1,6 +1,7 @@
 from django.contrib import admin
 
-from .models import Post, Comment
+from . import forms
+from .models import Post, Comment, Like
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
@@ -17,3 +18,8 @@ class PostAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ["title", "commenter", "created", "is_reply", "post"]
     raw_id_fields = ["post", "reply", "commenter"]
+
+
+@admin.register(Like)
+class LikeAdmin(admin.ModelAdmin):
+    form = forms.LikeAdminForm
