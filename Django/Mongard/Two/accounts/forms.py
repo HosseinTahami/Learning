@@ -2,6 +2,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 from django import forms
 
+from .models import Profile
 
 User = get_user_model()
 
@@ -63,4 +64,13 @@ class UserLoginForm(forms.Form):
         )
     )   
 
-    
+
+class UpdateProfileForm(forms.ModelForm):
+
+    first_name = forms.CharField()
+    last_name = forms.CharField()
+    email = forms.EmailField()
+
+    class Meta:
+        model = Profile
+        fields = ("age", "bio",)
