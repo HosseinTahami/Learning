@@ -4,13 +4,30 @@
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
-<div class="username">
-<h1 class="text-center">{{ user.username }}</h1>
+
+<div class="text-center">
+    <h1 class="username display-1">{{ user.username }}</h1>
+    <div style="float: right;">
+        {% if request.user == user %}
+        <a href="{% url 'accounts:profile_update' %}" class="btn btn-warning">Edit Profile</a>
+        {% endif %}
+    </div>
+
+
 </div>
+{% if request.user != user and not relation_status %}
+<a href="{% url 'accounts:follow' user.pk %}" class="btn btn-primary col-md-12">Follow</a>
+{% elif request.user != user and relation_status %}
+<a href="{% url 'accounts:unfollow' user.pk %}" class="btn btn-danger col-md-12">UnFollow</a>
+{% endif %}
+<br>
+<br>
 <br>
 <div>
     {% for post in user.posts.all %}
-    <a href="{{ post.get_absolute_url }}"><h1>{{ post.title }}</h1></a>
+    <a href="{{ post.get_absolute_url }}">
+        <h1>{{ post.title }}</h1>
+    </a>
     <br>
     {% endfor %}
 </div>
@@ -19,4 +36,7 @@
 <hr>
 <a href="{% url 'posts:post_create' %}" class="btn btn-primary">Add New Post</a>
 {% endif %}
+
+
+
 {% endblock content %}
