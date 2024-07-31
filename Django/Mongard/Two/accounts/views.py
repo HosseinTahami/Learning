@@ -42,7 +42,6 @@ class UserRegisterView(View):
                 email=clean_data["email"],
                 password=clean_data["password"],
             )
-
             messages.success(
                 request=request, message=f"{clean_data['email']} is registered."
             )
@@ -113,10 +112,16 @@ class UserLogoutView(LoginRequiredMixin, View):
 class UserProfileView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
-        
+
         user = get_object_or_404(User, pk=kwargs["pk"])
-        relation_status = Relation.objects.filter(follower=request.user, following=user.pk).exists()
-        return render(request, "accounts/profile.html", {"user": user, "relation_status":relation_status})
+        relation_status = Relation.objects.filter(
+            follower=request.user, following=user.pk
+        ).exists()
+        return render(
+            request,
+            "accounts/profile.html",
+            {"user": user, "relation_status": relation_status},
+        )
 
     def post(self, request, *args, **kwargs): ...
 
@@ -147,24 +152,56 @@ class FollowView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
 
         user = get_object_or_404(User, pk=kwargs["pk"])
-        relation = Relation.objects.filter(follower=request.user, following=user).exists()
+        relation = Relation.objects.filter(
+            follower=request.user, following=user
+        ).exists()
         if relation:
             messages.warning(request, f"you already follow {user.username}.", "warning")
         else:
-            Relation.objects.create(
-                follower = request.user, following=user
+            Relation.objects.create(follower=request.user, following=user)
+            messages.success(
+                request, f"you start following {user.username}.", "warning"
             )
-            messages.success(request, f"you start following {user.username}.", "warning")
         return redirect("accounts:profile", user.pk)
-    
+
+
 class UnfollowView(LoginRequiredMixin, View):
 
     def get(self, request, *args, **kwargs):
         user = get_object_or_404(User, pk=kwargs["pk"])
         relation = Relation.objects.filter(follower=request.user, following=user)
         if not relation.exists():
-            messages.warning(request, f"you are not following {user.username}.", "warning")
+            messages.warning(
+                request, f"you are not following {user.username}.", "warning"
+            )
         else:
             relation.delete()
             messages.success(request, f"You unfollowed {user.username}.", "warning")
         return redirect("accounts:profile", user.pk)
+
+
+class UpdateProfileView(LoginRequiredMixin, View):
+
+    form_class = forms.UpdateProfileForm
+
+    def get(self, request, *args, **kwargs):
+        form = self.form_class(
+            instance=request.user.profile,
+            initial={
+                "email": request.user.email,
+                "first_name": request.user.first_name,
+                "last_name": request.user.last_name,
+            },
+        )
+        return render(request, "accounts/profile_update.html", {"form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST, instance=request.user.profile)
+        if form.is_valid():
+            form.save()
+            request.user.email = form.cleaned_data["email"]
+            request.user.first_name = form.cleaned_data["first_name"]
+            request.user.last_name = form.cleaned_data["last_name"]
+            request.user.save()
+            messages.success(request, "Profile Information Updated Successfully.", "info")
+        return redirect("accounts:profile", request.user.pk)
