@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from django.contrib import messages
 from django.views import View
 
-from .models import Post
+from .models import Post, Comment, Like
 from . import forms
 
 
@@ -18,7 +18,7 @@ class PostListView(View):
         return render(request, "posts/post_list.html", {"posts": posts})
 
 
-class PostDetailView(View):
+class PostDetailView(LoginRequiredMixin,View):
 
     form_class = forms.CommentCreateForm
     form_class_reply = forms.CommentReplyForm
@@ -33,6 +33,7 @@ class PostDetailView(View):
         reply_form = self.form_class_reply()
         post = self.post_instance
         comments = post.post_comments.filter(is_reply=False)
+        like = Like.objects.filter(post=post, liker=request.user).exists()
         return render(
             request,
             "posts/post_detail.html",
@@ -41,6 +42,7 @@ class PostDetailView(View):
                 "comments": comments,
                 "form": form,
                 "reply_form": reply_form,
+                "like":like
             },
         )
 
@@ -123,3 +125,48 @@ class PostCreateView(LoginRequiredMixin, View):
             )
             return redirect(new_post)
         return render(request, self.template_name, {"form": form})
+
+
+class ReplyCommentView(LoginRequiredMixin, View):
+
+    form_class = forms.CommentReplyForm
+
+    def post(self, request, *args, **kwargs):
+
+        post = get_object_or_404(Post, pk=kwargs["post_pk"])
+        comment = get_object_or_404(Comment, pk=kwargs["comment_pk"])
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            reply = form.save(commit=False)
+            reply.post = post
+            reply.is_reply = True
+            reply.commenter = request.user
+            reply.reply = comment
+            reply.save()
+            messages.success(
+                request, "Your reply was submitted successfully.", "primary"
+            )
+        return redirect(post)
+
+
+class PostLikeView(LoginRequiredMixin, View):
+
+    def get(self, request, *args, **kwargs):
+        post = get_object_or_404(Post, pk=kwargs["post_pk"])
+        like = Like.objects.filter(post=post, liker=request.user)
+        if like.exists():
+            like.delete()
+            messages.success(request, "you removed your like.", "success")
+        else:
+            Like.objects.create(liker=request.user, post=post)
+            messages.success(request, "you liked this post.", "success")
+
+        return redirect(post)
+
+class PostSearchView(View):
+    def get(self, request, *args, **kwargs):
+        search_item = request.GET.get("q")
+        posts = Post.objects.filter(
+            title__icontains=search_item
+        )
+        return render(request, "posts/post_search.html", {"posts":posts})
