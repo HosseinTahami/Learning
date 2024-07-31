@@ -1,6 +1,7 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
-from .models import Post, Comment
+from .models import Post, Comment, Like
 
 
 class PostUpdateForm(forms.ModelForm):
@@ -41,3 +42,24 @@ class CommentReplyForm(forms.ModelForm):
             "title",
             "body",
         )
+
+
+class LikeAdminForm(forms.ModelForm):
+
+    class Meta:
+        model = Like
+        fields = (
+            "liker",
+            "post",
+        )
+
+    def clean(self):
+        clean_data = super().clean()
+        post = clean_data.get("post")
+        liker = clean_data.get("liker")
+        like = Like.objects.filter(post=post, liker=liker).exists()
+        if like:
+            raise ValidationError("This User Already Liked This Post.")
+
+class PostSearchForm(forms.Form):
+    search = forms.CharField()
