@@ -20,7 +20,9 @@ class Post(models.Model):
         post_set --> posts
         user.post_set.all() ---> user.posts.all()
     """
-
+    class Meta:
+        ordering = ["created", "title"]
+    
     def __str__(self):
         return self.title
 
@@ -28,9 +30,10 @@ class Post(models.Model):
         return reverse("posts:post_detail", kwargs={"post_slug": self.slug})
         # return reverse("posts:post_detail", args=(self.slug,))
 
-    class meta:
-        ordering = ["created", "title"]
+    def count_likes(self):
+        return self.post_likes.count()
 
+    
 class Comment(models.Model):
 
     commenter = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_comments")
@@ -43,4 +46,11 @@ class Comment(models.Model):
 
     def __str__(self):
         return f'{self.title} = {self.body[:20]}'
-    
+
+
+class Like(models.Model):
+    liker = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_likes")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_likes")
+
+    def __str__(self):
+        return f"{self.liker.username} liked {self.post.title}"
