@@ -1,0 +1,17 @@
+{% extends "_base.html" %}
+
+{% block title %}Search{% endblock title %}
+
+
+{% block content %}
+
+<h1 class="display-1">Results:</h1>
+<br>
+{% for post in posts %}
+<div>
+    <a href="{{ post.get_absolute_url }}"><h3>{{ post.title }}</h3></a>
+    <p>{{ post.body|truncatechars:20 }}</p>
+</div>
+<hr>
+{% endfor %}
+{% endblock content %}
