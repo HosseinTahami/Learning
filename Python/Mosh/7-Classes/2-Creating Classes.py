@@ -1,5 +1,5 @@
-
 class Point:
+
     def draw(self):
         print("draw")
 

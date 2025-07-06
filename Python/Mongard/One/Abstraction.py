@@ -25,6 +25,7 @@ class B(A):
 
 try:
     a = A()
+    
 except TypeError:
     print("Can not create object from class A !")
 
