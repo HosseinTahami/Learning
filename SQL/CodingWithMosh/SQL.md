@@ -3,17 +3,45 @@
 `SQL` stands for **Structured Query Language**. This language is to query or modify our data.
 Like many other languages `SQL` is Declerative which means we don't care about how, we care about what.
 
+Before Data Base, we had `File Processing System` and it had lots of pros but it's cons were way more.
 </br>
 
 <img src="images/1.png">
 <br>
 
+## Database Models:
+- **Hierarchical Model:** Known as One-To-Many, cause each child can only have one parent.
+<img src="images/Hierarchical Model.png">
+<img src="images/Hierarchical XML.png">
+
+- **Networking Model:** Known as Many-To-Many, it's a more developed version of Hierarchical Model.
+<img src="images/Networking Model.png">
+<img src="images/Networking XML.png" >
+
+- **Relational Model:** No more Parent-Child Structure, instead it's Table Structure.
+<img src="images/Relational Model.png">
+
+## DBMS: Data Base Management Software
+
+Different companies create different softwares with various features to compeate with eachother.
+
+- **CRUD Operations**
+    - Create
+    - Reade
+    - Update
+    - Delete
+
+- **Manage Data**
+- **Security & Permissions**
+- **Transaction Management**
+
+
 ## Declarative VS IMPERATIVE
 
-### Declarative
+### Declarative:
 <img src="images/Declarative.png">
 
-### Impearative
+### Impearative: 
 <img src="images/Imperative.png">
 
 ## DBMS
@@ -42,7 +70,7 @@ Like many other languages `SQL` is Declerative which means we don't care about h
 
 <br>
 
-## SQL Keywords:
+## Retrive Data from ***One*** Table:
 
 - **USE**
 
@@ -98,12 +126,18 @@ Like many other languages `SQL` is Declerative which means we don't care about h
 
 - **ORDER BY**
 
-    Order our output base on what we want.
+    Order the output base on what we want.
 
     - Example:
 
         ```SQL
-        SELECT * FROM customers ORDER BY first_name;
+        SELECT * FROM customers
+        ORDER BY first_name;
+        ```
+
+        ```SQL
+        SELECT * FROM customers
+        ORDER BY first_name DESC, last_name DESC;
         ```
 <br>
 
@@ -185,9 +219,9 @@ Like many other languages `SQL` is Declerative which means we don't care about h
 
 - **LIKE**
 
-    we ukse `LIKE` operator to match patterns.
+    We ukse `LIKE` operator to match patterns.
 
-    - Example:
+    - **Example:**
 
         Customers with b in the start of their name !
         ```SQL
@@ -215,3 +249,61 @@ Like many other languages `SQL` is Declerative which means we don't care about h
         WHERE address LIKE '%AVENUE%' OR 
             address LIKE '%TRAIL%';
         ```
+
+<br>
+
+- **REGEXP**
+
+    We use `REGEXP` for regex expressions.
+    
+        - ^ : Beginning
+
+        - $ : End
+        
+        - | : Logical Or
+        
+        - [abcd] : one of these characters
+        
+        - [a-h]  : Range of characters
+    
+    - Example:
+
+        ```SQL
+        SELECT *
+        FROM customers
+        WHERE last_name REGEXP 'field'
+        ```
+
+- **IS NULL**
+
+    To find the rows with a ` NULL` value.
+
+    - Example:
+
+        ```SQL
+        SELECT * 
+        FROM cutomers
+        WHERE phone IS NULL
+        ```
+
+
+- **LIMIT**
+
+    With `LIMIT` we set limitation for the number of results which we get from the query.
+
+    - Example:
+
+        ```SQL
+        SELECT * 
+        FROM customers
+        LIMIT 10;
+        ```
+        The first number infront of `LIMIT ` is offset which means the number of rows to skip and the second of is the number of rows which we want.
+
+        ```SQL
+        SELECT * 
+        FROM customers
+        LIMIT 6, 3;
+        ```
+
+## Retrive Data from ***Multiple*** Table:
