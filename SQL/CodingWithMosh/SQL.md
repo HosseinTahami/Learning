@@ -47,6 +47,7 @@ Different companies create different softwares with various features to compeate
 ## DBMS
 
 `DBMS` stands for **Database Management System**.
+
 - **Relational:** Datas are structured in to tables.
     - MySQL
     - PostgreSQL
@@ -68,7 +69,62 @@ Different companies create different softwares with various features to compeate
     - Wide Columnar
         - Cassandre
 
+
+## Tables
+
+
+- **Columns / Attribute / Domain:** <br>
+    Each column has a name and a collection of columns is called `Degree`. We can be Constraint about the domain of a column data, for example in the firstName and lastName we only want string and in the dob we only want date and in the sex column we only want m or f character.
+    <img src="images/Columns.png">
+
+- **Rows / Tuples:**<br>
+    The collection of Rows is called Cardinality.
+    <img src="images/Rows.png">
+
+- **Primary Key:**<br>
+    A key that will be the unique identifier of each row in a table.
+- **Foreign Key:**<br>
+    A key that will reference the primary key, the unique identifier of a different table, therefore allowing a relationship to be formed that is solidified  in stone.
+    <img src="images/Keys.png">
 <br>
+
+## OLTP Vs OLAP:
+
+- **OLTP: OnLine Transaction Processing**<br>
+`(Support Day To Day)`<br>
+OLTP systems are optimized for handling a large volume of short, real-time transactions. 
+
+- **OLAP:Online Analytical Processing**<br>
+`(Support Analysis)`<br>
+OLTP systems are optimized for handling a large volume of short, real-time transactions, while OLAP systems focus on complex analysis of large, historical datasets to support decision-making.
+
+
+## SQL Commands
+<img src="images/SQL-Commands.png">
+
+### DCL: Data Control Language
+- Grant
+- Revoke
+
+### DDL: Data Definition Language
+- CREATE
+- ALTER
+- DROP
+- RENAME
+- TRUNCATE
+- COMMENT
+
+### DQL: Data Query Language
+- SELECT
+
+### DML: Data Modification Language
+- INSERT
+- UPDATE
+- DELETE
+- MERGE
+- CALL
+- EXPLAIN PLAN
+- LOCK TABLE
 
 ## Retrive Data from ***One*** Table:
 
