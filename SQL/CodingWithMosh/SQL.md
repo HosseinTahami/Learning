@@ -363,3 +363,21 @@ OLTP systems are optimized for handling a large volume of short, real-time trans
         ```
 
 ## Retrive Data from ***Multiple*** Table:
+
+- **INNER JOIN / ON:**<br>
+`INNER JOIN` Can be used to connect two tables from the same database or even different databases.
+    - Example:
+        ```sql
+        SELECT order_id,orders.customer_id, first_name, last_name
+        FROM orders
+        INNER JOIN customers
+                ON orders.customer_id = customers.customer_id
+        ```
+        ```sql
+        USE sql_store;
+        
+        SELECT *
+        FROM order_items io
+        JOIN sql_inventory.porducts p
+            ON oi.product_id = p.product_id
+        ```

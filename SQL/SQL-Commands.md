@@ -29,8 +29,31 @@
 
 - AGGREGATE Functions:<br>
 Run against all the data and produce one output.
+    
+    1- **AVG()**:
+    
+    2- **COUNT()**:
 
-- SCALAR Functions<br>
+    ```SQL
+    SELECT count(emp_no) 
+    FROM employees;
+    ```
+
+    3- **MIN()**:
+    
+    4- **MAX()**:
+    ```SQL
+    SELECT max(salary) 
+    FROM salaries;
+    ```
+
+    5- **SUM()**:
+    ```SQL
+    SELECT sum(salary) 
+    FROM salaries;
+    ```
+
+- SCALAR Functions:<br>
 Run against each individual row.
 
     1- **CONCAT:**<br>
