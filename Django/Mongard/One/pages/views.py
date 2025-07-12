@@ -1,3 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
+def home(request):
+    person = {"Name": "admin", "Age": 23}
+    return render(request, "home.html", person)
+
