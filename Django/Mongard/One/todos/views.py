@@ -1,3 +1,6 @@
 from django.shortcuts import render
+from . import models
 
-# Create your views here.
+def todos_list(request):
+    todos = models.Todo.objects.all()
+    return render(request, 'todos.html', {"todos":todos})
