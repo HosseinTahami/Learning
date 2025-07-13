@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock title %}
+
+{% block content %}
+    <h1>Hello {{ Name|upper }}</h1>
+    <p>You are {{ Age }} years old !</p>
+    {% if Name == 'admin' %}
+    <p>You are the admin !!!</p>
+    {% endif %}
+     
+{# Example of a comment #}
+{% endblock content %}
