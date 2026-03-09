@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/ht/Personal/Projects/Learning/C/C-BootCamp/StringPlayGround/cmake-build-debug",
+  "command": "/usr/bin/cc -g -std=gnu11 -fdiagnostics-color=always -o CMakeFiles/StringPlayGround.dir/main.c.o -c /home/ht/Personal/Projects/Learning/C/C-BootCamp/StringPlayGround/main.c",
+  "file": "/home/ht/Personal/Projects/Learning/C/C-BootCamp/StringPlayGround/main.c",
+  "output": "/home/ht/Personal/Projects/Learning/C/C-BootCamp/StringPlayGround/cmake-build-debug/CMakeFiles/StringPlayGround.dir/main.c.o"
+}
+]
