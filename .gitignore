@@ -183,3 +183,9 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
 Learning_Django/Mosh/MyStore/db.sqlite3
+
+
+#node
+
+node_modules/
+.idea/
