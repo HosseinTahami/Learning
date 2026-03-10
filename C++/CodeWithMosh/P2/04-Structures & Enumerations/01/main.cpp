@@ -8,6 +8,7 @@ struct Movie{
 
     string title;
     int releaseYear;
+    bool isPopular = false;
 };
 
 struct Customer{
@@ -35,7 +36,9 @@ int main(){
 
     cout << "Enter your Email: ";
     getline(cin, customer.email);
-  
+    
+
+    Movie myMovie = {"Fast & Furious 17", 2059, false};
 
     cout << "Name= " << customer.name << endl;
     cout << "Email=" << customer.email << endl;
