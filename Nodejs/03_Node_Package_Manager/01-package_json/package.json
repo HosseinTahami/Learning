@@ -1,0 +1,15 @@
+{
+  "name": "01-package_json",
+  "version": "1.0.0",
+  "description": "Just a fucking test",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "underscore": "^1.13.8"
+  }
+}
