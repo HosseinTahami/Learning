@@ -1,8 +1,6 @@
 #include "rectangle.h"
 #include <iostream>
 
-
-
 using namespace std;
 
 void Rectangle::draw(){
@@ -13,8 +11,6 @@ void Rectangle::draw(){
 
 
 int Rectangle::getArea(){
-
-
 
     return width * height;
 }

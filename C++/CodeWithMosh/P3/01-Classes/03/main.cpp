@@ -1,15 +1,15 @@
 #include <iostream>
-#include "rectangle.h"
+#include "Rectangle.h"
 
 using namespace std;
 
 
 int main(){
 
-    Rectangle rectangle;
+    Rectangle myRectangle;
 
-    rectangle.width = 10;
-    rectangle.height = 20;
+    myRectangle.width = 10;
+    myRectangle.height = 20;
 
-    cout << "Rectangle Area: " << rectangle.getArea() << endl;
+    cout << "Rectangle Area: " << myRectangle.getArea() << endl;
 }
