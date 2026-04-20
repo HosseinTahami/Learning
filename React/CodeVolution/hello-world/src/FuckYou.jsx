@@ -7,9 +7,9 @@
 // export default FuckYou;
 
 
-export const FuckYou = () => {
+export const FuckYou = (props) => {
 
-  return <h2>Fuck You, Who Every the fuck you are.</h2>;
+  return <h2>Fuck { props.name ? props.name : "You" } a.k.a {props.alias ? props.alias : "No-One"}!</h2>;
 
 };
 

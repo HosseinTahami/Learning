@@ -6,6 +6,9 @@ import Button from './Button';
 import {Hello, HellWithoutJSX} from "./Hello"
 import { ContactForm } from './ContactForm';
 import { CandidateProfile } from './CandidateProfile'
+import { Product } from './Product';
+import { Fucking } from './Fucking'
+import { CardWrapper } from './CardWrapper'
 import './App.css'
 
 
@@ -15,18 +18,48 @@ function App() {
   return (
 
     <div>
-      <UserProfile></UserProfile>
-      
-      <h1>Fuck:</h1>
+
+
+      <CardWrapper title="User Profile">
+        <p>Bruce Wayne</p>
+        <p>Batman</p>
+      </CardWrapper>
+
+
       <FuckYou />
+      <hr />
+      <FuckYou name="Hossein" alias="Polito Student"/>
+      <hr />
+      <UserProfile></UserProfile>
+      <hr />
+      <Product 
+        title="Toy"
+        price={233.56}
+        inStock={true}
+        categories={["Electronics", "Computer", "Gaming"]}
+      />
+      <hr />
+      <h1>Fuck:</h1>
+      <hr />
+      <FuckYou />
+      <hr />
       <Button />
-      <br></br>
-      <Button />
+      <hr />
       <HellWithoutJSX />
+      <hr />
       <Hello />
+      <hr />
       <ContactForm></ContactForm>
+      <hr />
       <StyledForm></StyledForm>
+      <hr />
       <CandidateProfile/>
+      <hr />
+      <div>
+        <Fucking />
+        <Fucking name="Sara" message="Fuck you and beyond."/>
+      </div>
+      <hr />
     </div>
     
 

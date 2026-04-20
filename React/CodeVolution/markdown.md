@@ -131,3 +131,106 @@ We can seperate the components, from the App.jsx and put  it in different files,
     - class is className, for is htmlFor, tabindex is tabIndex, ...
 
 4- It is possible to embed JS expressions directly in the markup using curly braces.
+
+
+## probs
+
+```js
+
+export const UserCard = ( { name, age, city, email } ) => {
+
+    return (
+        <div>
+            <h2> User Details </h2>
+            <UserInfo 
+                name={name}
+                age={age}
+                city={city}
+                email={email} 
+            />
+        </div>
+    )
+}
+
+// This is how we use probs
+export const UserCared =  (probs) => {
+
+    return (
+        <div>
+            <h2>User Details</h2>
+            <UserInfo {...props} />
+        </div>
+
+    );
+};
+
+
+```
+
+```jsx
+
+// Another smaple of props and alternatives
+export const Product = (props) => {
+
+
+    return (
+
+        <div>
+            <h3>{props.title}</h3>
+            <p>Price: ${props.price}</p>
+            <p>In Stock: {props.inStock ? "Yes" : "No"}</p>
+            <p>Category: {props.categories.join(", ")} </p>
+        </div>
+    )
+}
+
+export const Product = ({title, price, inStock, categories}) => {
+
+
+    return (
+
+        <div>
+            <h3>{title}</h3>
+            <p>Price: ${price}</p>
+            <p>In Stock: {inStock ? "Yes" : "No"}</p>
+            <p>Category: {categories.join(", ")} </p>
+        </div>
+    )
+}
+```
+
+
+```js
+    // This is used in the App.jsx file
+      <Product 
+        title="Toy"
+        price={233.56}
+        inStock={true}
+        categories={["Electronics", "Computer", "Gaming"]}
+      />
+   
+
+```
+
+## Children
+
+```js
+export const CardWrapper = ({title , children}) => {
+
+    return(
+        <div className="card">
+            <h2>{title}</h2>
+            <div className="card-content">
+                {children}
+            </div>
+        </div>
+    )
+}
+```
+
+```js
+      <CardWrapper title="User Profile">
+        <p>Bruce Wayne</p>
+        <p>Batman</p>
+      </CardWrapper>
+```
