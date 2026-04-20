@@ -10,7 +10,7 @@ import { Product } from './Product';
 import { Fucking } from './Fucking'
 import { CardWrapper } from './CardWrapper'
 import './App.css'
-
+import { ProductList } from './ProductList';
 
 
 function App() {
@@ -19,11 +19,15 @@ function App() {
 
     <div>
 
+      <ProductList />
+      <hr />
 
       <CardWrapper title="User Profile">
         <p>Bruce Wayne</p>
         <p>Batman</p>
       </CardWrapper>
+
+      <hr />
 
 
       <FuckYou />
