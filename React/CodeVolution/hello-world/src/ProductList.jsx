@@ -20,9 +20,12 @@ export const ProductList = () =>{
         }
     ];
 
-    const productElements = products.filter((product) => { return product.price > 500} ).map((product) => {
+    const productElements = products.
+    filter((product) => { 
+        return product.price > 500;
+    }).map((product) => {
     return (
-        <div>
+        <div key={product.id}>
             <h3>{product.name}</h3>
             <p>Price: $(product.price)</p>
         </div>

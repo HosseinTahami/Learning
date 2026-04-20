@@ -234,3 +234,58 @@ export const CardWrapper = ({title , children}) => {
         <p>Batman</p>
       </CardWrapper>
 ```
+
+## key prop
+
+when you render a list of elements, you need to add a key prop to each element with a unique value within the list
+
+- if your data comes from a databaase, you can use the data base keys/IDs, which are unique by nature.
+
+
+1. The key prop goes to the outer most of the elements
+2. key is a special prop that Reac uses internally, it is not something you have to work with it.
+
+```jsx
+export const ProductList = () =>{
+
+    const products = [
+        {
+            id: 1,
+            name: "Laptop",
+            price: 99
+        },
+        {   
+            id: 2,
+            name: "Phone",
+            price: 4299
+        },
+        {
+            id: 3,
+            name: "Tablet",
+            price: 6387
+        }
+    ];
+
+    const productElements = products.
+    filter((product) => { 
+        return product.price > 500;
+    }).map((product) => {
+    return (
+        <div key={product.id}>
+            <h3>{product.name}</h3>
+            <p>Price: $(product.price)</p>
+        </div>
+    );
+});
+
+
+
+    return (
+        <div>
+            <h2>Our Products</h2>
+            {productElements}
+        </div>
+    );
+};
+```
+
