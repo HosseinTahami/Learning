@@ -11,13 +11,15 @@ import { Fucking } from './Fucking'
 import { CardWrapper } from './CardWrapper'
 import './App.css'
 import { ProductList } from './ProductList';
-
+import { NameList } from './NameList';
 
 function App() {
 
   return (
 
     <div>
+
+      <NameList />
 
       <ProductList />
       <hr />
