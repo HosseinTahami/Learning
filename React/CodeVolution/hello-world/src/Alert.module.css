@@ -1,0 +1,17 @@
+.alert{
+    padding:  16px;
+    border-radius: 25px;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    margin-right: 16px;
+    margin-left: 16px;
+    color: rgb(240, 235, 235);
+}
+
+.success{
+    background-color: aquamarine;
+}
+
+.error{
+    background-color: crimson;
+}

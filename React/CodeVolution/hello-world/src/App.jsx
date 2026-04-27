@@ -12,6 +12,7 @@ import { CardWrapper } from './CardWrapper'
 import './App.css'
 import { ProductList } from './ProductList';
 import { NameList } from './NameList';
+import { Alert } from './Alert';
 
 function App() {
 
@@ -19,6 +20,20 @@ function App() {
 
     <div>
 
+
+
+      <Alert>
+        Something went Wrong
+      </Alert>
+
+      <Alert type='error'>
+        Something went Wrong
+      </Alert>
+
+      <Alert type='success'>
+        Good
+      </Alert>
+      <hr />
       <NameList />
 
       <ProductList />

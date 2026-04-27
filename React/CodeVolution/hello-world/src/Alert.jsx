@@ -1,4 +1,19 @@
-export const Alert = ({children}) => {
+import styles from "./Alert.module.css"
 
-    return <div>{children}</div>;
+export const Alert = ({children, type = "success"}) => {
+
+    // return <div>{children}</div>
+
+    // return <div style={{backgroundColor: type === "success" ? "#10b981" : "#ef4444",
+    //                  color: "black",
+    //                  padding: "16px",
+    //                  borderRadius: "9px",
+    //                  marginBottom: "16px"}}>
+    //         {children}
+    //     </div>;
+
+
+    return <div className={`${styles.alert} ${styles[type]}`}>
+            {children}
+           </div>
 };
