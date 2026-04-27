@@ -13,6 +13,7 @@ import './App.css'
 import { ProductList } from './ProductList';
 import { NameList } from './NameList';
 import { Alert } from './Alert';
+import { CustomButton } from './CustomButton';
 
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
     <div>
 
 
-
+      <CustomButton text="fuck" />
+      <CustomButton text="flick" />
       <Alert>
         Something went Wrong
       </Alert>
