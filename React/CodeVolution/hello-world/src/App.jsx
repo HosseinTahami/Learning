@@ -14,6 +14,8 @@ import { ProductList } from './ProductList';
 import { NameList } from './NameList';
 import { Alert } from './Alert';
 import { CustomButton } from './CustomButton';
+import { Newsletter } from './Newsletter';
+import { Contact } from './Contact';
 
 function App() {
 
@@ -21,6 +23,16 @@ function App() {
 
     <div>
 
+      <br />
+      <br />
+      <Newsletter />
+      <br />
+      <br />
+      <Contact />
+      <br />
+      <br />
+      <hr />
+      <hr />
 
       <CustomButton text="fuck" />
       <CustomButton text="flick" />
