@@ -12,10 +12,13 @@ export const CustomButton = ({text}) => {
     
     const handleClick = (e) => {
         // alert("Thanks for liking!")
-        console.log(e.target);
-        console.log(e.clientX, e.clientY);
-        console.log(e.button);
+        console.log("Clicked Element: ", e.target);
+        console.log("Clicked Coordinates: ", e.clientX, e.clientY);
+        console.log("Which Button: ", e.button);
     }
 
     return <button onClick={handleClick}>{text}</button>
 }   
+
+
+// Every Event Handler, recivers an Event Object

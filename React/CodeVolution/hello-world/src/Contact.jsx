@@ -5,6 +5,7 @@ export const Contact = () => {
     const handleMessage = () => {
         alert("Sending your fuckin message...")
     }
+    
     return (
         <div>
             <h2>Fuck us</h2>

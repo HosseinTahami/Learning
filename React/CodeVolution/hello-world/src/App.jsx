@@ -16,6 +16,8 @@ import { Alert } from './Alert';
 import { CustomButton } from './CustomButton';
 import { Newsletter } from './Newsletter';
 import { Contact } from './Contact';
+import { Menu } from './Menu';
+
 
 function App() {
 
@@ -23,6 +25,7 @@ function App() {
 
     <div>
 
+      <Menu />
       <br />
       <br />
       <Newsletter />
