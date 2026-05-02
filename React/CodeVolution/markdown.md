@@ -289,3 +289,14 @@ export const ProductList = () =>{
 };
 ```
 
+### props vs state
+
+- **Props:**
+
+    - are like arguments passed to a function
+    - come from outside and you can't change them
+
+- **State:**
+
+    - is like the component's personal memory
+    - belongs to the commponent and the component can change it
