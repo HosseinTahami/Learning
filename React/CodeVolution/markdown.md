@@ -300,3 +300,20 @@ export const ProductList = () =>{
 
     - is like the component's personal memory
     - belongs to the commponent and the component can change it
+
+### Hooks
+
+- They are for using `state` in our components and they are functions which their name starts with `use`, such as `useState`
+
+
+
+```javascript
+
+import { useState } from "react";
+
+const [variable, setVariable] = useState("Initial Value for Variable");
+
+
+
+
+```
